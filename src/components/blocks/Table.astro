@@ -1,0 +1,23 @@
+---
+interface Props {
+    headers: string[];
+    rows: string[][];
+    class?: string;
+}
+
+const { headers, rows, class: className } = Astro.props;
+---
+<div class:list={['table-wrap', className]}>
+    <table class="table">
+        <thead>
+            <tr>{headers.map((h) => <th class="table__th">{h}</th>)}</tr>
+        </thead>
+        <tbody>
+            {rows.map((r) => (
+                <tr class="table__tr">
+                    {r.map((c) => <td class="table__td">{c}</td>)}
+                </tr>
+            ))}
+        </tbody>
+    </table>
+</div>

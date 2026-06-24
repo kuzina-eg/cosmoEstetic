@@ -1,0 +1,90 @@
+---
+import site from '@data/site.json';
+import Icon from '@components/modules/Icon.astro';
+import typograf from '@utils/typograf';
+
+interface Props {
+  user?: string;
+  [x: string]: any;
+}
+
+const { user } = Astro.props;
+
+const nav = [
+  {
+    text: 'Магазин', url: '#', active: true,
+    columns: [
+      { title: 'Для Ваших губ', links: [{ text: 'Бальзамы Lip Balm', url: 'catalog.html' }] },
+      { title: 'Категория 2', links: [{ text: 'Бальзамы Lip Balm', url: 'catalog.html' }] },
+    ],
+  },
+  { text: 'CosmoEstetic', url: 'styleguide.html' },
+  { text: 'Акции', url: 'styleguide.html' },
+  {
+    text: 'Для покупателей', url: 'styleguide.html',
+    columns: [
+      { title: 'Помощь', links: [{ text: 'Доставка', url: 'styleguide.html' }, { text: 'Оплата', url: 'styleguide.html' }, { text: 'Возврат', url: 'styleguide.html' }] },
+    ],
+  },
+  { text: 'Поддержка покупателей', url: 'styleguide.html' },
+  { text: 'Для партнеров', url: 'styleguide.html' },
+];
+---
+<header class="header js-header">
+  <div class="header__top">
+    <div class="header__container container">
+      <a href="/" class="header__logo">
+        <img src="img/logo.svg" width={site.logo.width} height={site.logo.height} alt={site.name}>
+      </a>
+      <div class="header__actions">
+        <a href="#city" data-fancybox class="header__action"><Icon name="map-pin" class="header__action-icon"/><span class="header__action-text">Москва</span></a>
+        <a href="#" class="header__action"><Icon name="cart" class="header__action-icon"/><span class="header__action-text">Корзина пуста</span></a>
+        {user ? (
+          <div class="header__user js-user">
+            <button class="header__action header__user-button js-user-button" type="button" aria-haspopup="true" aria-expanded="false">
+              <Icon name="user" class="header__action-icon"/>
+              <span class="header__action-text">{user}</span>
+            </button>
+            <div class="header__user-menu js-user-menu">
+              <a href="#" class="header__user-link">Заказы</a>
+              <a href="#" class="header__user-link">Возвраты</a>
+              <a href="#" class="header__user-link">Написать обращение</a>
+            </div>
+          </div>
+        ) : (
+          <a href="#login" data-fancybox class="header__action"><Icon name="user" class="header__action-icon"/><span class="header__action-text">Войти</span></a>
+        )}
+      </div>
+    </div>
+  </div>
+  <nav class="header__nav js-menu">
+    <button class="header__burger js-menu-burger" type="button" aria-label="Меню"><Icon name="menu"/></button>
+    <div class="container header__nav-container">
+      <ul class="header__nav-list js-menu-popup">
+        {nav.map((i) => (
+          <li class:list={['header__nav-item', 'js-menu-item', i.columns && 'header__nav-item--has-dropdown']}>
+            <a href={i.url} class:list={['header__nav-link', i.active && 'is-active']}>
+              <span class="header__nav-text" set:html={typograf(i.text)} />
+            </a>
+            {i.columns && (
+              <div class="header__dropdown js-menu-dropdown">
+                <div class="header__dropdown-inner">
+                  {i.columns.map((col) => (
+                    <div class="header__dropdown-col">
+                      <div class="header__dropdown-title" set:html={typograf(col.title)} />
+                      <ul class="header__dropdown-list">
+                        {col.links.map((l) => (
+                          <li><a href={l.url} class="header__dropdown-link" set:html={typograf(l.text)} /></li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </nav>
+</header>

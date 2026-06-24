@@ -1,0 +1,201 @@
+---
+import Icon from '@components/modules/Icon.astro';
+
+interface Props {
+    type?: "select" | "menu";
+    direction?: 'right';
+    buttonTitle?: string;
+    buttonBefore?: string;
+    value?: number | string;
+    inputName?: string;
+    options?: any;
+    menu?: any;
+    ariaLabel?: string;
+    isSelected?: boolean;
+    isField?: boolean;
+    isRequired?: boolean;
+    isButtonText?: boolean;
+    isScrollbar?: boolean;
+    classMenu?: string;
+    class?: string;
+    [x: string]: any;
+}
+
+const {
+    type = "select",
+    direction,
+    buttonTitle,
+    buttonBefore,
+    value,
+    inputName,
+    options = [],
+    menu = [],
+    isSelected,
+    isField,
+    isRequired,
+    isButtonText = true,
+    isScrollbar = true,
+    ariaLabel,
+    classMenu,
+    class: className,
+    ...rest
+} = Astro.props;
+
+const listItems = options.length ? options : menu.length ? menu : [];
+
+const dropdownClass = 'ui-dropdown';
+
+const classList =[
+    className,
+    dropdownClass,
+    `${dropdownClass}_${type}`,
+    direction ? `${dropdownClass}_direction_${direction}` : '',
+    !isSelected ? 'is-placeholder' : '',
+    'js-dropdown',
+]
+---
+
+<div
+    class:list={classList}
+    data-dropdown={type}
+    {...rest}
+>
+    {
+        type === 'select' ?
+        <button
+            class:list={
+                [
+                    `${dropdownClass}__button`,
+                    isField ? `ui-input` : '',
+                    'js-dropdown-button',
+                ]
+            }
+            type="button"
+            aria-label={ariaLabel}
+            role="combobox"
+        >
+            <span
+                class:list={
+                    [
+                        `${dropdownClass}__button-text`,
+                        'js-dropdown-button-text'
+                    ]
+                }
+                data-before-text={buttonBefore}
+                role="textbox"
+            >
+                <Fragment set:html={
+                buttonTitle ? buttonTitle
+                : options.length ? options[0].text !== undefined ? options[0].text : options[0] : ''} />
+            </span>
+            <span class={`${dropdownClass}__button-icon-box`}><span class={`${dropdownClass}__button-icon`}></span></span>
+        </button>
+        :
+        <button
+            class:list={
+                [
+                    `${dropdownClass}__button`,
+                    isField ? `ui-input` : '',
+                    'js-dropdown-button',
+                ]
+            }
+            type="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+            aria-label={ariaLabel}
+        >
+
+            <span
+                class:list={
+                    [
+                        `${dropdownClass}__button-text`,
+                    ]
+                }
+                data-before-text={buttonBefore}
+            >
+                <Fragment set:html={
+                buttonTitle ? buttonTitle
+                : menu.length ? menu[0].text !== undefined ? menu[0].text : menu[0] : ''} />
+            </span>
+            <span class={`${dropdownClass}__button-icon-box`}><span class={`${dropdownClass}__button-icon`}></span></span>
+        </button>
+    }
+    {
+        type === 'select'  ?
+            isField ?
+                isRequired ?
+                    <input type={'text'} class:list={
+                        [
+                            `${dropdownClass}__input`,
+                            `ui-input`,
+                            'js-dropdown-input',
+                        ]
+                    } value={value} name={inputName} readonly required data-js-form-field tabindex="-1"/>
+                :
+                <input type={'text'} class:list={
+                    [
+                        `${dropdownClass}__input`,
+                        `ui-input`,
+                        'js-dropdown-input',
+                    ]
+                } value={value} name={inputName} readonly tabindex="-1"/>
+            :
+                <input type={'hidden'} class:list={
+                    [
+                        `${dropdownClass}__input`,
+                        'js-dropdown-input',
+                    ]
+                } value={value} name={inputName}/>
+
+        :
+            ''
+    }
+    {
+        type === 'select'  ?
+            <div class={`${dropdownClass}__popup js-dropdown-popup`} aria-hidden="true">
+                <div class:list={[
+                    `${dropdownClass}__scroll js-dropdown-scroll`,
+                    isScrollbar ? 'js-scrollbar' : '',
+                ]}>
+                    <div class={`${dropdownClass}__list js-dropdown-list`} tabindex="0" role="listbox">
+                        {listItems ? listItems.map((item, index) => (
+                            <div
+                                class:list={[
+                                    `${dropdownClass}__option ${isSelected && index === 0 ? 'is-selected' : ''}`,
+                                    'js-dropdown-option',
+                                ]}
+                                data-value={item.value !== undefined ? item.value : item}
+                                data-text-value={item.textValue !== undefined ? item.textValue : item.text ? item.text : ''}
+                                role="option"
+                                aria-selected={item.selected ? 'true' : 'false'}>
+                                <Fragment set:html={item.text !== undefined ? item.text : item} />
+                            </div>
+                        )) : ''}
+                    </div>
+                </div>
+            </div>
+        :
+            ''
+    }
+    {
+    type === 'menu' ?
+        <div class={`${dropdownClass}__popup js-dropdown-popup`} aria-hidden="true">
+            <slot></slot>
+            <div class:list={[
+                `${dropdownClass}__scroll js-dropdown-scroll`,
+                isScrollbar ? 'js-scrollbar' : '',
+            ]}>
+                <div class:list={[
+                        `${dropdownClass}__menu`,
+                        classMenu
+                    ]}>
+                    {listItems ? listItems.map((item) => (
+                        <a href="" class={`${dropdownClass}__menu-link ${item.selected ? 'is-selected' : ''}`}>
+                            <Fragment set:html={item.text ? item.text : item} />
+                        </a>
+                    )) : ''}
+                </div>
+            </div>
+        </div>
+    : '' }
+</div>

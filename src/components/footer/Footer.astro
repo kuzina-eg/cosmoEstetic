@@ -1,0 +1,44 @@
+---
+import site from '@data/site.json';
+import Icon from '@components/modules/Icon.astro';
+import typograf from '@utils/typograf';
+
+const useful = [
+  { text: 'О доставке', href: '#' },
+  { text: 'Об оплате', href: '#' },
+  { text: 'Про возвраты', href: '#' },
+];
+const legal = [
+  { text: 'Политика конфиденциальности', href: '#' },
+  { text: 'Публичная оферта', href: '#' },
+  { text: 'Обработка персональных данных', href: '#' },
+];
+const socials = ['fb', 'instagram', 'youtube', 'vk', 'telegram', 'tiktok'];
+---
+<footer class="footer">
+  <div class="footer__container container">
+    <div class="footer__col footer__col--info">
+      <div class="footer__title" set:html={typograf('Полезная информация')} />
+      <ul class="footer__menu">
+        {useful.map((i) => (<li class="footer__menu-item"><a href={i.href} class="footer__link" set:html={typograf(i.text)} /></li>))}
+      </ul>
+    </div>
+    <div class="footer__col footer__col--legal">
+      <div class="footer__title" set:html={typograf('Правовая информация')} />
+      <ul class="footer__menu">
+        {legal.map((i) => (<li class="footer__menu-item"><a href={i.href} class="footer__link" set:html={typograf(i.text)} /></li>))}
+      </ul>
+    </div>
+    <div class="footer__col footer__col--brand">
+      <a href="/" class="footer__logo">
+        <img src="img/logo.svg" width={site.logo.width} height={site.logo.height} alt={site.name}>
+      </a>
+      <div class="footer__socials">
+        {socials.map((s) => (
+          <a href="#" class="footer__social" aria-label={s}><Icon name={s} class="footer__social-icon"/></a>
+        ))}
+      </div>
+      <div class="footer__copy" set:html={typograf('© 2026 CosmoEstetic Luxury Cosmetics.')} />
+    </div>
+  </div>
+</footer>

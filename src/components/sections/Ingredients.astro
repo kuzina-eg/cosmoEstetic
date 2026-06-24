@@ -1,0 +1,20 @@
+---
+import SectionHeader from '@components/blocks/SectionHeader.astro';
+import IngredientCard from '@components/blocks/IngredientCard.astro';
+
+interface Props {
+    title: string;
+    subtitle?: string;
+    items: { image: string; name: string; text: string }[];
+}
+
+const { title, subtitle, items } = Astro.props;
+---
+<section class="section ingredients">
+    <div class="container">
+        <SectionHeader title={title} subtitle={subtitle} />
+        <div class="ingredients__grid">
+            {items.map((i) => <IngredientCard {...i} />)}
+        </div>
+    </div>
+</section>

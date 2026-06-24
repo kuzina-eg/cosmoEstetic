@@ -1,0 +1,25 @@
+---
+import typograf from '@utils/typograf';
+const paragraphs = [
+  'Компания CosmoEstetic это пространство эстетики, где забота о красоте и здоровье кожи становится главным вашим приоритетом.',
+  'В основе нас – большая мечта: сделать жизнь сотен тысяч девушек легче, увереннее и красивее.',
+  'Это больше лайфстайл-бренд, транслирующий такие essential ценности как гедонизм, любовь к себе, а еще – умение поддерживать женщин и вдохновляться ими.',
+  'Мы ставим в центр нашей философии осознанную заботу, возвышая эстетику до уровня жизненной необходимости.',
+];
+---
+<section class="section cta-banner">
+  <img
+    class="cta-banner__image lazy"
+    data-src="img/promo/cta@1x.webp"
+    data-srcset="img/promo/cta@2x.webp 2x"
+    alt=""
+  />
+  <div class="container cta-banner__inner">
+    <div class="cta-banner__content">
+      <h2 class="cta-banner__title" set:html={typograf('Ваш личный источник красоты')} />
+      <div class="cta-banner__text">
+        {paragraphs.map((p) => <p set:html={typograf(p)} />)}
+      </div>
+    </div>
+  </div>
+</section>

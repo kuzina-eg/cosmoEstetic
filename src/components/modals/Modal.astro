@@ -1,0 +1,24 @@
+---
+import Icon from '@components/modules/Icon.astro';
+import typograf from '@utils/typograf';
+
+interface Props {
+    id: string;
+    title?: string;
+    size?: 'sm';
+    class?: string;
+}
+
+const { id, title, size, class: className } = Astro.props;
+---
+<div class:list={['modal', size && `modal--${size}`, className]} id={id} style="display: none;">
+    <button class="modal__close" type="button" data-fancybox-close aria-label="Закрыть"><Icon name="close" class="modal__close-icon"/></button>
+    {title && (
+        <div class="modal__header">
+            <h2 class="modal__title" set:html={typograf(title)} />
+        </div>
+    )}
+    <div class="modal__body">
+        <slot />
+    </div>
+</div>

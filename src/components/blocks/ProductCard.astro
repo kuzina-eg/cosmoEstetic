@@ -1,0 +1,41 @@
+---
+import Button from '@components/modules/Button.astro';
+import typograf from '@utils/typograf';
+
+interface Props {
+    image: string;
+    name: string;
+    text?: string;
+    price: string;
+    oldPrice?: string;
+    badges?: string[];
+}
+
+const { image, name, text, price, oldPrice, badges = [] } = Astro.props;
+---
+<article class="product-card">
+    <a href="#" class="product-card__image-link">
+        <img
+            class="product-card__image lazy"
+            data-src={`${image}@1x.webp`}
+            data-srcset={`${image}@2x.webp 2x`}
+            alt={name}
+        />
+        {badges.length > 0 && (
+            <div class="product-card__badges">
+                {badges.map((b) => <span class="product-card__badge">{b}</span>)}
+            </div>
+        )}
+    </a>
+    <div class="product-card__body">
+        <div class="product-card__info">
+            <h3 class="product-card__name"><a href="#" set:html={typograf(name)} /></h3>
+            {text && <p class="product-card__text" set:html={typograf(text)} />}
+        </div>
+        <div class="product-card__prices">
+            {oldPrice && <div class="product-card__price-old" set:html={typograf(oldPrice)} />}
+            <div class="product-card__price" set:html={typograf(price)} />
+        </div>
+    </div>
+    <Button type="link" href="#" style="outline" fill icon="bag" class="product-card__button">Добавить в корзину</Button>
+</article>

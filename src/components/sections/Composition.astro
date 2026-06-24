@@ -1,0 +1,59 @@
+---
+import typograf from '@utils/typograf';
+
+const inci = 'DIISOSTEARYL MALATE, ETHYLHEXYL PALMITATE, TRIDECYL TRIMELLITATE, HYDROGENATED STYREN EISOPRENE COPOLYMER, ISONONYL ISONONANOATE, POLYISOBUTENE, TOCOPHEROL (ТОКОФЕРОЛ), SYNTHETIC WAX, SILICA DIMETHYL SILYLATE, OCTYLDODECANOL, BUTYROSPERMUM PARKII (SHEA) BUTTER (МАСЛО ШИ (КАРИТЭ)), PALMITOYL TRIPEPTIDE-1 (ПЕПТИД), 4-METHOXYCINNAMATE, PARFUM, SQUALANE (СКВАЛАН), SUN FLOWER SEED OIL (МАСЛО СЕМЯН ПОДСОЛНЕЧНИКА), CASTOR OIL (КАСТОРОВОЕ МАСЛО), VITAMIN E (ВИТАМИН Е), SHEA BUTTER-REFINED (РАФИНИРОВАННОЕ МАСЛО ШИ), HYALURONIC ACID (ГИАЛУРОНОВАЯ КИСЛОТА), CERAMIDES (ЦЕРАМИДЫ), RED IRON OXIDE, CARBON DIOXIDE (TITANIUM DIOXIDE), BLACK IRON OXIDE';
+
+const balmHeading = 'Бальзам для губ с пептидами CosmoEstetic Lip Perfection Chocolate';
+const balmText = 'Увлажняющий бальзам для губ с нежным оттенком молочного шоколада. Для тех, кто устал от повседневного цвета своих губ – изысканный и чудесный коричневый оттенок любимого бальзама, который можно наслаивать для получения разной интенсивности цвета.';
+const balmFeatures = [
+  'Глубоко питает, увлажняет и ухаживает за хрупкой кожей ваших губ.',
+  'Обогащён пептидами, гиалуроновой кислотой, питательными маслами и витамином "Е". Активные компоненты увлажняют и разглаживают губы от морщинок, а так же придают им зеркальный блеск.',
+  'Защищает от обветривания',
+  'Возвращает объём ваших губ',
+  'Anti-Age-эффект',
+  'Защита от ультрафиолета SPF 15+++',
+];
+const activeText = [
+  '— Комплекс масел (касторовое масло, масло жожоба, масло ши, масло подсолнечника) и церамиды способствуют глубокому увлажнению, снимают ощущения стянутости, раздражения и трещинок. Глубоко питает и удерживает влагу, защищая губы от сухости, шелушения и обветривания. Если ваши губы были сухими или обветренными, после применения нашего бальзама они обязательно станут мягкими и ухоженными.',
+  '— Формула с сигнальным пептидом Palmitoyl Tripeptide-1 разглаживает губы, уменьшает мелкие морщинки и возвращает губам наполненность и красивый объём. Palmitoyl Tripeptide-1 помогает коже губ вырабатывать больше коллагена и гиалуроновой кислоты. Пептид улучшает плотность кожи губ.',
+  '— Сквалан и витамин "Е" укрепляют барьер и защищают губы от внешних факторов — мороза, ветра, солнца и сухого воздуха.',
+];
+---
+<section class="section section--sm composition">
+  <div class="container composition__inner">
+    <h2 class="composition__title" set:html={typograf('Состав')} />
+    <p class="composition__inci" set:html={typograf(inci)} />
+
+    <div class="composition__row">
+      <img class="composition__media lazy" data-src="img/products/05@1x.webp" data-srcset="img/products/05@2x.webp 2x" alt="" />
+      <div class="composition__content">
+        <h3 class="composition__heading" set:html={typograf(balmHeading)} />
+        <p class="composition__text" set:html={typograf(balmText)} />
+        <ul class="composition__features">
+          {balmFeatures.map((f) => <li set:html={typograf(f)} />)}
+        </ul>
+      </div>
+    </div>
+
+    <div class="composition__row composition__row--reverse">
+      <div class="composition__content">
+        <h3 class="composition__heading" set:html={typograf('Незаменимый бальзам для губ от CosmoEstetic')} />
+        <p class="composition__text" set:html={typograf('Идеален после контурной пластики губ. Дарит глубокое увлажнение и регенерирует ткани. Смягчает губы и способствует восстановлению, поддерживая эластичность кожи губ. Устраняет шелушение и защищает от обветривания. Тает на губах словно стеклянная глазурь. Имеет густую питательную текстуру без липкости.')} />
+        <h3 class="composition__heading" set:html={typograf('Активные компоненты')} />
+        {activeText.map((p) => <p class="composition__text" set:html={typograf(p)} />)}
+      </div>
+      <img class="composition__media lazy" data-src="img/products/06@1x.webp" data-srcset="img/products/06@2x.webp 2x" alt="" />
+    </div>
+
+    <div class="composition__row">
+      <img class="composition__media lazy" data-src="img/products/07@1x.webp" data-srcset="img/products/07@2x.webp 2x" alt="" />
+      <div class="composition__content">
+        <h3 class="composition__heading" set:html={typograf(balmHeading)} />
+        <p class="composition__text" set:html={typograf(balmText)} />
+        <ul class="composition__features">
+          {balmFeatures.map((f) => <li set:html={typograf(f)} />)}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

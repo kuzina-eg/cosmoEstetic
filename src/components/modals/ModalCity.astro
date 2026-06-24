@@ -1,0 +1,20 @@
+---
+import Modal from '@components/modals/Modal.astro';
+import Button from '@components/modules/Button.astro';
+import Icon from '@components/modules/Icon.astro';
+const suggestions = ['Санкт-Петербург', 'Самара'];
+---
+<Modal id="city" title="Выберите город">
+  <form class="modal__form modal-city js-city" data-js-form>
+    <div class="modal-city__search">
+      <input class="ui-input modal-city__input js-city-input" type="text" name="city" placeholder="Москва" autocomplete="off" />
+      <button class="modal-city__search-btn" type="button" aria-label="Найти"><Icon name="search"/></button>
+      <ul class="modal-city__suggestions js-city-suggestions">
+        {suggestions.map((s) => (
+          <li class="modal-city__suggestion js-city-suggestion">{s}</li>
+        ))}
+      </ul>
+    </div>
+    <Button type="submit" fill icon="check" class="modal__action">Подтвердить</Button>
+  </form>
+</Modal>

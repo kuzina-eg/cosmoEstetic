@@ -1,0 +1,24 @@
+---
+import Button from '@components/modules/Button.astro';
+import typograf from '@utils/typograf';
+const image = 'img/hero/01';
+const text = 'Там, где наука встречается с элегантностью. Откройте для себя вершину роскоши в уходе за кожей, созданную из самых редких ингредиентов и доведённую до совершенства десятилетиями исследований.';
+---
+<section class="hero">
+  <div class="hero__slide">
+    <img
+      class="hero__image"
+      src={`${image}@1x.webp`}
+      srcset={`${image}@2x.webp 2x`}
+      alt=""
+      fetchpriority="high"
+    />
+    <div class="container hero__inner">
+      <div class="hero__content">
+        <h1 class="hero__title">CosmoEstetic</h1>
+        <p class="hero__text" set:html={typograf(text)} />
+        <Button type="link" href="#" style="outline" fill icon="arrow-down" class="hero__button">Подробнее</Button>
+      </div>
+    </div>
+  </div>
+</section>

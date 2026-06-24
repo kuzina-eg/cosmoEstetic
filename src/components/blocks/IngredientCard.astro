@@ -1,0 +1,23 @@
+---
+import typograf from '@utils/typograf';
+
+interface Props {
+    image: string;
+    name: string;
+    text: string;
+}
+
+const { image, name, text } = Astro.props;
+---
+<article class="ingredient-card">
+    <img
+        class="ingredient-card__image lazy"
+        data-src={`${image}@1x.webp`}
+        data-srcset={`${image}@2x.webp 2x`}
+        alt={name}
+    />
+    <div class="ingredient-card__body">
+        <h3 class="ingredient-card__name" set:html={typograf(name)} />
+        <p class="ingredient-card__text" set:html={typograf(text)} />
+    </div>
+</article>

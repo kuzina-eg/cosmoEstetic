@@ -1,0 +1,22 @@
+---
+import typograf from '@utils/typograf';
+
+interface Props {
+  items: { text: string; url?: string }[];
+  class?: string;
+}
+
+const { items, class: className } = Astro.props;
+---
+<nav class:list={['breadcrumbs', className]} aria-label="Хлебные крошки">
+  <ul class="breadcrumbs__list">
+    {items.map((item, idx) => (
+      <li class="breadcrumbs__item">
+        {item.url && idx < items.length - 1
+          ? <a href={item.url} class="breadcrumbs__link" set:html={typograf(item.text)} />
+          : <span class="breadcrumbs__current" set:html={typograf(item.text)} />}
+        {idx < items.length - 1 && <span class="breadcrumbs__sep">—</span>}
+      </li>
+    ))}
+  </ul>
+</nav>

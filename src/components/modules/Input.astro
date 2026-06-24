@@ -1,0 +1,75 @@
+---
+interface Props {
+    type?: "text" | "email" | "textarea" | "phone" | "number" | "password";
+    size?: 'sm' | 'lg';
+    id?: number | string;
+    name?: string;
+    placeholder?: string;
+    value?: number | string;
+    ariaLabel?: string;
+    isDisabled?: boolean;
+    isRequired?: boolean;
+    rows?: number | string;
+    class?: string;
+    [x: string]: any;
+}
+
+const {
+    type = "text",
+    size,
+    id,
+    name,
+    placeholder,
+    value,
+    ariaLabel,
+    isDisabled,
+    isRequired,
+    rows,
+
+    class: className,
+    ...rest
+} = Astro.props;
+
+const inputClass = type == 'textarea' ? `ui-textarea` : `ui-input`;
+
+const sizes = {
+    sm: `${inputClass}--sm`,
+    lg: `${inputClass}--lg`,
+};
+
+const classList =[
+    inputClass,
+    sizes[size],
+    className,
+]
+
+---
+{type === 'textarea' ?
+    <textarea
+        id={id}
+        class:list={classList}
+        name={name}
+        placeholder={placeholder}
+        rows={rows}
+        aria-label={ariaLabel}
+        disabled={isDisabled ? '' : null}
+        data-js-form-field={isRequired ? '' : null}
+        {...rest}
+    >{value}</textarea>
+    :
+    <input
+        id={id}
+        class:list={[
+            classList,
+            type === 'phone' ? `${inputClass}-phone` : null,
+        ]}
+        type={type === 'phone' ? 'text' : type}
+        name={name}
+        placeholder={placeholder}
+        value={value}
+        aria-label={ariaLabel}
+        disabled={isDisabled ? '' : null}
+        data-js-form-field={isRequired ? '' : null}
+        {...rest}
+    />
+}

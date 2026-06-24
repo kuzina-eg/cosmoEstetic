@@ -1,0 +1,30 @@
+---
+import Icon from '@components/modules/Icon.astro';
+import typograf from '@utils/typograf';
+interface Props {
+    image: string;
+    rating?: number;
+    text: string;
+    author: string;
+}
+const { image, rating = 5, text, author } = Astro.props;
+---
+<article class="review-card swiper-slide">
+    <a class="review-card__image-link" href={`${image}@2x.webp`} data-fancybox="reviews" data-caption={author}>
+        <img
+            class="review-card__image lazy"
+            data-src={`${image}@1x.webp`}
+            data-srcset={`${image}@2x.webp 2x`}
+            alt={author}
+        />
+    </a>
+    <div class="review-card__body">
+        <div class="review-card__rating review-card__rating--stars">
+            {Array.from({length: 5}).map((_, n) => (
+                <Icon name="star" class:list={['review-card__star', n < rating && 'is-active']} />
+            ))}
+        </div>
+        <blockquote class="review-card__text"><span class="review-card__quote">“</span><span set:html={typograf(text)} /></blockquote>
+        <div class="review-card__author">{author}</div>
+    </div>
+</article>

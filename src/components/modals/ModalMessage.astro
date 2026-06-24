@@ -1,0 +1,16 @@
+---
+import Modal from '@components/modals/Modal.astro';
+import Icon from '@components/modules/Icon.astro';
+---
+<Modal id="error">
+  <div class="modal-status modal-status--error">
+    <span class="modal-status__icon"><Icon name="warning"/></span>
+    <div class="modal-status__text">Текст ошибки</div>
+  </div>
+</Modal>
+<Modal id="success">
+  <div class="modal-status modal-status--success">
+    <span class="modal-status__icon"><Icon name="success"/></span>
+    <div class="modal-status__text">Изменения сохранены</div>
+  </div>
+</Modal>

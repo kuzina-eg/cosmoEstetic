@@ -1,0 +1,34 @@
+---
+import Price from '@components/blocks/Price.astro';
+import Button from '@components/modules/Button.astro';
+import typograf from '@utils/typograf';
+
+interface Props {
+  image: string;
+  title: string;
+  description: string;
+  price: string;
+  oldPrice?: string;
+  badges?: string[];
+}
+
+const { image, title, description, price, oldPrice, badges = [] } = Astro.props;
+---
+<article class="catalog-item">
+  <a href="#" class="catalog-item__image-link">
+    <img class="catalog-item__image lazy" data-src={`${image}@1x.webp`} data-srcset={`${image}@2x.webp 2x`} alt={title} />
+  </a>
+  <div class="catalog-item__info">
+    <h3 class="catalog-item__title"><a href="#" set:html={typograf(title)} /></h3>
+    <p class="catalog-item__desc" set:html={typograf(description)} />
+    {badges.length > 0 && (
+      <div class="catalog-item__badges">
+        {badges.map((b) => <span class="catalog-item__badge">{b}</span>)}
+      </div>
+    )}
+  </div>
+  <Price price={price} oldPrice={oldPrice} class="catalog-item__price" />
+  <div class="catalog-item__action">
+    <Button type="link" href="#cart" style="outline" fill icon="bag" class="catalog-item__button">Добавить в корзину</Button>
+  </div>
+</article>

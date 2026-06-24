@@ -1,0 +1,53 @@
+---
+import Price from '@components/blocks/Price.astro';
+import Button from '@components/modules/Button.astro';
+import Icon from '@components/modules/Icon.astro';
+import typograf from '@utils/typograf';
+
+interface Props {
+    image: string;
+    title: string;
+    description: string;
+    price: number;
+    oldPrice?: number;
+    priceText: string;
+    oldPriceText?: string;
+    qty?: number;
+    badges?: string[];
+}
+
+const {
+    image,
+    title,
+    description,
+    price,
+    oldPrice,
+    priceText,
+    oldPriceText,
+    qty = 1,
+    badges = [],
+} = Astro.props;
+---
+<article class="cart-item js-cart-item" data-price={price} data-old-price={oldPrice ?? price}>
+    <a href="#" class="cart-item__image-link">
+        <img class="cart-item__image lazy" data-src={`${image}@1x.webp`} data-srcset={`${image}@2x.webp 2x`} alt={title} />
+    </a>
+    <div class="cart-item__info">
+        <h3 class="cart-item__title"><a href="#" set:html={typograf(title)} /></h3>
+        <p class="cart-item__desc" set:html={typograf(description)} />
+        {badges.length > 0 && (
+            <div class="cart-item__badges">
+                {badges.map((b) => <span class="cart-item__badge">{b}</span>)}
+            </div>
+        )}
+    </div>
+    <div class="cart-item__counter count-control js-count">
+        <button class="count-control__minus count-control__btn js-count-minus" type="button" aria-label="Меньше"><Icon name="minus" /></button>
+        <input class="count-control__input" type="text" inputmode="numeric" value={qty} aria-label="Количество" />
+        <button class="count-control__plus count-control__btn js-count-plus" type="button" aria-label="Больше"><Icon name="plus" /></button>
+    </div>
+    <Price price={priceText} oldPrice={oldPriceText} class="cart-item__price" />
+    <div class="cart-item__action">
+        <Button type="button" style="outline" fill icon="trash" class="cart-item__remove js-cart-remove">Удалить из корзины</Button>
+    </div>
+</article>

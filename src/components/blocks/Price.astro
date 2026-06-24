@@ -1,0 +1,17 @@
+---
+import typograf from '@utils/typograf';
+
+interface Props {
+  price: string;
+  oldPrice?: string;
+  class?: string;
+  priceClass?: string;
+  oldPriceClass?: string;
+}
+
+const { price, oldPrice, class: className, priceClass, oldPriceClass } = Astro.props;
+---
+<div class:list={['price', className]}>
+  {oldPrice && <span class:list={['price__old', oldPriceClass]} set:html={typograf(oldPrice)} />}
+  <span class:list={['price__current', priceClass]} set:html={typograf(price)} />
+</div>

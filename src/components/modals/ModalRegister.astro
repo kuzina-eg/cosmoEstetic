@@ -1,0 +1,40 @@
+---
+import Modal from '@components/modals/Modal.astro';
+import Button from '@components/modules/Button.astro';
+import Checkbox from '@components/modules/Checkbox.astro';
+import Icon from '@components/modules/Icon.astro';
+---
+
+<Modal id="register" title="Регистрация">
+    <form class="modal__form" data-js-form>
+        <div class="form-field">
+            <input class="ui-input form-field__input" type="text" name="name" placeholder="ИМЯ" />
+            <div class="form-field__error">Введите ваше имя</div>
+        </div>
+        <div class="form-field">
+            <input class="ui-input form-field__input" type="email" name="email" placeholder="EMAIL" />
+            <div class="form-field__error">Введите корректный E-mail</div>
+        </div>
+        <div class="form-field form-field--password">
+            <div class="form-field__control">
+                <input class="ui-input form-field__input" type="password" name="password" placeholder="ПАРОЛЬ" />
+                <button class="form-field__eye js-password-toggle" type="button" aria-label="Показать пароль"><Icon name="eye"/></button>
+            </div>
+            <div class="form-field__error">Введите пароль</div>
+        </div>
+        <div class="form-field form-field--password">
+            <div class="form-field__control">
+                <input class="ui-input form-field__input" type="password" name="password_repeat" placeholder="ПОВТОРИТЕ ПАРОЛЬ" />
+                <button class="form-field__eye js-password-toggle" type="button" aria-label="Показать пароль"><Icon name="eye"/></button>
+            </div>
+            <div class="form-field__error">Пароли не совпадают</div>
+        </div>
+        <div class="form-field form-field--agree">
+            <Checkbox name="agree" checked>Я соглашаюсь с условиями публичной оферты</Checkbox>
+            <div class="form-field__error">Подтвердите согласие с офертой</div>
+        </div>
+        <Button type="submit" fill icon="user-plus" class="modal__action">Регистрация</Button>
+        <div class="modal__hint">Уже есть аккаунт?</div>
+        <Button type="link" href="#login" data-fancybox style="outline" fill icon="unlock" class="modal__action">Войти</Button>
+    </form>
+</Modal>

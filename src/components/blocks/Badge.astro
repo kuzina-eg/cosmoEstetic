@@ -1,0 +1,10 @@
+---
+interface Props {
+  text: string;
+  variant?: 'sale' | 'best';
+  class?: string;
+}
+
+const { text, variant, class: className } = Astro.props;
+---
+<span class:list={['badge', variant && `badge--${variant}`, className]}>{text}</span>

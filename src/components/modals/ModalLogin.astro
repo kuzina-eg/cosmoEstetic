@@ -1,0 +1,29 @@
+---
+import Modal from '@components/modals/Modal.astro';
+import Button from '@components/modules/Button.astro';
+import Checkbox from '@components/modules/Checkbox.astro';
+import Icon from '@components/modules/Icon.astro';
+---
+
+<Modal id="login" title="Вход в аккаунт">
+    <form class="modal__form" data-js-form>
+        <div class="form-field">
+            <input class="ui-input form-field__input" type="email" name="email" placeholder="EMAIL" />
+            <div class="form-field__error">Введите корректный E-mail</div>
+        </div>
+        <div class="form-field form-field--password">
+            <div class="form-field__control">
+                <input class="ui-input form-field__input" type="password" name="password" placeholder="ПАРОЛЬ" />
+                <button class="form-field__eye js-password-toggle" type="button" aria-label="Показать пароль"><Icon name="eye"/></button>
+            </div>
+            <div class="form-field__error">Введите пароль</div>
+        </div>
+        <div class="modal__error">Неверный логин или пароль</div>
+        <div class="form-field form-field--agree">
+            <Checkbox name="agree" checked>Я соглашаюсь с условиями публичной оферты</Checkbox>
+            <div class="form-field__error">Подтвердите согласие с офертой</div>
+        </div>
+        <Button type="submit" fill icon="unlock" class="modal__action">Войти</Button>
+        <Button type="link" href="#register" data-fancybox style="outline" fill icon="user-plus" class="modal__action">Регистрация</Button>
+    </form>
+</Modal>

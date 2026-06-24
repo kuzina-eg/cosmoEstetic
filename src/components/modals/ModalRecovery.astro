@@ -1,0 +1,39 @@
+---
+import Modal from '@components/modals/Modal.astro';
+import Button from '@components/modules/Button.astro';
+import Icon from '@components/modules/Icon.astro';
+---
+
+<Modal id="recovery" title="Восстановление пароля">
+    <form class="modal__form" data-js-form>
+        <div class="form-field">
+            <input class="ui-input form-field__input" type="email" name="email" placeholder="EMAIL" />
+            <div class="form-field__error">Введите корректный E-mail</div>
+        </div>
+        <Button type="submit" fill icon="check" class="modal__action">Отправить код</Button>
+    </form>
+</Modal>
+
+<Modal id="recovery-reset" title="Восстановление пароля">
+    <form class="modal__form" data-js-form>
+        <div class="form-field">
+            <input class="ui-input form-field__input" type="text" name="code" placeholder="КОД ИЗ EMAIL" />
+            <div class="form-field__error">Не верный код</div>
+        </div>
+        <div class="form-field form-field--password">
+            <div class="form-field__control">
+                <input class="ui-input form-field__input" type="password" name="password" placeholder="НОВЫЙ ПАРОЛЬ" />
+                <button class="form-field__eye js-password-toggle" type="button" aria-label="Показать пароль"><Icon name="eye"/></button>
+            </div>
+            <div class="form-field__error">Введите пароль</div>
+        </div>
+        <div class="form-field form-field--password">
+            <div class="form-field__control">
+                <input class="ui-input form-field__input" type="password" name="password_repeat" placeholder="ПОВТОРИТЕ ПАРОЛЬ" />
+                <button class="form-field__eye js-password-toggle" type="button" aria-label="Показать пароль"><Icon name="eye"/></button>
+            </div>
+            <div class="form-field__error">Пароли не совпадают</div>
+        </div>
+        <Button type="submit" fill icon="check" class="modal__action">Сохранить пароль</Button>
+    </form>
+</Modal>

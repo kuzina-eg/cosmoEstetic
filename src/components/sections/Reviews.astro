@@ -1,0 +1,43 @@
+---
+import SectionHeader from '@components/blocks/SectionHeader.astro';
+import ReviewCard from '@components/blocks/ReviewCard.astro';
+import Icon from '@components/modules/Icon.astro';
+
+interface Props {
+    title?: string;
+    subtitle?: string;
+    sm?: boolean; // компактные вертикальные отступы (внутренние страницы)
+}
+const {
+    title = 'Отзывы наших клиентов',
+    subtitle,
+    sm = false,
+} = Astro.props;
+
+const text = 'Это единственная линия средств по уходу за кожей, которая действительно преобразила мою кожу. Чистая роскошь в каждой капле.';
+const reviews = Array.from({length: 6}).map((_, i) => ({
+    image: `img/reviews/0${(i % 4) + 1}`,
+    rating: i === 1 ? 4 : 5, // для примера один отзыв с рейтингом 4
+    text,
+    author: 'Елена Семёнова',
+}));
+---
+<section class:list={['section', sm && 'section--sm', 'reviews']}>
+    <div class="container">
+        <SectionHeader title={title} subtitle={subtitle} />
+        <div class="reviews__carousel">
+            <div class="swiper reviews__slider js-reviews">
+                <div class="swiper-wrapper">
+                    {reviews.map((r) => <ReviewCard {...r} />)}
+                </div>
+                <button class="reviews__arrow reviews__arrow--prev slider-arrow swiper-button-prev js-reviews-prev" type="button" aria-label="Назад">
+                    <Icon name="arrow-left" />
+                </button>
+                <button class="reviews__arrow reviews__arrow--next slider-arrow swiper-button-next js-reviews-next" type="button" aria-label="Вперёд">
+                    <Icon name="arrow-right" />
+                </button>
+                <div class="reviews__pagination swiper-pagination js-reviews-pagination"></div>
+            </div>
+        </div>
+    </div>
+</section>

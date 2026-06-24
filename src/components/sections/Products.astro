@@ -1,0 +1,20 @@
+---
+import SectionHeader from '@components/blocks/SectionHeader.astro';
+import ProductCard from '@components/blocks/ProductCard.astro';
+
+interface Props {
+    title: string;
+    subtitle?: string;
+    items: any[];
+}
+
+const { title, subtitle, items } = Astro.props;
+---
+<section class="section products">
+    <div class="container">
+        <SectionHeader title={title} subtitle={subtitle} />
+        <div class="products__grid">
+            {items.map((i) => <ProductCard {...i} />)}
+        </div>
+    </div>
+</section>

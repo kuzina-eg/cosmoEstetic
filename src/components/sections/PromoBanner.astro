@@ -1,0 +1,19 @@
+---
+import Button from '@components/modules/Button.astro';
+import typograf from '@utils/typograf';
+---
+<section class="section promo-banner">
+  <img
+    class="promo-banner__image lazy"
+    data-src="img/promo/bg@1x.webp"
+    data-srcset="img/promo/bg@2x.webp 2x"
+    alt=""
+  />
+  <div class="container promo-banner__inner">
+    <div class="promo-banner__content">
+      <div class="promo-banner__discount">-40%</div>
+      <div class="promo-banner__subtitle" set:html={typograf('на весь ассортимент')} />
+      <Button type="link" href="#" style="outline" fill icon="percent" class="promo-banner__button">Получить скидку</Button>
+    </div>
+  </div>
+</section>

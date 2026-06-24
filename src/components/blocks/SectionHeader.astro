@@ -1,0 +1,15 @@
+---
+import typograf from '@utils/typograf';
+
+interface Props {
+    title: string;
+    subtitle?: string;
+    class?: string;
+}
+
+const { title, subtitle, class: className } = Astro.props;
+---
+<div class:list={['section-header', className]}>
+    <h2 class="section-header__title" set:html={typograf(title)} />
+    {subtitle && <p class="section-header__subtitle" set:html={typograf(subtitle)} />}
+</div>
