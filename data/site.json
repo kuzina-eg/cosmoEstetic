@@ -1,0 +1,14 @@
+{
+    "name": "CosmoEstetic",
+    "logo": {
+        "width": 224,
+        "height": 64
+    },
+    "pages": [
+        { "name": "Главная", "link": "home.html", "status": "", "disabled": false },
+        { "name": "Каталог", "link": "catalog.html", "status": "", "disabled": false },
+        { "name": "Карточка товара", "link": "product.html", "status": "", "disabled": false },
+        { "name": "Корзина", "link": "cart.html", "status": "", "disabled": false },
+        { "name": "Стайлгайд", "link": "styleguide.html", "status": "", "disabled": false }
+    ]
+}
