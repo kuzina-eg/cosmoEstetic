@@ -1,0 +1,40 @@
+.page-title {
+    font-size: 3rem; // 48px (H2 SemiBold)
+    font-weight: 600;
+    color: $color-base;
+    margin: 0 0 4rem; // 64px → контент (дизайн)
+    line-height: 1;
+
+    @include media(tab) {
+        font-size: 2.5rem;
+        margin-bottom: 2.5rem;
+    }
+
+    @include media(mob) {
+        font-size: 2rem;
+    }
+}
+
+.page-top {
+    padding-top: 4.5rem; // 72px (дизайн: меню → хлебные крошки)
+
+    @include media(tab) {
+        padding-top: 2.5rem;
+    }
+
+    @include media(mob) {
+        padding-top: 1.5rem;
+    }
+}
+
+.main .container.page-top {
+    gap: 4rem; // 64px (дизайн)
+
+    @include media(tab) {
+        gap: 2.5rem;
+    }
+
+    @include media(mob) {
+        gap: 1.5rem;
+    }
+}

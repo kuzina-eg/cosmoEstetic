@@ -1,0 +1,31 @@
+
+.slider-arrow {
+    width: 4.5rem; // 72px
+    height: 4.5rem;
+    border: none;
+    border-radius: 0;
+    background: rgba(255, 255, 255, .55);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: $color-base;
+    transition: background $duration;
+
+    .ui-icon {
+        width: 1.5rem; // 24px
+        height: 1.5rem;
+        fill: currentColor;
+    }
+
+    &:hover {
+        background: rgba(255, 255, 255, .85);
+    }
+
+    @include media(tab) {
+        width: 3rem;
+        height: 3rem;
+    }
+}

@@ -1,0 +1,154 @@
+---
+import Layout from '@layouts/Layout.astro';
+import Breadcrumbs from '@components/blocks/Breadcrumbs.astro';
+import CartItem from '@components/blocks/CartItem.astro';
+import Price from '@components/blocks/Price.astro';
+import Button from '@components/modules/Button.astro';
+import Input from '@components/modules/Input.astro';
+import Checkbox from '@components/modules/Checkbox.astro';
+import Dropdown from '@components/modules/Dropdown.astro';
+import typograf from '@utils/typograf';
+
+const items = Array.from({ length: 3 }).map((_, i) => ({
+    image: `img/products/0${i + 1}`,
+    title: 'Essential Lip Balm',
+    description: 'Увлажняющий Бальзам для губ Essential Lip Balm бесцветный',
+    price: 3000,
+    oldPrice: 4000,
+    priceText: '3 000 ₽',
+    oldPriceText: '4 000 ₽',
+    qty: 1,
+    badges: ['Новинка', 'Распродажа', 'Лучшая цена'],
+}));
+
+const delivery = [
+    { label: 'Стоимость доставки СДЭК до ПВЗ:', value: '500 ₽', data: '500' },
+    { label: 'Стоимость доставки СДЭК-курьер:', value: '1 000 ₽', data: '1000', checked: true },
+    { label: 'При заказе от 4000 ₽', value: 'Доставка бесплатная', data: '0' },
+];
+
+const summary = [
+    { label: 'Количество товаров', value: '3', cls: 'js-order-count' },
+    { label: 'Доставка', value: '1 000 ₽', cls: 'js-order-delivery' },
+    { label: 'Итого', value: '10 000 ₽', cls: 'js-order-total' },
+];
+---
+<Layout title="Корзина">
+  <div class="js-cart">
+  <div class="container page-top">
+    <Breadcrumbs items={[{ text: 'Главная', url: '/' }, { text: 'Хлебные', url: '#' }, { text: 'Крошки' }]} />
+    <h1 class="page-title">Корзина</h1>
+
+    <div class="cart-items">
+      <div class="cart-list">
+        {items.map((it) => <CartItem {...it} />)}
+      </div>
+      <div class="cart-total">
+        <div class="cart-total__label">Итого товаров <span class="js-cart-count">2</span> шт.</div>
+        <Price price="9 000 ₽" oldPrice="16 000 ₽" class="cart-total__sum" priceClass="js-cart-total" oldPriceClass="js-cart-old-total" />
+        <div class="cart-total__action">
+          <Button type="link" href="#checkout" fill icon="arrow-right" class="cart-total__btn">Перейти к оформлению</Button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <form class="cart-order" data-js-form novalidate>
+
+  <!-- ===== Способ доставки + Карта ===== -->
+  <section class="section section--sm cart-extra">
+    <div class="container">
+      <div class="cart-extra__inner">
+        <div class="cart-block">
+          <h2 class="cart-title">Способ доставки:</h2>
+          <div class="delivery-list">
+            {delivery.map((d) => (
+              <div class="delivery-option">
+                <Checkbox type="radio" name="delivery" checked={d.checked} class="delivery-option__check js-delivery" data-delivery={d.data}>
+                  <span set:html={typograf(d.label)} />
+                </Checkbox>
+                <span class="delivery-option__line"></span>
+                <span class="delivery-option__price" set:html={typograf(d.value)} />
+              </div>
+            ))}
+          </div>
+          <Dropdown
+            type="select"
+            isField
+            buttonTitle="Адрес доставки"
+            inputName="address"
+            ariaLabel="Адрес доставки"
+            class="cart-address"
+            options={[
+              { value: '1', text: 'Москва, ул. Тверская, д. 1' },
+              { value: '2', text: 'Москва, ул. Арбат, д. 10' },
+              { value: '3', text: 'Москва, Ленинский пр-т, д. 25' },
+            ]}
+          />
+        </div>
+
+        <div class="cart-block">
+          <h2 class="cart-title">Карта ПВЗ</h2>
+          <iframe
+            class="cart-map"
+            src="https://yandex.ru/map-widget/v1/?ll=37.620%2C55.753&z=11"
+            width="100%"
+            height="720"
+            frameborder="0"
+            loading="lazy"
+            allowfullscreen
+            title="Карта ПВЗ"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Оформление заказа ===== -->
+  <section class="section section--sm checkout" id="checkout">
+    <div class="container">
+      <div class="checkout__grid">
+          <div class="checkout__col">
+            <h2 class="cart-title">Оформление заказа</h2>
+            <div class="checkout__fields">
+              <div class="form-field">
+                <Input placeholder="ФИО" name="name" />
+                <div class="form-field__error">Введите ФИО</div>
+              </div>
+              <div class="form-field">
+                <Input type="email" placeholder="E-MAIL" name="email" />
+                <div class="form-field__error">Введите корректный E-mail</div>
+              </div>
+              <div class="form-field">
+                <Input type="tel" placeholder="ТЕЛЕФОН" name="phone" />
+                <div class="form-field__error">Введите телефон</div>
+              </div>
+              <div class="checkout__promo">
+                <Input placeholder="ПРОМОКОД" name="promo" />
+                <Button type="button" style="outline" fill icon="sale" class="checkout__promo-btn">Активировать промокод</Button>
+              </div>
+            </div>
+          </div>
+
+          <div class="checkout__summary">
+            <dl class="checkout__rows">
+              {summary.map((s) => (
+                <div class="checkout__row">
+                  <dt class="checkout__row-label" set:html={typograf(s.label)} />
+                  <span class="checkout__row-line"></span>
+                  <dd class:list={['checkout__row-value', s.cls]} set:html={typograf(s.value)} />
+                </div>
+              ))}
+            </dl>
+            <div class="form-field form-field--agree">
+              <Checkbox name="agree" checked class="checkout__agree"><span set:html={typograf('Я соглашаюсь с условиями публичной оферты')} /></Checkbox>
+              <div class="form-field__error">Подтвердите согласие с офертой</div>
+            </div>
+            <Button type="submit" fill icon="wallet" class="checkout__submit">Оформить заказ</Button>
+          </div>
+        </div>
+    </div>
+  </section>
+  </form>
+  </div>
+</Layout>

@@ -1,0 +1,138 @@
+@import "mixins";
+
+@import "functions";
+
+$grid-breakpoints: (
+	mob-xxs: 371px,
+	mob-xs: 420px,
+	mob-sm: 480px,
+	mob-md: 576px,
+	mob: 768px,
+	tab: 992px,
+	tab-l: 1025px,
+	pc: 1200px,
+	netbook: 1367px,
+	pc-l: 1440px,
+	pc-md: 1600px,
+	pc-xl: 1680px,
+	pc-xxl: 1920px,
+);
+
+$breakpoint-adaptive: pc;
+
+$base-font-family: var(--base-font-family, 'Wanted Sans', 'Onest', sans-serif);
+$color-background: var(--color-background, #ffffff);
+
+$color-base: var(--color-base, #000000);
+$color-base-rgb: var(--color-base-rgb, 0,0,0);
+$color-accent: var(--color-accent, #2a2a2a);
+$color-accent-rgb: var(--color-accent-rgb, 42,42,42);
+$color-accent-hover: var(--color-accent-hover, #000000);
+
+$color-white: var(--color-white, #fff);
+$color-disabled: var(--color-disabled, #D4D5D6);
+$color-grey: var(--color-grey, #f4f2ef);
+$color-grey-second: var(--color-grey-second, #e6e3df);
+$color-light-grey: var(--color-light-grey, #faf9f7);
+$color-dark-grey: var(--color-dark-grey, #666666);
+$color-error: var(--color-error, #900);
+$color-success: var(--color-success, #19BE32);
+$color-border: var(--color-border, #e6e3df);
+
+$container-max-width: var(--container-max-width, 110rem);
+$gutters: var(--gutters, 1.25rem);
+
+$base-font-weight: var(--base-font-weight, 500);
+$text-size: var(--text-size, 1rem);
+$text-size-md: var(--text-size-md, 1.125rem);
+$text-size-lg: var(--text-size-lg, 1.25rem);
+$text-size-sm: var(--text-size-sm, .875rem);
+$text-size-xs: var(--text-size-xs, .75rem);
+$text-line-height: var(--text-line-height, 1.4);
+
+$space-md: var(--space-md, 1rem);
+$space: var(--space, 1.25rem);
+$space-lg: var(--space-lg, 2.5rem);
+
+$header-fixed-height: var(--header-fixed-height, 6rem);
+$icon-size: var(--icon-size, 1.5rem);
+
+$radius: var(--radius, 1rem);
+$radius-sm: var(--radius-sm, .5rem);
+
+$input-height-sm: var(--input-height-sm, 3rem);
+$input-height: var(--input-height, 4.1875rem);
+$input-height-lg: var(--input-height-lg, 5rem);
+
+$title-size: var(--title-size, 6rem);
+$title-size-md: var(--title-size-md, 1.375rem);
+$title-size-sm: var(--title-size-sm, 1.125rem);
+$title-size-xs: var(--title-size-xs, 1rem);
+$title-size-mini: var(--title-size-mini, .875rem);
+
+$duration: var(--duration, .3s);
+$letter-spacing: var(--letter-spacing, 0);
+
+:root {
+    --base-font-family: 'Wanted Sans', 'Onest', sans-serif;
+
+	--color-white: #fff;
+	--color-background: #ffffff;
+
+	--color-base: #000000;
+	--color-base-rgb: 0,0,0;
+
+	--color-accent: #2a2a2a;
+    --color-accent-rgb: 42,42,42;
+    --color-accent-hover: #000000;
+
+    --color-border: #e6e3df;
+	--color-grey: #f4f2ef;
+	--color-grey-second: #e6e3df;
+	--color-light-grey: #faf9f7;
+    --color-dark-grey: #666666;
+    --color-disabled: #D4D5D6;
+
+	--color-error: #900;
+	--color-success: #19BE32;
+
+    --container-max-width: 110rem;
+    --gutters: 1.25rem;
+    --space-lg: 2.5rem;
+    --space-md: 1rem;
+    --space: 1.25rem;
+
+    --header-fixed-height: 6rem;
+
+    --icon-size: 1.5rem;
+
+    --radius: 1rem;
+    --radius-sm: .5rem;
+
+    --input-height-sm: 3rem;
+    --input-height: 4.1875rem; // 67px (дизайн)
+    --input-height-lg: 5rem;
+
+    --title-size: 6rem;
+    --title-size-md: 1.375rem;
+    --title-size-sm: 1.125rem;
+    --title-size-xs: 1rem;
+    --title-size-mini: .875rem;
+
+    --base-font-weight: 500;
+
+    --text-size-lg: 1.25rem;
+    --text-size-md: 1.125rem;
+    --text-size: 1rem;
+    --text-size-sm: .875rem;
+    --text-size-xs: .75rem;
+	--text-line-height: 1.4;
+
+	--duration: .3s;
+    --letter-spacing: 0;
+
+    @include media($breakpoint-adaptive) {
+        --title-size: 3rem;
+        --header-fixed-height: 4.5rem;
+    }
+}

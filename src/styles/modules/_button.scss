@@ -1,0 +1,98 @@
+
+.ui-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .75rem;
+    padding: 1.25rem 2rem;        // 20 / 32 → высота 67px
+    background-color: $color-base;
+    border: 1px solid $color-base;
+    border-radius: 0;
+    box-shadow: none;
+    width: fit-content;
+    font-weight: 600;
+    font-size: 1.25rem;           // 20px
+    line-height: 1.35;
+    text-transform: uppercase;
+    text-align: left;
+    color: $color-white;
+    text-decoration: none;
+    transition: $duration background-color, $duration color, $duration border-color;
+    user-select: none;
+    cursor: pointer;
+
+    &__icon {
+        flex: none;
+        width: 1.5rem;            // 24px
+        height: 1.5rem;
+        fill: currentColor;
+    }
+
+    &--fill {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    &--center {
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    &:hover {
+        background-color: $color-base;
+        border-color: $color-base;
+        color: $color-white;
+    }
+
+    &:focus-visible {
+        outline-color: $color-base;
+    }
+
+    &--outline {
+        background-color: transparent;
+        border-color: $color-base;
+        color: $color-base;
+
+        &:hover {
+            background-color: $color-base;
+            border-color: $color-base;
+            color: $color-white;
+        }
+    }
+
+    &--link {
+        border: none;
+        background-color: transparent;
+        padding: 0;
+        text-transform: none;
+        color: $color-base;
+        font-weight: 500;
+
+        &:hover {
+            color: $color-base;
+            background-color: transparent;
+        }
+    }
+
+    &:disabled,
+    &.is-disabled {
+        background-color: $color-disabled;
+        border-color: $color-disabled;
+        color: $color-white;
+        cursor: default;
+        pointer-events: none;
+    }
+
+    &--square {
+        gap: 0;
+        padding: 0;
+        width: 4.1875rem;         // 67px
+        height: 4.1875rem;
+    }
+
+    &.icon-first {
+        svg {
+            order: -1;
+        }
+    }
+}

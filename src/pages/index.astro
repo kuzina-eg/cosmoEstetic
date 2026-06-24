@@ -1,0 +1,93 @@
+---
+import site from "@data/site.json";
+import Layout from "@layouts/LayoutEmpty.astro";
+const list = site.pages;
+---
+
+<Layout>
+  <div class="container">
+    <div class="site-pages">
+      <h1 class="site-pages__title">{site.name}</h1>
+      <div class="site-pages__table">
+        <div class="site-pages__head">
+          <div>Страница</div>
+          <div>Статус</div>
+        </div>
+        {
+          list.map((item) => (
+            <div class:list={["site-pages__item", item.disabled ? "disabled" : ""]}>
+              <a class="site-pages__link" href={item.link} set:html={item.name} />
+              <div class="site-pages__status" set:html={item.status} />
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style is:inline>
+  .site-pages {
+    padding-top: 5rem;
+    padding-bottom: 8rem;
+  }
+  .site-pages__title {
+    margin-top: 0;
+    margin-bottom: 3rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #e6e3df;
+    font-weight: 600;
+    font-size: 3rem;
+    color: #1a1a1a;
+  }
+  .site-pages__head {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+    color: #fff;
+    background: #1a1a1a;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
+  .site-pages__head > * {
+    padding: 1rem 1.5rem;
+  }
+  .site-pages__item {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  }
+  .site-pages__item:nth-child(2n) {
+    background: #f4f2ef;
+  }
+  .site-pages__item > * {
+    padding: 1rem 1.5rem;
+  }
+  .site-pages__item.disabled {
+    opacity: 0.3;
+    pointer-events: none;
+  }
+  .site-pages__link {
+    width: fit-content;
+    text-decoration: none;
+    color: #1a1a1a;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.3s;
+  }
+  .site-pages__link:hover {
+    border-color: #1a1a1a;
+  }
+  .site-pages__status {
+    color: #6b6b6b;
+    font-size: 0.875rem;
+  }
+  @media (max-width: 575px) {
+    .site-pages__title {
+      font-size: 2rem;
+    }
+    .site-pages__table {
+      margin-left: -1.25rem;
+      margin-right: -1.25rem;
+    }
+  }
+</style>

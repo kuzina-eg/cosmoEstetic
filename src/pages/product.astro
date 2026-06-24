@@ -1,0 +1,126 @@
+---
+import Layout from '@layouts/Layout.astro';
+import Breadcrumbs from '@components/blocks/Breadcrumbs.astro';
+import Badge from '@components/blocks/Badge.astro';
+import Price from '@components/blocks/Price.astro';
+import Button from '@components/modules/Button.astro';
+import Checkbox from '@components/modules/Checkbox.astro';
+import Icon from '@components/modules/Icon.astro';
+import Composition from '@components/sections/Composition.astro';
+import Reviews from '@components/sections/Reviews.astro';
+import typograf from '@utils/typograf';
+
+const images = ['img/products/04', 'img/products/01', 'img/products/02', 'img/products/03', 'img/products/04'];
+const badges = ['Новинка', 'Распродажа', 'Лучшая цена'];
+const specs = [
+  { label: 'Тип', value: 'Бальзам для губ' },
+  { label: 'SPF', value: 'SPF 15+' },
+  { label: 'Аромат', value: 'шоколадный аромат' },
+  { label: 'Цвет', value: 'Chocolate' },
+  { label: 'Текстура', value: 'Гелевая' },
+];
+const features = [
+  'Глубоко питает, увлажняет и ухаживает за хрупкой кожей ваших губ.',
+  'Обогащён пептидами, гиалуроновой кислотой, питательными маслами и витамином "Е".',
+  'Активные компоненты увлажняют и разглаживают губы от морщинок, а так же придают им зеркальный блеск.',
+];
+const delivery = [
+  { label: 'Стоимость доставки СДЭК до ПВЗ:', value: '500 ₽' },
+  { label: 'Стоимость доставки СДЭК-курьер:', value: '1 000 ₽' },
+  { label: 'При заказе от 4000 ₽', value: 'Доставка бесплатная' },
+];
+---
+<Layout title="Essential Lip Balm">
+  <div class="container page-top">
+    <Breadcrumbs items={[{ text: 'Главная', url: '/' }, { text: 'Хлебные', url: '#' }, { text: 'Крошки' }]} />
+
+    <div class="product">
+      <!-- ===== GALLERY ===== -->
+      <div class="product__gallery product-gallery">
+        <div class="swiper product-gallery__main js-main-photo">
+          <div class="swiper-wrapper">
+            {images.map((src) => (
+              <div class="swiper-slide">
+                <img class="product-gallery__img lazy" data-src={`${src}@1x.webp`} data-srcset={`${src}@2x.webp 2x`} alt="" />
+              </div>
+            ))}
+          </div>
+          <div class="badge-list product-gallery__badges">
+            {badges.map((b) => <Badge text={b} />)}
+          </div>
+        </div>
+
+        <div class="swiper product-gallery__thumbs js-thumbs-photo">
+          <div class="swiper-wrapper">
+            {images.map((src) => (
+              <div class="swiper-slide product-gallery__thumb">
+                <img class="product-gallery__thumb-img lazy" data-src={`${src}@1x.webp`} data-srcset={`${src}@2x.webp 2x`} alt="" />
+              </div>
+            ))}
+          </div>
+          <button class="product-gallery__arrow slider-arrow swiper-button-prev js-gallery-slider-prev" type="button" aria-label="Назад">
+            <Icon name="arrow-left" />
+          </button>
+          <button class="product-gallery__arrow slider-arrow swiper-button-next js-gallery-slider-next" type="button" aria-label="Вперёд">
+            <Icon name="arrow-right" />
+          </button>
+        </div>
+      </div>
+
+      <!-- ===== INFO ===== -->
+      <div class="product__info">
+        <div class="product__header">
+          <h1 class="product__title" set:html={typograf('Essential Lip Balm')} />
+          <p class="product__subtitle" set:html={typograf('Увлажняющий Бальзам для губ Essential Lip Balm бесцветный')} />
+        </div>
+
+        <!-- Characteristics -->
+        <div class="product__label" set:html={typograf('характеристики')} />
+        <dl class="specs">
+          {specs.map((s) => (
+            <div class="specs__row">
+              <dt class="specs__label" set:html={typograf(s.label)} />
+              <dd class="specs__value" set:html={typograf(s.value)} />
+            </div>
+          ))}
+        </dl>
+
+        <!-- Description -->
+        <div class="product__label" set:html={typograf('Заголовок')} />
+        <div class="product__desc">
+          <p class="product__text" set:html={typograf('Увлажняющий бальзам для губ с нежным оттенком молочного шоколада. Для тех, кто устал от повседневного цвета своих губ – изысканный и чудесный коричневый оттенок любимого бальзама, который можно наслаивать для получения разной интенсивности цвета.')} />
+          <ul class="product__features">
+            {features.map((f) => <li set:html={typograf(f)} />)}
+          </ul>
+        </div>
+
+        <!-- Delivery -->
+        <div class="product__city">
+          Ваш город: Москва,&nbsp;<a href="#city" data-fancybox class="product__city-change">изменить</a>
+        </div>
+        <dl class="specs product__delivery">
+          {delivery.map((d) => (
+            <div class="specs__row">
+              <dt class="specs__label" set:html={typograf(d.label)} />
+              <dd class="specs__value" set:html={typograf(d.value)} />
+            </div>
+          ))}
+        </dl>
+
+        <!-- Buy row -->
+        <div class="product__buy">
+          <Price price="3 000 ₽" oldPrice="4 000 ₽" class="product__price" />
+          <Button type="link" href="#cart" style="outline" fill icon="bag" class="product__buy-btn">
+            Добавить в корзину
+          </Button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <Composition />
+  <Reviews
+    sm
+    title="Превосходные результаты"
+    subtitle="Наши клиенты отмечают не только улучшение состояния своих губ, но и кардинальные перемены в своей повседневной жизни."
+  />
+</Layout>

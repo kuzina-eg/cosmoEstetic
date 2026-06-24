@@ -1,0 +1,108 @@
+
+.styleguide {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    padding-bottom: 4rem;
+
+    font-size: $text-size-lg; // 20px
+    line-height: 1.35;
+    color: $color-dark-grey;
+
+    h1 {
+        font-size: $title-size; // 96px
+        font-weight: 600;
+        line-height: 1;
+        color: $color-base;
+        margin: 0;
+    }
+
+    h2 {
+        font-size: 3rem; // 48px
+        font-weight: 600;
+        line-height: 1;
+        color: $color-base;
+        margin: 0;
+    }
+
+    h3 {
+        font-size: $title-size-md; // 22px
+        font-weight: 600;
+        line-height: 1;
+        text-transform: uppercase;
+        letter-spacing: 0;
+        color: $color-base;
+        margin: 0;
+    }
+
+    p {
+        margin: 0;
+    }
+
+    ul:not([class]) {
+        margin: 0;
+        padding-left: 1.25rem;
+        display: flex;
+        flex-direction: column;
+        gap: .5rem;
+
+        li {
+            list-style: disc;
+        }
+    }
+
+    .ui-checkbox__checked {
+        border-radius: 0;
+        border-width: 1px;
+        width: 2rem; // 32px (Figma)
+        height: 2rem;
+    }
+
+    .ui-checkbox_radio .ui-checkbox__checked {
+        border-radius: 50%;
+    }
+
+    .ui-checkbox__checked-icon {
+        background: $color-base;
+    }
+}
+
+.sg-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.sg-content {
+    display: flow-root;
+
+    &__media {
+        float: left;
+        width: 25.625rem; // 410px (дизайн)
+        max-width: 100%;
+        height: auto;
+        margin: 0 2.5rem 1rem 0;
+
+        @include media(mob) {
+            float: none;
+            width: 100%;
+            margin: 0 0 1.5rem;
+        }
+    }
+
+    &__text {
+        margin: 0;
+    }
+}
+
+.sg-toggles {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.sg-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}

@@ -1,0 +1,122 @@
+.hero {
+    position: relative;
+    overflow: hidden;
+
+    &__slider {
+        position: relative;
+        width: 100%;
+    }
+
+    &__slide {
+        min-height: 48rem;
+        display: flex;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+
+        @include media(tab) {
+            min-height: 36rem;
+        }
+
+        @include media(mob) {
+            min-height: 26rem;
+        }
+    }
+
+    &__image {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    &__inner {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        width: 100%;
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+
+        @include media(tab) {
+            padding-top: 3rem;
+            padding-bottom: 3rem;
+        }
+
+        @include media(mob) {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+        }
+    }
+
+    &__content {
+        max-width: 50%;
+        width: 100%;
+
+        @include media(tab) {
+            max-width: 70%;
+        }
+    }
+
+    &__title {
+        font-size: $title-size;
+        font-weight: 600;
+        line-height: 1;
+        color: $color-base;
+        margin-top: 0;
+        margin-bottom: 1.5rem;
+        letter-spacing: $letter-spacing;
+
+        @include media(tab) {
+            margin-bottom: 1.25rem;
+        }
+
+        @include media(mob) {
+            margin-bottom: 1rem;
+        }
+    }
+
+    &__text {
+        font-size: $text-size-lg;
+        color: $color-base;
+        line-height: 1.35;
+        margin-top: 0;
+        margin-bottom: 2rem;
+        max-width: 55rem;
+
+        @include media(tab) {
+            max-width: 100%;
+            margin-bottom: 1.5rem;
+        }
+
+        @include media(mob) {
+            font-size: $text-size;
+            margin-bottom: 1.25rem;
+        }
+    }
+
+    &__button {
+        max-width: 25.625rem; // 410px (дизайн)
+    }
+
+    &__pagination {
+        --swiper-pagination-bottom: 1.5rem;
+        --swiper-pagination-bullet-horizontal-gap: 0.375rem;
+        --swiper-pagination-bullet-inactive-color: #{$color-grey-second};
+        --swiper-pagination-bullet-inactive-opacity: 1;
+        --swiper-theme-color: #{$color-base};
+        --swiper-pagination-bullet-size: 0.625rem;
+
+        position: absolute;
+        z-index: 10;
+        display: flex;
+        justify-content: center;
+
+        @include media(mob) {
+            --swiper-pagination-bottom: 1rem;
+        }
+    }
+}

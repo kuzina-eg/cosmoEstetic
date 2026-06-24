@@ -1,0 +1,30 @@
+
+.p404 {
+    padding: 3rem 0;
+    text-align: center;
+
+    @include media-min(tab) {
+        padding: 5rem 0;
+    }
+
+    &__number {
+        display: block;
+        margin-bottom: 2rem;
+        font-size: 10rem;
+        line-height: .9;
+        color: rgba($color-accent-rgb,.3);
+        font-weight: 700;
+
+        @include media-min(tab) {
+            font-size: 14rem;
+        }
+    }
+
+    &__text {
+        margin-bottom: 3rem;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}

@@ -1,0 +1,85 @@
+
+
+@import "@fancyapps/ui/dist/fancybox/fancybox.css";
+
+.fancybox__backdrop {
+    background-color: rgba($color-base-rgb,.5);
+    opacity: 1;
+}
+
+.fancybox__thumbs {
+    --f-thumb-border-radius: .5rem;
+    --f-thumb-outline: 1px;
+    --f-thumb-outline-color: var(--color-light-grey);
+
+}
+
+.fancybox__content {
+    border-radius: $radius;
+    padding: 2rem;
+
+    & > img {
+        background-color: #FFFFFF;
+        border-radius: $radius;
+    }
+}
+
+.fancybox__content > .f-button.is-close-btn,
+.is-compact .fancybox__content>.f-button.is-close-btn {
+    --f-button-color: #2E395F;
+    --f-button-bg: none;
+    --f-button-hover-bg: none;
+    --f-button-outline-color: rgba(46,57,95,.2);
+    --f-button-active-bg: rgba(46,57,95,.2);
+    --f-button-hover-color: #2E395F;
+    --f-button-width: 1.5rem;
+    --f-button-height: 1.5rem;
+    --f-button-svg-width: .875rem;
+    --f-button-svg-height: .875rem;
+    --f-button-svg-stroke-width: 4;
+    top: 1rem;
+    right: 1rem;
+    border-radius: 0;
+
+    &:hover {
+        transform: rotate(90deg);
+    }
+}
+
+.f-thumbs__slide__button {
+    border-radius: $radius-sm;
+}
+
+.modal {
+    width: 20rem;
+    max-width: 100%;
+
+    &--map {
+        width: 65rem;
+    }
+
+    &__title {
+        margin-bottom: .5rem;
+    }
+
+    &__descr {
+        margin-bottom: 1.75rem;
+        color: var(--color-dark-grey);
+        line-height: 1.25;
+
+        p {
+            margin-bottom: .5rem;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    @include media-min(mob) {
+    }
+}

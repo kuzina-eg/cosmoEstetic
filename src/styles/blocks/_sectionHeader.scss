@@ -1,0 +1,28 @@
+.section-header {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem; // 8px заголовок→подзаголовок (дизайн)
+    margin-bottom: 4rem; // 64px header→сетка (дизайн)
+
+    @include media(tab) {
+        margin-bottom: 2.5rem;
+    }
+
+    &__title {
+        font-size: 3rem; // 48px (H2 Wanted Sans SemiBold)
+        font-weight: 600;
+        color: $color-base;
+        line-height: 1;
+        margin: 0;
+
+        @include media(mob) {
+            font-size: 2rem;
+        }
+    }
+
+    &__subtitle {
+        font-size: $text-size-lg; // 20px (H5)
+        color: $color-dark-grey;
+        margin: 0;
+    }
+}

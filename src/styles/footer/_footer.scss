@@ -1,0 +1,115 @@
+
+
+.footer {
+    background-color: #0a0a0a;
+    color: $color-white;
+    flex-shrink: 0;
+    width: 100%;
+    padding: $space-lg 0;
+
+    &__container {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 2.5rem;
+
+        @include media(tab) {
+            flex-wrap: wrap;
+        }
+
+        @include media(mob) {
+            flex-direction: column;
+        }
+    }
+
+    &__col {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__col--brand {
+        margin-left: auto;
+        align-items: flex-end;
+        gap: 1.25rem;
+
+        @include media(mob) {
+            align-items: flex-start;
+            margin-left: 0;
+        }
+    }
+
+    &__title {
+        font-weight: 600;
+        color: $color-white;
+        margin-bottom: .5rem; // 8px (дизайн)
+        font-size: 1.25rem; // 20px
+    }
+
+    &__menu {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: .5rem; // 8px
+    }
+
+    &__link {
+        display: inline-flex;
+        align-items: baseline;
+        gap: .5rem;
+        color: $color-white;
+        font-size: 1.25rem; // 20px
+        text-decoration: none;
+        transition: color $duration;
+
+        &::before {
+            content: '•';
+            flex: none;
+        }
+
+        &:hover {
+            color: rgba(255, 255, 255, .7);
+        }
+    }
+
+    &__logo {
+        display: block;
+        line-height: 0;
+
+        img {
+            display: block;
+            height: 3rem;
+            width: auto;
+            filter: brightness(0) invert(1);
+        }
+    }
+
+    &__socials {
+        display: flex;
+        gap: 1rem;
+    }
+
+    &__social {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: inherit;
+        transition: color $duration;
+        text-decoration: none;
+
+        &:hover {
+            color: rgba(255, 255, 255, .7);
+        }
+    }
+
+    &__social-icon {
+        width: 1.5rem;
+        height: 1.5rem;
+        fill: currentColor;
+    }
+
+    &__copy {
+        font-size: 1.25rem; // 20px
+    }
+}

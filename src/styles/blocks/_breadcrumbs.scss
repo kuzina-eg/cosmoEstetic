@@ -1,0 +1,40 @@
+
+.breadcrumbs {
+
+    &__list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem; // 16px между словом и тире
+        align-items: center;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    &__item {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    &__link {
+        color: $color-dark-grey;
+        font-size: 1.25rem; // 20px
+        text-decoration: none;
+        transition: $duration color;
+
+        &:hover {
+            color: $color-base;
+        }
+    }
+
+    &__current {
+        color: $color-dark-grey;
+        font-size: 1.25rem; // 20px
+    }
+
+    &__sep {
+        color: $color-dark-grey;
+        font-size: 1.25rem;
+    }
+}

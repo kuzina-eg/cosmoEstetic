@@ -1,0 +1,32 @@
+
+@font-face {
+    font-family: 'Wanted Sans';
+    src: url('/fonts/WantedSans-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Wanted Sans';
+    src: url('/fonts/WantedSans-SemiBold.woff2') format('woff2');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Onest';
+    src: url('/fonts/Onest-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+    unicode-range: U+0400-04FF, U+20A0-20BF, U+2116;
+}
+@font-face {
+    font-family: 'Onest';
+    src: url('/fonts/Onest-SemiBold.woff2') format('woff2');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+    unicode-range: U+0400-04FF, U+20A0-20BF, U+2116;
+}

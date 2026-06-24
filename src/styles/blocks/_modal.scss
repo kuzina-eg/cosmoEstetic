@@ -1,0 +1,228 @@
+
+
+.modal.fancybox__content {
+    border-radius: 0;
+}
+
+.modal:has(.modal__close) > .f-button.is-close-btn {
+    display: none;
+}
+
+.modal {
+    position: relative;
+    width: 36.25rem; // 580px
+    max-width: 100%;
+    background: $color-white;
+    padding: 2.5rem;
+
+    @include media(mob) {
+        padding: 1.5rem;
+    }
+
+    &__header {
+        margin-bottom: 1.5rem; // 24px
+    }
+
+    &__title {
+        margin: 0;
+        padding-right: 2.5rem; // место под крестик
+        font-size: 1.375rem; // 22px
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0;
+        color: $color-base;
+    }
+
+    &__close {
+        position: absolute;
+        top: 2.5rem;
+        right: 2.5rem;
+        z-index: 2;
+        width: 1.5rem;
+        height: 1.5rem;
+        padding: 0;
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: $color-base;
+        line-height: 0;
+        transition: opacity $duration;
+
+        @include media(mob) {
+            top: 1.5rem;
+            right: 1.5rem;
+        }
+
+        &:hover {
+            opacity: .6;
+        }
+    }
+
+    &__close-icon {
+        width: 1.5rem;
+        height: 1.5rem;
+        fill: currentColor;
+    }
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem; // 24px между полями (дизайн)
+    }
+
+    &__body {
+    }
+
+    &__error {
+        color: #e8552d;
+        font-size: $text-size-sm;
+        display: none;
+    }
+
+    &.is-invalid &__error {
+        display: block;
+    }
+
+    &__action {
+        margin-top: .75rem;
+    }
+
+    &__hint {
+        margin: 1.5rem 0 .75rem;
+        color: $color-dark-grey;
+        font-size: $text-size-sm;
+
+        &:first-child {
+            margin-top: 0;
+        }
+
+        a {
+            color: $color-base;
+            text-decoration: underline;
+
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+.modal .ui-checkbox {
+    gap: .5rem; // 8px (дизайн)
+    font-size: 1.25rem; // 20px (H5 Regular)
+    color: $color-dark-grey;
+}
+
+.modal .ui-checkbox__checked {
+    width: 2rem; // 32px
+    height: 2rem;
+    border-width: 1px;
+    border-radius: 0;
+}
+
+.modal .ui-checkbox__checked-icon {
+    background: $color-base;
+}
+
+.modal-city__search {
+    position: relative;
+}
+
+.modal-city__input {
+    padding-right: 3.5rem;
+}
+
+.modal-city__search-btn {
+    position: absolute;
+    right: 2rem; // 32px (дизайн)
+    top: calc(4.1875rem / 2);
+    transform: translateY(-50%);
+    width: 1.5rem;
+    height: 1.5rem;
+    padding: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: $color-dark-grey;
+    line-height: 0;
+    transition: color $duration;
+
+    .ui-icon {
+        width: 1.5rem;
+        height: 1.5rem;
+        fill: currentColor;
+    }
+
+    &:hover {
+        color: $color-base;
+    }
+}
+
+.modal-city__suggestions {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border: 1px solid $color-border;
+    border-top: none;
+    display: none;
+    max-height: 14rem;
+    overflow-y: auto;
+
+    .js-city.is-searching &,
+    &.is-open {
+        display: block;
+    }
+}
+
+.modal-city__suggestion {
+    padding: .875rem 2rem;
+    text-transform: uppercase;
+    font-size: 1.25rem; // 20px (H4)
+    font-weight: 600;
+    color: $color-base;
+    cursor: pointer;
+    border-bottom: 1px solid $color-border;
+    transition: background $duration;
+
+    &:last-child {
+        border-bottom: none;
+    }
+
+    &:hover {
+        background: $color-grey;
+    }
+}
+
+.modal-status {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 3.25rem 1rem 2rem; // padding-top 52px
+    gap: 1.25rem;
+}
+
+.modal-status__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .ui-icon {
+        width: 3rem; // 48px
+        height: 3rem;
+        fill: currentColor;
+    }
+}
+
+.modal-status--error .modal-status__icon {
+    color: #e8552d;
+}
+
+.modal-status--success .modal-status__icon {
+    color: $color-success;
+}
+
+.modal-status__text {
+    font-size: $text-size-lg;
+    color: $color-base;
+}

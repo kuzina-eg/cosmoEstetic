@@ -1,0 +1,51 @@
+.reviews {
+    &__carousel {
+        position: relative;
+    }
+
+    &__slider {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+        padding-bottom: 4.5rem; // 72px: 64px отступ дизайна + 8px брусок
+    }
+
+    &__arrow {
+        position: absolute;
+        top: calc((100% - 4.5rem) * 0.33);
+        transform: translateY(-50%);
+        z-index: 3;
+
+        &--prev { left: 0; }
+        &--next { right: 0; }
+
+        @include media(mob) {
+            display: none;
+        }
+    }
+
+    &__pagination {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem; // 24px (дизайн)
+
+        .swiper-pagination-bullet {
+            width: .5rem; // 8px квадрат
+            height: .5rem;
+            border-radius: 0;
+            background: $color-border;
+            opacity: 1;
+            transition: width $duration, background $duration;
+            margin: 0;
+        }
+
+        .swiper-pagination-bullet-active {
+            width: 3rem; // 48px брусок (дизайн)
+            background: $color-base;
+        }
+    }
+}

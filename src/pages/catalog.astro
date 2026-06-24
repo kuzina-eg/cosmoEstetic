@@ -1,0 +1,25 @@
+---
+import Layout from '@layouts/Layout.astro';
+import Breadcrumbs from '@components/blocks/Breadcrumbs.astro';
+import CatalogItem from '@components/blocks/CatalogItem.astro';
+import CtaBanner from '@components/sections/CtaBanner.astro';
+
+const products = Array.from({ length: 3 }).map((_, i) => ({
+  image: `img/products/0${i + 1}`,
+  title: 'Essential Lip Balm',
+  description: 'Увлажняющий Бальзам для губ Essential Lip Balm бесцветный',
+  price: '3 000 ₽',
+  oldPrice: '4 000 ₽',
+  badges: ['Новинка', 'Распродажа', 'Лучшая цена'],
+}));
+---
+<Layout title="Каталог" user="Elena">
+  <div class="container page-top">
+    <Breadcrumbs items={[{ text: 'Главная', url: '/' }, { text: 'Хлебные', url: '#' }, { text: 'Крошки' }]} />
+    <h1 class="page-title">Заголовок категории</h1>
+    <div class="catalog-list">
+      {products.map((p) => <CatalogItem {...p} />)}
+    </div>
+  </div>
+  <CtaBanner />
+</Layout>

@@ -1,0 +1,62 @@
+---
+import Layout from '@layouts/Layout.astro';
+import Hero from '@components/sections/Hero.astro';
+import Ingredients from '@components/sections/Ingredients.astro';
+import Products from '@components/sections/Products.astro';
+import PromoBanner from '@components/sections/PromoBanner.astro';
+import Reviews from '@components/sections/Reviews.astro';
+import CtaBanner from '@components/sections/CtaBanner.astro';
+
+const ingredients = [
+    {
+        image: 'img/ingredients/01',
+        name: 'SQUALANE (Сквалан)',
+        text: 'Легкий, нежирный углеводород, который является стабильной формой сквалена — естественного компонента липидного барьера кожи человека.',
+    },
+    {
+        image: 'img/ingredients/02',
+        name: 'PALMITOYL TRIPEPTIDE-1 (Пальмитоил Трипептид-1)',
+        text: 'Биоактивный пептид, известный своей способностью стимулировать выработку коллагена и других внеклеточных матричных компонентов.',
+    },
+    {
+        image: 'img/ingredients/03',
+        name: 'TOCOPHEROL (Токоферол)',
+        text: 'Мощный жирорастворимый антиоксидант, широко известный как Витамин Е.',
+    },
+    {
+        image: 'img/ingredients/04',
+        name: 'SHEABUTTER-REFINED (Масло Ши)',
+        text: 'Очищенное растительное масло, получаемое из орехов африканского дерева ши. Богатый источник жирных кислот и витаминов, глубоко питает кожу губ.',
+    },
+];
+
+const lipBalm = {
+    name: 'Essential Lip Balm',
+    text: 'Увлажняющий Бальзам для губ Essential Lip Balm бесцветный',
+    oldPrice: '4 000 ₽',
+    price: '3 000 ₽',
+};
+const products = [
+    { ...lipBalm, image: 'img/products/01', badges: ['Новинка', 'Распродажа', 'Лучшая цена'] },
+    { ...lipBalm, image: 'img/products/02', badges: ['Распродажа'] },
+    { ...lipBalm, image: 'img/products/03', badges: ['Лучшая цена'] },
+];
+
+const reviewsSubtitle = 'Наши клиенты отмечают не только улучшение состояния своих губ, но и кардинальные перемены в своей повседневной жизни.';
+---
+<Layout title="Главная">
+    <Hero />
+    <Ingredients
+        title="Уникальные ингридиенты"
+        subtitle="В состав наших средств входят самые ценные и эффективные в мире ингредиенты для Вашего ухода."
+        items={ingredients}
+    />
+    <Products
+        title="Серия Lip Balm"
+        subtitle="Каждый продукт представляет собой шедевр рецептуры, сочетающий в себе самые эксклюзивные ингредиенты и инновационные технологии."
+        items={products}
+    />
+    <PromoBanner />
+    <Reviews title="Превосходные результаты" subtitle={reviewsSubtitle} />
+    <CtaBanner />
+</Layout>

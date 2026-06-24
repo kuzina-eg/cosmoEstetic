@@ -1,0 +1,376 @@
+
+
+.header {
+    position: relative;
+    flex-shrink: 0;
+    width: 100%;
+
+    &__top {
+        background: $color-white;
+        border-bottom: 1px solid $color-border;
+    }
+
+    &__container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 7rem; // ~112px
+
+        @include media(mob) {
+            min-height: 4rem;
+        }
+    }
+
+    &__logo {
+        display: inline-flex;
+        flex-shrink: 0;
+        text-decoration: none;
+
+        img {
+            display: block;
+            max-width: 14rem; // 224px
+            max-height: 4rem;      // 64px
+            width: 100%;
+            height: auto;
+
+            @include media(mob) {
+                max-width: 8rem;
+            }
+        }
+    }
+
+    &__actions {
+        display: flex;
+        align-items: center;
+        gap: 2.25rem;
+
+        @include media(tab) {
+            gap: 1.25rem;
+        }
+
+        @include media(mob) {
+            gap: 1rem;
+        }
+    }
+
+    &__action {
+        display: inline-flex;
+        align-items: center;
+        gap: .5rem;
+        color: $color-base;
+        font-size: $text-size-lg;
+        text-decoration: none;
+        transition: $duration color, $duration opacity;
+
+        &:hover {
+            color: $color-accent;
+            opacity: .8;
+        }
+
+        @include media(mob) {
+            gap: .25rem;
+        }
+    }
+
+    &__action-icon {
+        width: $icon-size;
+        height: $icon-size;
+        flex-shrink: 0;
+        fill: currentColor;
+    }
+
+    &__action-text {
+        @include media(mob) {
+            display: none;
+        }
+    }
+
+    &__nav {
+        background: $color-accent;
+        position: relative;
+
+        @include media(mob) {
+            min-height: 3rem;
+
+            &.is-open {
+                .header__nav-list {
+                    display: flex;
+                }
+            }
+        }
+    }
+
+    &__nav-container {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    &__nav-list {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        @include media(mob) {
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            width: 100%;
+            background: $color-accent;
+            z-index: 100;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
+            max-height: calc(100vh - var(--header-fixed-height, 6rem));
+            overflow-y: auto;
+        }
+    }
+
+    &__nav-item {
+        flex: 1;
+        position: relative;
+
+        @include media(mob) {
+            flex: none;
+            width: 100%;
+        }
+    }
+
+    &__nav-link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: .375rem;
+        min-height: 5.5rem; // ~88px
+        padding: 0 .75rem;
+        color: rgba(255, 255, 255, .85);
+        text-transform: uppercase;
+        font-size: $text-size-md;
+        letter-spacing: .05em;
+        text-decoration: none;
+        text-align: center;
+        transition: $duration background, $duration color;
+        cursor: pointer;
+
+        &.is-active,
+        &:hover {
+            background: rgba(255, 255, 255, .08);
+            color: $color-white;
+        }
+
+        @include media(tab) {
+            font-size: $text-size-xs;
+            padding: 0 .5rem;
+        }
+
+        @include media(mob) {
+            min-height: 3rem;
+            justify-content: space-between;
+            padding: .75rem 1.25rem;
+            border-bottom: 1px solid rgba(255, 255, 255, .1);
+        }
+    }
+
+    &__dropdown {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        z-index: 50;
+        min-width: 18rem;
+        background: $color-accent;
+        box-shadow: 0 12px 32px rgba(0, 0, 0, .28);
+        padding: 2rem;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(.5rem);
+        transition: $duration opacity, $duration transform, $duration visibility;
+        pointer-events: none;
+
+        @include media(mob) {
+            position: static;
+            min-width: 0;
+            box-shadow: none;
+            padding: 0 1.25rem;
+            transform: none;
+            display: none;
+            background: rgba(0, 0, 0, .25);
+        }
+    }
+
+    &__dropdown-inner {
+        display: flex;
+        flex-direction: column;
+        gap: 1.75rem;
+
+        @include media(mob) {
+            gap: 1rem;
+            padding: 1rem 0;
+        }
+    }
+
+    &__dropdown-col {
+        min-width: 12rem;
+    }
+
+    &__dropdown-title {
+        color: $color-white;
+        font-weight: 600;
+        font-size: $text-size;
+        margin-bottom: .75rem;
+    }
+
+    &__dropdown-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: .625rem;
+    }
+
+    &__dropdown-link {
+        display: inline-flex;
+        align-items: baseline;
+        gap: .5rem;
+        color: rgba(255, 255, 255, .7);
+        font-size: $text-size;
+        text-decoration: none;
+        transition: $duration color;
+
+        &::before {
+            content: '•';
+            color: rgba(255, 255, 255, .4);
+        }
+
+        &:hover {
+            color: $color-white;
+        }
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+        &__nav-item--has-dropdown:hover {
+            .header__dropdown {
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0);
+                pointer-events: auto;
+            }
+        }
+    }
+
+    &__nav-item--has-dropdown.is-open {
+        .header__dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+            pointer-events: auto;
+
+            @include media(mob) {
+                display: block;
+            }
+        }
+    }
+
+    &__burger {
+        display: none;
+        position: absolute;
+        right: 1.25rem;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 10;
+        padding: .5rem;
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: $color-white;
+        line-height: 0;
+
+        .ui-icon {
+            width: $icon-size;
+            height: $icon-size;
+            fill: currentColor;
+        }
+
+        @include media(mob) {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+}
+
+.header__user {
+    position: relative;
+
+    &-button {
+        background: none;
+        border: none;
+        cursor: pointer;
+        font: inherit;
+    }
+
+    &-menu {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        margin-top: 1rem;
+        min-width: 16rem;
+        background: $color-white;
+        border: 1px solid $color-border;
+        padding: 1rem 0;
+        z-index: 60;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(.5rem);
+        transition: $duration opacity, $duration visibility, $duration transform;
+        pointer-events: none;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: -6px;
+            right: 2.5rem;
+            width: 12px;
+            height: 12px;
+            background: $color-white;
+            border-top: 1px solid $color-border;
+            border-left: 1px solid $color-border;
+            transform: rotate(45deg);
+        }
+    }
+
+    &.is-open &-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        pointer-events: auto;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+        &:hover &-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: none;
+            pointer-events: auto;
+        }
+    }
+
+    &-link {
+        display: block;
+        padding: .75rem 2rem;
+        color: $color-base;
+        font-size: $text-size-lg;
+        white-space: nowrap;
+        text-decoration: none;
+        transition: $duration background;
+
+        &:hover {
+            background: $color-grey;
+        }
+    }
+}
+
+body.is-menu-open {
+    overflow: hidden;
+}

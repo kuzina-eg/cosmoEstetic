@@ -1,0 +1,227 @@
+
+.product {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 2.5rem; // 40px (дизайн)
+    align-items: start;
+    margin-bottom: 4rem; // 64px → к секции «Состав»
+
+    @include media(tab) {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+
+.product-gallery {
+    &__main {
+        position: relative;
+        margin-bottom: 1rem; // 16px до миниатюр
+        overflow: hidden;
+    }
+
+    &__img {
+        display: block;
+        width: 100%;
+        aspect-ratio: 860 / 840;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    &__badges {
+        position: absolute;
+        top: 1.5rem; // 24px
+        left: 1.5rem;
+        z-index: 2;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: .5rem; // 8px
+    }
+
+    .badge {
+        height: 2rem; // 32px
+        padding: 0 .75rem; // 12px
+        font-size: 1.25rem; // 20px
+        line-height: 1;
+        letter-spacing: 0;
+        border-radius: 0;
+        background: rgba(0, 0, 0, .16);
+        backdrop-filter: blur(32px);
+        -webkit-backdrop-filter: blur(32px);
+        text-transform: none;
+    }
+
+    &__thumbs {
+        position: relative;
+        overflow: hidden;
+    }
+
+    &__thumb-img {
+        display: block;
+        width: 100%;
+        aspect-ratio: 276 / 269;
+        object-fit: cover;
+        object-position: center;
+        cursor: pointer;
+        opacity: .6;
+        transition: opacity $duration;
+
+        .swiper-slide-thumb-active & {
+            opacity: .7;
+        }
+    }
+
+    &__arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 2;
+
+        &.js-gallery-slider-prev { left: 0; }
+        &.js-gallery-slider-next { right: 0; }
+    }
+}
+
+.product {
+    &__info {
+        display: flex;
+        flex-direction: column;
+        gap: 2.5rem; // 40px между блоками (дизайн)
+    }
+
+    &__header {
+        display: flex;
+        flex-direction: column;
+        gap: .5rem; // 8px заголовок → подзаголовок
+    }
+
+    &__title {
+        margin: 0;
+        font-size: 3rem; // 48px (H2 SemiBold)
+        font-weight: 600;
+        color: $color-base;
+        line-height: 1;
+
+        @include media(mob) {
+            font-size: 2rem;
+        }
+    }
+
+    &__subtitle {
+        margin: 0;
+        color: $color-dark-grey;
+        font-size: 1.25rem; // 20px
+        line-height: 1.35;
+    }
+
+    &__label {
+        font-weight: 600;
+        font-size: 1.25rem; // 20px
+        color: $color-base;
+    }
+
+    &__text {
+        margin: 0;
+        color: $color-base;
+        font-size: 1.25rem; // 20px
+        line-height: 1.35;
+    }
+
+    &__features {
+        margin: 1rem 0 0;
+        padding-left: 1.25rem;
+        display: flex;
+        flex-direction: column;
+        gap: .5rem;
+        color: $color-base;
+        font-size: 1.25rem; // 20px
+        line-height: 1.35;
+
+        li {
+            list-style: disc;
+        }
+    }
+
+    &__city {
+        font-size: 1.25rem; // 20px
+        color: $color-base;
+    }
+
+    &__city-change {
+        color: $color-dark-grey;
+        text-decoration: underline;
+
+        &:hover {
+            color: $color-base;
+        }
+    }
+
+    &__buy {
+        display: flex;
+        align-items: center;
+        gap: 2.5rem; // 40px
+        flex-wrap: wrap;
+    }
+
+    &__price {
+        flex: 1 1 0;
+        min-width: 0;
+
+        .price__old {
+            font-size: 1.25rem; // 20px перечёркнутая
+            color: $color-dark-grey;
+            text-decoration: line-through;
+        }
+
+        .price__current {
+            font-size: 3rem; // 48px
+            font-weight: 600;
+            color: $color-base;
+            line-height: 1;
+        }
+    }
+
+    &__buy-btn {
+        flex: 1 1 0;
+        min-width: 0;
+
+        @include media(mob) {
+            width: 100%;
+        }
+    }
+}
+
+.specs {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; // 24px между строками
+
+    &__row {
+        display: flex;
+        align-items: center;
+        font-size: 1.25rem; // 20px
+        line-height: 1.35;
+
+        &::before {
+            content: '';
+            flex: 1 1 auto;
+            align-self: center;
+            margin: 0 1rem;
+            border-bottom: 1px solid #d3d3d3;
+            order: 1;
+        }
+    }
+
+    &__label {
+        color: $color-dark-grey;
+        white-space: nowrap;
+        order: 0;
+    }
+
+    &__value {
+        color: $color-base;
+        text-align: right;
+        white-space: nowrap;
+        order: 2;
+    }
+}

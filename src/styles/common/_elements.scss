@@ -1,0 +1,22 @@
+table {
+    table-layout: fixed;
+}
+
+.table-wrapper {
+	overflow: auto;
+
+    &:not(:last-child) {
+        margin-bottom: $space;
+    }
+
+	table {
+        min-width: 37.5rem;
+    }
+
+    @include media(mob) {
+        margin-left: calc($gutters * -1);
+        margin-right: calc($gutters * -1);
+        padding-right: $gutters;
+        padding-left: $gutters;
+    }
+}

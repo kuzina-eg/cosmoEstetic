@@ -1,0 +1,341 @@
+
+$breakpoint-adaptive: pc;
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+html {
+	position: relative;
+	height: 100%;
+    font-size: 87.5%;
+    background: $color-background;
+
+    @include media-min(mob) {
+        font-size: 100%;
+    }
+}
+
+body {
+	height: 100%;
+	-webkit-font-smoothing: antialiased;
+	text-decoration-skip: objects;
+	text-rendering: optimizeLegibility;
+	text-size-adjust: 100%;
+	-webkit-tap-highlight-color: transparent;
+	font-family: $base-font-family;
+	font-weight: $base-font-weight;
+	font-size: $text-size;
+	line-height: $text-line-height;
+	color: $color-base;
+}
+
+p {
+	margin: 0 0 1.5em;
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+a {
+	color: inherit;
+	transition: $duration ease;
+
+    &:hover {
+        color: $color-accent;
+    }
+}
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+    margin-top: 0;
+    margin-bottom: $space;
+    color: inherit;
+    line-height: 1.25;
+    font-weight: 600;
+}
+
+h1,
+.h1 {
+    font-size: $title-size;
+}
+
+h2,
+.h2 {
+    font-size: $title-size-md;
+    font-weight: 700;
+}
+
+h3,
+.h3 {
+    font-size: $title-size-sm;
+}
+
+h4,
+.h4 {
+    font-size: $title-size-xs;
+}
+
+h5,
+.h5 {
+    font-size: $title-size-mini;
+}
+
+h6,
+.h6 {
+}
+
+button {
+	appearance: none;
+	border: none;
+	border-radius: 0;
+	padding: 0;
+	box-shadow: none;
+	font-family: inherit;
+	font-size: inherit;
+	color: $color-base;
+	background-color: transparent;
+	cursor: pointer;
+	user-select: none;
+}
+
+img {
+	max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+}
+
+hr {
+    margin: 1.25rem 0;
+	border: none;
+	border-bottom: 1px solid $color-grey;
+	height: 0;
+}
+
+table {
+	width: 100%;
+    border: 1px solid rgba($color-base-rgb,.2);
+    border-radius: $radius;
+    border-spacing: 0;
+	text-align: left;
+
+    @include media(mob) {
+        font-size: $text-size;
+
+    }
+
+	th, td {
+        padding: .9375rem 1.25rem;
+        text-align: left;
+        border-left: 1px solid rgba($color-base-rgb,.1);
+        border-top: 1px solid rgba($color-base-rgb,.1);
+	}
+
+    tr {
+        td, th {
+            &:first-child {
+                border-left: none;
+            }
+        }
+
+        &:first-child {
+            td, tr, th {
+                border-top: 0;
+            }
+        }
+    }
+}
+
+.wrapper {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+    overflow-x: clip;
+	min-width: 350px;
+	min-height: 100vh;
+}
+
+.main {
+	flex: 1 0 auto;
+	width: 100%;
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        gap: $space-lg;
+
+        @include media($breakpoint-adaptive) {
+            gap: 1.5rem;
+        }
+
+        & > h1,
+        & > .h1,
+        & > h2,
+        & > .h2,
+        & > h3,
+        & > .h3,
+        & > h4,
+        & > .h4,
+        & > h5,
+        & > .h5,
+        & > h6,
+        & > .h6 {
+            margin-bottom: 0;
+        }
+    }
+
+    &__row {
+        display: grid;
+        gap: $space-lg;
+
+        @include media-min(tab) {
+            grid-template-columns: 20rem 1fr;
+            gap: $space-md;
+
+            &--reverse {
+                grid-template-columns: 1fr 20rem;
+            }
+        }
+
+        @include media-min(pc) {
+            gap: $space-lg;
+        }
+    }
+
+    &__main {
+            display: flex;
+            flex-direction: column;
+            gap: $space-lg;
+
+        @include media($breakpoint-adaptive) {
+            gap: 1.5rem;
+        }
+    }
+
+    &__title {
+            margin-bottom: 0;
+    }
+}
+
+.container {
+	margin: 0 auto;
+	padding: 0 $gutters;
+	width: 100%;
+	max-width: calc($container-max-width + $gutters * 2);
+
+	&_fluid {
+		max-width: none;
+	}
+}
+
+.section {
+    padding: 10rem 0; // 160px (главная)
+
+    @include media(pc) {
+        padding: 6rem 0;
+    }
+
+    @include media(tab) {
+    }
+
+    @include media(mob) {
+    }
+
+    &--sm {
+        padding: 4rem 0; // 64px
+
+        @include media(tab) {
+            padding: 3rem 0;
+        }
+
+        @include media(mob) {
+        }
+    }
+}
+
+::selection {
+    background: $color-accent;
+	color: $color-white;
+}
+
+a, button, select {
+	&:focus-visible {
+        outline: 2px solid $color-accent;
+        outline-offset: 3px;
+	}
+}
+
+.text--lg {
+    font-size: $text-size-lg;
+}
+
+.text--md {
+    font-size: $text-size-md;
+}
+
+.text--nowrap {
+    white-space: nowrap !important;
+}
+
+.text--center {
+    text-align: center !important;
+}
+
+.text--left {
+    text-align: left !important;
+}
+
+.text--right {
+    text-align: right !important;
+}
+
+.text--uppercase {
+    text-transform: uppercase !important;
+}
+
+.text--primary {
+    color: $color-accent !important;
+}
+
+a.text--primary:hover {
+    color: $color-accent-hover !important;
+}
+
+.text--light {
+    color: $color-dark-grey !important;
+
+    svg {
+        fill: $color-grey-second;
+    }
+}
+
+a.text--light:hover {
+    color: $color-accent-hover !important;
+
+    svg {
+        fill: $color-accent-hover;
+    }
+}
+
+.more {
+}
+
+.box {
+    background-color: $color-light-grey;
+    padding: 1.9375rem;
+    border: $color-grey-second 1px solid;
+    border-radius: $radius;
+}

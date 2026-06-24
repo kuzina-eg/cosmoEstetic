@@ -1,0 +1,28 @@
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    padding: .25rem .5rem;
+    background: $color-base;
+    color: $color-white;
+    font-size: $text-size-xs;
+    text-transform: uppercase;
+    letter-spacing: .03em;
+    line-height: 1;
+    white-space: nowrap;
+    border-radius: 2px;
+
+    &--sale {
+        background: $color-base;
+    }
+
+    &--best {
+        background: $color-base;
+    }
+}
+
+.badge-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .375rem;
+}

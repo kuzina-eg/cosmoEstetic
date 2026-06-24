@@ -1,0 +1,45 @@
+
+.ingredient-card {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem; // 32px (дизайн)
+
+    &__image {
+        display: block;
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+        object-position: center;
+        background-color: $color-grey;
+    }
+
+    &__body {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem; // 16px
+    }
+
+    &__name {
+        margin: 0;
+        font-size: 1.25rem; // 20px (H4 SemiBold)
+        font-weight: 600;
+        line-height: 1.35;
+        text-transform: uppercase;
+        color: $color-base;
+    }
+
+    &__text {
+        margin: 0;
+        font-size: 1.25rem; // 20px (H5 Regular)
+        font-weight: 400;
+        line-height: 1.35;
+        color: $color-dark-grey;
+    }
+
+    @include media(mob) {
+        &__name,
+        &__text {
+            font-size: 1.0625rem;
+        }
+    }
+}

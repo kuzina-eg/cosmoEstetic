@@ -1,0 +1,20 @@
+
+.products {
+    background-color: #fcfbfa;
+
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2.5rem; // 40px
+
+        @include media(tab) {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        @include media(mob) {
+            grid-template-columns: 1fr;
+            gap: 2.5rem;
+        }
+    }
+}

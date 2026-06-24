@@ -1,0 +1,20 @@
+
+.ingredients {
+    background-color: $color-white;
+
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2.5rem; // 40px
+
+        @include media(tab) {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        @include media(mob) {
+            grid-template-columns: 1fr;
+            gap: 2.5rem;
+        }
+    }
+}
