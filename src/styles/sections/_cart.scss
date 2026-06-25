@@ -1,17 +1,17 @@
 
 .cart-title {
     margin: 0;
-    font-size: 3rem; // 48px (H2 SemiBold)
+    font-size: $title-size-md; // 48px (H2 SemiBold)
     font-weight: 600;
     line-height: 1;
-    color: $color-base;
+    color: $color-accent;
 
     @include media(tab) {
-        font-size: 2.5rem;
+        // font-size: 2rem;
     }
 
     @include media(mob) {
-        font-size: 2rem;
+        // font-size: 1.6rem;
     }
 }
 
@@ -23,16 +23,16 @@
 .cart-total {
     display: flex;
     align-items: center;
-    gap: 2rem; // 32px
-    padding: 1.5rem 0; // 24px — линии сверху/снизу
+    gap: 1.6rem; // 32px
+    padding: 1.2rem 0; // 24px — линии сверху/снизу
     border-top: 1px solid $color-border;
     border-bottom: 1px solid $color-border;
 
     &__label {
         flex: 1 1 auto;
-        font-size: 1.25rem; // 20px
+        font-size: 1rem; // 20px
         font-weight: 600;
-        color: $color-base;
+        color: $color-accent;
     }
 
     &__sum {
@@ -40,22 +40,22 @@
         align-items: flex-start;
 
         .price__old {
-            font-size: 1.375rem; // 22px
+            font-size: $title-size-sm; // 22px
             color: $color-dark-grey;
             text-decoration: line-through;
         }
 
         .price__current {
-            font-size: 3rem; // 48px
+            font-size: 2.4rem; // 48px
             font-weight: 600;
-            color: $color-base;
+            color: $color-accent;
             line-height: 1;
         }
     }
 
     &__action {
         flex: none;
-        width: 25.625rem; // 410px
+        width: 20.5rem; // 410px
     }
 
     @include media(tab) {
@@ -68,10 +68,10 @@
     }
 
     @include media(mob) {
-        gap: 1.5rem;
+        gap: 1.2rem;
 
         &__sum .price__current {
-            font-size: 2.25rem;
+            // font-size: 1.8rem;
         }
     }
 }
@@ -82,30 +82,30 @@
     &__inner {
         display: flex;
         flex-direction: column;
-        gap: 4rem; // 64px между блоками
+        gap: 3.2rem; // 64px между блоками
     }
 }
 
 .cart-block {
     display: flex;
     flex-direction: column;
-    gap: 4rem; // 64px заголовок → контент
+    gap: 3.2rem; // 64px заголовок → контент
 
     @include media(tab) {
-        gap: 2.5rem;
+        gap: 2rem;
     }
 }
 
 .delivery-list {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem; // 24px
+    gap: 1.2rem; // 24px
 }
 
 .delivery-option {
     display: flex;
     align-items: center;
-    gap: 1.5rem; // 24px
+    gap: 1.2rem; // 24px
 
     &__line {
         flex: 1 1 auto;
@@ -115,17 +115,17 @@
 
     &__price {
         flex: none;
-        font-size: 1.375rem; // 22px
+        font-size: $title-size-sm; // 22px
         font-weight: 600;
         text-transform: uppercase;
-        color: $color-base;
+        color: $color-accent;
         white-space: nowrap;
     }
 
     .ui-checkbox {
         flex: none;
-        gap: 1.5rem; // 24px бокс → подпись
-        font-size: 1.25rem; // 20px
+        gap: 1.2rem; // 24px бокс → подпись
+        font-size: 1rem; // 20px
         color: $color-dark-grey;
         cursor: pointer;
     }
@@ -141,15 +141,15 @@
 .cart-map {
     display: block;
     width: 100%;
-    height: 45rem; // 720px
+    height: 36rem; // 720px
     border: 0;
 
     @include media(tab) {
-        height: 30rem;
+        height: 24rem;
     }
 
     @include media(mob) {
-        height: 20rem;
+        height: 16rem;
     }
 }
 
@@ -157,12 +157,12 @@
     &__grid {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 4rem; // 64px
+        gap: 3.2rem; // 64px
         align-items: end;
 
         @include media(tab) {
             grid-template-columns: 1fr;
-            gap: 2.5rem;
+            gap: 2rem;
             align-items: stretch;
         }
     }
@@ -170,22 +170,22 @@
     &__col {
         display: flex;
         flex-direction: column;
-        gap: 4rem; // 64px заголовок → форма
+        gap: 3.2rem; // 64px заголовок → форма
 
         @include media(tab) {
-            gap: 2.5rem;
+            gap: 2rem;
         }
     }
 
     &__fields {
         display: flex;
         flex-direction: column;
-        gap: 1rem; // 16px
+        gap: 0.8rem; // 16px
     }
 
     &__promo {
         display: flex;
-        gap: 1rem; // 16px
+        gap: 0.8rem; // 16px
 
         .ui-input {
             flex: 1 1 0;
@@ -205,21 +205,21 @@
     &__summary {
         display: flex;
         flex-direction: column;
-        gap: 2.5rem; // 40px
+        gap: 2rem; // 40px
     }
 
     &__rows {
         margin: 0;
         display: flex;
         flex-direction: column;
-        gap: 1.5rem; // 24px
+        gap: 1.2rem; // 24px
     }
 
     &__row {
         display: flex;
         align-items: center;
-        gap: 1.5rem; // 24px
-        font-size: 1.25rem; // 20px
+        gap: 1.2rem; // 24px
+        font-size: 1rem; // 20px
         font-weight: 600;
         text-transform: uppercase;
         line-height: 1.35;
@@ -238,14 +238,14 @@
         &-value {
             flex: none;
             margin: 0;
-            color: $color-base;
+            color: $color-accent;
             white-space: nowrap;
         }
     }
 
     &__agree.ui-checkbox {
-        gap: .5rem; // 8px
-        font-size: 1.25rem; // 20px
+        gap: 0.4rem; // 8px
+        font-size: 1rem; // 20px
         color: $color-dark-grey;
     }
 
@@ -255,8 +255,8 @@
 }
 
 .checkout .ui-checkbox__checked {
-    width: 2rem;
-    height: 2rem;
+    width: 1.6rem;
+    height: 1.6rem;
     border-width: 1px;
 }
 

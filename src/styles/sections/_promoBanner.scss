@@ -42,37 +42,37 @@
         font-size: $title-size; // 96px
         font-weight: 600;
         line-height: 1;
-        color: $color-base;
+        color: $color-accent;
         letter-spacing: 0;
-        margin-bottom: 0.5rem; // 8px
+        margin-bottom: 0.4rem; // 8px
 
         @include media(tab) {
-            font-size: 4rem;
+            // font-size: 3.2rem;
         }
 
         @include media(mob) {
-            font-size: 3.5rem;
+            // font-size: 2.8rem;
         }
     }
 
     &__subtitle {
-        font-size: 2.5rem; // ~40px (крупный подзаголовок дизайна)
+        font-size: 2rem; // ~40px (крупный подзаголовок дизайна)
         font-weight: 600;
-        color: $color-base;
+        color: $color-accent;
         line-height: 1.2;
-        margin-bottom: 2.5rem; // 40px
+        margin-bottom: 2rem; // 40px
 
         @include media(tab) {
-            font-size: 2rem;
+            // font-size: 1.6rem;
         }
 
         @include media(mob) {
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
+            // font-size: 1.2rem;
+            margin-bottom: 1.2rem;
         }
     }
 
     &__button {
-        max-width: 25.625rem; // 410px
+        max-width: 20.5rem; // 410px
     }
 }

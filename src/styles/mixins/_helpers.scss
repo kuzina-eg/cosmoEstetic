@@ -62,7 +62,7 @@
     }
 }
 
-@mixin triangle($direction: bottom, $width: 20px, $height: 20px, $color: $color-base) {
+@mixin triangle($direction: bottom, $width: 20px, $height: 20px, $color: $color-accent) {
 	width: $width;
 	height: $height;
 

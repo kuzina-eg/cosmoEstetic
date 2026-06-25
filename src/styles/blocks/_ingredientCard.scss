@@ -2,7 +2,7 @@
 .ingredient-card {
     display: flex;
     flex-direction: column;
-    gap: 2rem; // 32px (дизайн)
+    gap: 1.6rem; // 32px (дизайн)
 
     &__image {
         display: block;
@@ -16,21 +16,21 @@
     &__body {
         display: flex;
         flex-direction: column;
-        gap: 1rem; // 16px
+        gap: 0.8rem; // 16px
     }
 
     &__name {
         margin: 0;
-        font-size: 1.25rem; // 20px (H4 SemiBold)
+        font-size: 1rem; // 20px (H4 SemiBold)
         font-weight: 600;
         line-height: 1.35;
         text-transform: uppercase;
-        color: $color-base;
+        color: $color-accent;
     }
 
     &__text {
         margin: 0;
-        font-size: 1.25rem; // 20px (H5 Regular)
+        font-size: 1rem; // 20px (H5 Regular)
         font-weight: 400;
         line-height: 1.35;
         color: $color-dark-grey;
@@ -39,7 +39,7 @@
     @include media(mob) {
         &__name,
         &__text {
-            font-size: 1.0625rem;
+            // font-size: 0.85rem;
         }
     }
 }

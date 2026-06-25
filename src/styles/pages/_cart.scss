@@ -17,7 +17,7 @@
     &__list {
         display: flex;
         flex-direction: column;
-        gap: .5rem;
+        gap: 0.4rem;
     }
 
     &__list-footer {
@@ -46,7 +46,7 @@
 
     &__payment {
         display: flex;
-        gap: .5rem;
+        gap: 0.4rem;
         flex-wrap: wrap;
     }
 

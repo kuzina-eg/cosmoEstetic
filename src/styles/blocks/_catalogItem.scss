@@ -2,8 +2,8 @@
 .catalog-item {
     display: flex;
     align-items: center;
-    gap: 2rem; // 32px (дизайн)
-    padding: 1.5rem 0; // 24px — зазор до линии-разделителя
+    gap: 1.6rem; // 32px (дизайн)
+    padding: 1.2rem 0; // 24px — зазор до линии-разделителя
 
     &:first-child {
         padding-top: 0;
@@ -29,8 +29,8 @@
 
     &__image {
         display: block;
-        width: 25rem; // 400px
-        height: 25rem;
+        width: 20rem; // 400px
+        height: 20rem;
         object-fit: cover;
         object-position: center;
         background-color: $color-grey;
@@ -42,16 +42,16 @@
         min-width: 0;
         display: flex;
         flex-direction: column;
-        gap: .75rem; // 12px
+        gap: 0.6rem; // 12px
     }
 
     &__title {
         margin: 0;
-        font-size: 1.375rem; // 22px (H3 SemiBold)
+        font-size: $title-size-sm; // 22px (H3 SemiBold)
         font-weight: 600;
         line-height: 1.1;
         text-transform: uppercase;
-        color: $color-base;
+        color: $color-accent;
 
         a {
             color: inherit;
@@ -65,7 +65,7 @@
 
     &__desc {
         margin: 0;
-        font-size: 1.25rem; // 20px (Regular)
+        font-size: 1rem; // 20px (Regular)
         line-height: 1.35;
         color: $color-base;
     }
@@ -73,17 +73,17 @@
     &__badges {
         display: flex;
         flex-wrap: wrap;
-        gap: .5rem; // 8px
+        gap: 0.4rem; // 8px
     }
 
     &__badge {
         display: inline-flex;
         align-items: center;
-        height: 1.5rem; // 24px
-        padding: 0 .75rem; // 12px
-        background: $color-base;
+        height: 1.2rem; // 24px
+        padding: 0 0.6rem; // 12px
+        background: $color-accent;
         color: $color-white;
-        font-size: .75rem; // 12px (H6)
+        font-size: 0.6rem; // 12px (H6)
         line-height: 1.35;
         white-space: nowrap;
     }
@@ -93,34 +93,34 @@
         align-items: flex-start;
 
         .price__old {
-            font-size: 1.375rem; // 22px
+            font-size: $title-size-sm; // 22px
             color: $color-dark-grey;
             text-decoration: line-through;
         }
 
         .price__current {
-            font-size: 3rem; // 48px
+            font-size: 2.4rem; // 48px
             font-weight: 600;
-            color: $color-base;
+            color: $color-accent;
             line-height: 1;
         }
     }
 
     &__action {
         flex: none;
-        width: 25.625rem; // 410px
+        width: 20.5rem; // 410px
     }
 
     @include media(pc) {
-        gap: 1.5rem;
+        gap: 1.2rem;
 
         &__image {
-            width: 18rem;
-            height: 18rem;
+            width: 14.4rem;
+            height: 14.4rem;
         }
 
         &__action {
-            width: 18rem;
+            width: 14.4rem;
         }
     }
 
@@ -128,12 +128,12 @@
         flex-wrap: wrap;
 
         &__image {
-            width: 12rem;
-            height: 12rem;
+            width: 9.6rem;
+            height: 9.6rem;
         }
 
         &__info {
-            flex: 1 1 calc(100% - 13.5rem);
+            flex: 1 1 calc(100% - 10.8rem);
         }
 
         &__price {
@@ -149,11 +149,11 @@
     }
 
     @include media(mob) {
-        gap: 1rem;
+        gap: 0.8rem;
 
         &__image {
-            width: 8rem;
-            height: 8rem;
+            width: 6.4rem;
+            height: 6.4rem;
         }
 
         &__action {
@@ -162,11 +162,11 @@
         }
 
         &__price .price__current {
-            font-size: 2.25rem;
+            // font-size: 1.8rem;
         }
     }
 }
 
 .catalog-list {
-    margin-bottom: 4rem;
+    margin-bottom: 3.2rem;
 }

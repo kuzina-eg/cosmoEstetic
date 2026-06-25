@@ -5,16 +5,16 @@
     &__grid {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
-        gap: 2.5rem; // 40px
+        gap: 2rem; // 40px
 
         @include media(tab) {
             grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
+            gap: 1.6rem;
         }
 
         @include media(mob) {
             grid-template-columns: 1fr;
-            gap: 2.5rem;
+            gap: 2rem;
         }
     }
 }

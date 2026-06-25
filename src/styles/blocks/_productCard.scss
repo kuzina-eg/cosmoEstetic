@@ -2,7 +2,7 @@
 .product-card {
     display: flex;
     flex-direction: column;
-    gap: 2rem; // 32px (дизайн)
+    gap: 1.6rem; // 32px (дизайн)
 
     &__image-link {
         position: relative;
@@ -27,24 +27,24 @@
 
     &__badges {
         position: absolute;
-        top: 1.25rem; // 20px
-        left: 1.25rem;
+        top: 1rem; // 20px
+        left: 1rem;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        gap: .5rem; // 8px
+        gap: 0.4rem; // 8px
     }
 
     &__badge {
         display: inline-flex;
         align-items: center;
-        height: 1.5rem; // 24px
-        padding: 0 .75rem; // 12px
+        height: 1.2rem; // 24px
+        padding: 0 0.6rem; // 12px
         background: rgba(0, 0, 0, .16);
         backdrop-filter: blur(32px);
         -webkit-backdrop-filter: blur(32px);
         color: $color-white;
-        font-size: .75rem; // 12px (H6 Regular)
+        font-size: 0.6rem; // 12px (H6 Regular)
         line-height: 1.35;
         white-space: nowrap;
     }
@@ -52,7 +52,7 @@
     &__body {
         display: flex;
         align-items: flex-end;
-        gap: 2rem; // 32px
+        gap: 1.6rem; // 32px
     }
 
     &__info {
@@ -60,16 +60,16 @@
         min-width: 0;
         display: flex;
         flex-direction: column;
-        gap: 1rem; // 16px
+        gap: 0.8rem; // 16px
     }
 
     &__name {
         margin: 0;
-        font-size: 1.375rem; // 22px (H3 SemiBold)
+        font-size: $title-size-sm; // 22px (H3 SemiBold)
         font-weight: 600;
         line-height: 1.1;
         text-transform: uppercase;
-        color: $color-base;
+        color: $color-accent;
 
         a {
             color: inherit;
@@ -83,7 +83,7 @@
 
     &__text {
         margin: 0;
-        font-size: 1.25rem; // 20px (Regular)
+        font-size: 1rem; // 20px (Regular)
         font-weight: 400;
         line-height: 1.35;
         color: $color-base;
@@ -99,7 +99,7 @@
     &__price-old {
         position: relative;
         width: fit-content;
-        font-size: 1.25rem; // 20px SemiBold #666
+        font-size: 1rem; // 20px SemiBold #666
         font-weight: 600;
         text-transform: uppercase;
         color: $color-dark-grey;
@@ -116,17 +116,17 @@
     }
 
     &__price {
-        font-size: 3rem; // 48px (H2 SemiBold)
+        font-size: 2.4rem; // 48px (H2 SemiBold)
         font-weight: 600;
         line-height: 1;
-        color: $color-base;
+        color: $color-accent;
         white-space: nowrap;
     }
 
     @include media(mob) {
-        &__name { font-size: 1.25rem; }
-        &__price { font-size: 2.25rem; }
+        &__name { font-size: 1rem; }
+        &__price { font-size: 1.8rem; }
         &__price-old,
-        &__text { font-size: 1.0625rem; }
+        &__text { font-size: 0.85rem; }
     }
 }

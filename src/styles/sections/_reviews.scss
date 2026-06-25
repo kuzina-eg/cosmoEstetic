@@ -7,12 +7,12 @@
         position: relative;
         width: 100%;
         overflow: hidden;
-        padding-bottom: 4.5rem; // 72px: 64px отступ дизайна + 8px брусок
+        padding-bottom: 3.6rem; // 72px: 64px отступ дизайна + 8px брусок
     }
 
     &__arrow {
         position: absolute;
-        top: calc((100% - 4.5rem) * 0.33);
+        top: calc((100% - 3.6rem) * 0.33);
         transform: translateY(-50%);
         z-index: 3;
 
@@ -31,11 +31,11 @@
         bottom: 0;
         display: flex;
         justify-content: center;
-        gap: 1.5rem; // 24px (дизайн)
+        gap: 1.2rem; // 24px (дизайн)
 
         .swiper-pagination-bullet {
-            width: .5rem; // 8px квадрат
-            height: .5rem;
+            width: 0.4rem; // 8px квадрат
+            height: 0.4rem;
             border-radius: 0;
             background: $color-border;
             opacity: 1;
@@ -44,8 +44,8 @@
         }
 
         .swiper-pagination-bullet-active {
-            width: 3rem; // 48px брусок (дизайн)
-            background: $color-base;
+            width: 2.4rem; // 48px брусок (дизайн)
+            background: $color-accent;
         }
     }
 }

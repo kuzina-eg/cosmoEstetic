@@ -14,28 +14,28 @@ input {
 	border: 1px solid #d3d3d3;
 	border-radius: 0;
 	outline: none;
-    padding: 0 2rem;                  // 32px (дизайн)
+    padding: 0 1.6rem;                  // 32px (дизайн)
 	width: 100%;
 	height: $input-height;            // 67px (дизайн)
     font-family: $base-font-family;
     font-weight: 600;
-	font-size: $text-size-lg;         // 20px (дизайн)
+	font-size: $text-size;         // 20px (дизайн)
     text-transform: uppercase;
 	text-align: left;
     line-height: 1.4;
-	color: $color-base;
+	color: $color-accent;
 	transition: $duration background-color, $duration color, $duration border-color, $duration box-shadow;
 
 	&::placeholder {
         text-transform: uppercase;
         font-weight: 600;
-        color: $color-base;
+        color: $color-accent;
         transition: $duration color;
 	}
 
     &:hover,
     &:focus {
-        border-color: $color-base;
+        border-color: $color-accent;
     }
 
     &--sm {
@@ -60,30 +60,30 @@ input {
 }
 
 .ui-textarea {
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
+    padding-top: 1.2rem;
+    padding-bottom: 1.2rem;
 	height: auto;
     text-transform: none;
 	resize: none;
 
 	@include media-min(tab-l) {
 		scrollbar-width: thin;
-		scrollbar-color: rgba($color-base-rgb,.3);
+		scrollbar-color: rgba($color-accent-rgb,.3);
 
 		&::-webkit-scrollbar {
-            width: .625rem;
+            width: 0.5rem;
             cursor: pointer;
 		}
 
 		&::-webkit-scrollbar-thumb {
             border-left: 4px solid $color-light-grey;
             border-right: 4px solid $color-light-grey;
-			background: rgba($color-base-rgb,.3);
+			background: rgba($color-accent-rgb,.3);
 			transition: $duration background;
 		}
 
 		&::-webkit-scrollbar-track {
-            margin: .3125rem 0;
+            margin: 0.25rem 0;
             background: transparent;
 		}
 	}

@@ -10,47 +10,47 @@
 
 .modal {
     position: relative;
-    width: 36.25rem; // 580px
+    width: 29rem; // 580px
     max-width: 100%;
     background: $color-white;
-    padding: 2.5rem;
+    padding: 2rem;
 
     @include media(mob) {
-        padding: 1.5rem;
+        padding: 1.2rem;
     }
 
     &__header {
-        margin-bottom: 1.5rem; // 24px
+        margin-bottom: 1.2rem; // 24px
     }
 
     &__title {
         margin: 0;
-        padding-right: 2.5rem; // место под крестик
-        font-size: 1.375rem; // 22px
+        padding-right: 2rem; // место под крестик
+        font-size: $title-size-sm; // 22px
         font-weight: 600;
         text-transform: uppercase;
         letter-spacing: 0;
-        color: $color-base;
+        color: $color-accent;
     }
 
     &__close {
         position: absolute;
-        top: 2.5rem;
-        right: 2.5rem;
+        top: 2rem;
+        right: 2rem;
         z-index: 2;
-        width: 1.5rem;
-        height: 1.5rem;
+        width: 1.2rem;
+        height: 1.2rem;
         padding: 0;
         background: none;
         border: none;
         cursor: pointer;
-        color: $color-base;
+        color: $color-accent;
         line-height: 0;
         transition: opacity $duration;
 
         @include media(mob) {
-            top: 1.5rem;
-            right: 1.5rem;
+            top: 1.2rem;
+            right: 1.2rem;
         }
 
         &:hover {
@@ -59,15 +59,15 @@
     }
 
     &__close-icon {
-        width: 1.5rem;
-        height: 1.5rem;
+        width: 1.2rem;
+        height: 1.2rem;
         fill: currentColor;
     }
 
     &__form {
         display: flex;
         flex-direction: column;
-        gap: 1.5rem; // 24px между полями (дизайн)
+        gap: 1.2rem; // 24px между полями (дизайн)
     }
 
     &__body {
@@ -75,7 +75,7 @@
 
     &__error {
         color: #e8552d;
-        font-size: $text-size-sm;
+        font-size: $text-size-xs;
         display: none;
     }
 
@@ -84,13 +84,13 @@
     }
 
     &__action {
-        margin-top: .75rem;
+        margin-top: 0.6rem;
     }
 
     &__hint {
-        margin: 1.5rem 0 .75rem;
+        margin: 1.2rem 0 0.6rem;
         color: $color-dark-grey;
-        font-size: $text-size-sm;
+        font-size: $text-size-xs;
 
         &:first-child {
             margin-top: 0;
@@ -108,20 +108,20 @@
 }
 
 .modal .ui-checkbox {
-    gap: .5rem; // 8px (дизайн)
-    font-size: 1.25rem; // 20px (H5 Regular)
+    gap: 0.4rem; // 8px (дизайн)
+    font-size: 1rem; // 20px (H5 Regular)
     color: $color-dark-grey;
 }
 
 .modal .ui-checkbox__checked {
-    width: 2rem; // 32px
-    height: 2rem;
+    width: 1.6rem; // 32px
+    height: 1.6rem;
     border-width: 1px;
     border-radius: 0;
 }
 
 .modal .ui-checkbox__checked-icon {
-    background: $color-base;
+    background: $color-accent;
 }
 
 .modal-city__search {
@@ -129,16 +129,16 @@
 }
 
 .modal-city__input {
-    padding-right: 3.5rem;
+    padding-right: 2.8rem;
 }
 
 .modal-city__search-btn {
     position: absolute;
-    right: 2rem; // 32px (дизайн)
-    top: calc(4.1875rem / 2);
+    right: 1.6rem; // 32px (дизайн)
+    top: calc(3.35rem / 2);
     transform: translateY(-50%);
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 1.2rem;
+    height: 1.2rem;
     padding: 0;
     background: none;
     border: none;
@@ -148,13 +148,13 @@
     transition: color $duration;
 
     .ui-icon {
-        width: 1.5rem;
-        height: 1.5rem;
+        width: 1.2rem;
+        height: 1.2rem;
         fill: currentColor;
     }
 
     &:hover {
-        color: $color-base;
+        color: $color-accent;
     }
 }
 
@@ -165,7 +165,7 @@
     border: 1px solid $color-border;
     border-top: none;
     display: none;
-    max-height: 14rem;
+    max-height: 11.2rem;
     overflow-y: auto;
 
     .js-city.is-searching &,
@@ -175,11 +175,11 @@
 }
 
 .modal-city__suggestion {
-    padding: .875rem 2rem;
+    padding: 0.7rem 1.6rem;
     text-transform: uppercase;
-    font-size: 1.25rem; // 20px (H4)
+    font-size: 1rem; // 20px (H4)
     font-weight: 600;
-    color: $color-base;
+    color: $color-accent;
     cursor: pointer;
     border-bottom: 1px solid $color-border;
     transition: background $duration;
@@ -198,8 +198,8 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding: 3.25rem 1rem 2rem; // padding-top 52px
-    gap: 1.25rem;
+    padding: 2.6rem 0.8rem 1.6rem; // padding-top 52px
+    gap: 1rem;
 }
 
 .modal-status__icon {
@@ -208,8 +208,8 @@
     justify-content: center;
 
     .ui-icon {
-        width: 3rem; // 48px
-        height: 3rem;
+        width: 2.4rem; // 48px
+        height: 2.4rem;
         fill: currentColor;
     }
 }
@@ -223,6 +223,6 @@
 }
 
 .modal-status__text {
-    font-size: $text-size-lg;
+    font-size: $text-size;
     color: $color-base;
 }

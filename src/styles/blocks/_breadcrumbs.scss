@@ -4,7 +4,7 @@
     &__list {
         display: flex;
         flex-wrap: wrap;
-        gap: 1rem; // 16px между словом и тире
+        gap: 0.8rem; // 16px
         align-items: center;
         list-style: none;
         margin: 0;
@@ -14,27 +14,27 @@
     &__item {
         display: flex;
         align-items: center;
-        gap: 1rem;
+        gap: 0.8rem;
     }
 
     &__link {
         color: $color-dark-grey;
-        font-size: 1.25rem; // 20px
+        font-size: 1rem; // 20px
         text-decoration: none;
         transition: $duration color;
 
         &:hover {
-            color: $color-base;
+            color: $color-accent;
         }
     }
 
     &__current {
         color: $color-dark-grey;
-        font-size: 1.25rem; // 20px
+        font-size: 1rem; // 20px
     }
 
     &__sep {
         color: $color-dark-grey;
-        font-size: 1.25rem;
+        font-size: 1rem;
     }
 }

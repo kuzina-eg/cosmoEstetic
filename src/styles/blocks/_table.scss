@@ -8,12 +8,12 @@
     width: 100%;
     table-layout: fixed;
     border-collapse: collapse;
-    font-size: $text-size-lg; // 20px (Figma H4/H5)
+    font-size: $text-size; // 20px (Figma H4/H5)
 
     &__th,
     &__td {
-        height: 3rem; // 48px (Figma)
-        padding: .5rem 1.5rem; // 24px по горизонтали (Figma)
+        height: 2.4rem; // 48px (Figma)
+        padding: 0.4rem 1.2rem; // 24px по горизонтали (Figma)
         text-align: left;
         vertical-align: middle;
         border: 1px solid $color-border;
@@ -24,11 +24,11 @@
         font-weight: 600;
         text-transform: uppercase;
         color: $color-white;
-        background: $color-base;
+        background: $color-accent;
     }
 
     &__td {
-        color: $color-base;
+        color: $color-accent;
     }
 
     &__tr:nth-child(odd) &__td {

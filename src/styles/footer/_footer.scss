@@ -11,7 +11,7 @@
         display: flex;
         justify-content: space-between;
         align-items: flex-start;
-        gap: 2.5rem;
+        gap: 2rem;
 
         @include media(tab) {
             flex-wrap: wrap;
@@ -30,7 +30,7 @@
     &__col--brand {
         margin-left: auto;
         align-items: flex-end;
-        gap: 1.25rem;
+        gap: 1rem;
 
         @include media(mob) {
             align-items: flex-start;
@@ -41,8 +41,8 @@
     &__title {
         font-weight: 600;
         color: $color-white;
-        margin-bottom: .5rem; // 8px (дизайн)
-        font-size: 1.25rem; // 20px
+        margin-bottom: 0.4rem; // 8px (дизайн)
+        font-size: 1rem; // 20px
     }
 
     &__menu {
@@ -51,15 +51,15 @@
         margin: 0;
         display: flex;
         flex-direction: column;
-        gap: .5rem; // 8px
+        gap: 0.4rem; // 8px
     }
 
     &__link {
         display: inline-flex;
         align-items: baseline;
-        gap: .5rem;
+        gap: 0.4rem;
         color: $color-white;
-        font-size: 1.25rem; // 20px
+        font-size: 1rem; // 20px
         text-decoration: none;
         transition: color $duration;
 
@@ -79,7 +79,7 @@
 
         img {
             display: block;
-            height: 3rem;
+            height: 2.4rem;
             width: auto;
             filter: brightness(0) invert(1);
         }
@@ -87,7 +87,7 @@
 
     &__socials {
         display: flex;
-        gap: 1rem;
+        gap: 0.8rem;
     }
 
     &__social {
@@ -104,12 +104,12 @@
     }
 
     &__social-icon {
-        width: 1.5rem;
-        height: 1.5rem;
+        width: 1.2rem;
+        height: 1.2rem;
         fill: currentColor;
     }
 
     &__copy {
-        font-size: 1.25rem; // 20px
+        font-size: 1rem; // 20px
     }
 }

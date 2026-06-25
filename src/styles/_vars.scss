@@ -23,10 +23,10 @@ $breakpoint-adaptive: pc;
 $base-font-family: var(--base-font-family, 'Wanted Sans', 'Onest', sans-serif);
 $color-background: var(--color-background, #ffffff);
 
-$color-base: var(--color-base, #000000);
-$color-base-rgb: var(--color-base-rgb, 0,0,0);
-$color-accent: var(--color-accent, #2a2a2a);
-$color-accent-rgb: var(--color-accent-rgb, 42,42,42);
+$color-base: var(--color-base, #666666);
+$color-base-rgb: var(--color-base-rgb, 102,102,102);
+$color-accent: var(--color-accent, #000000);
+$color-accent-rgb: var(--color-accent-rgb, 0,0,0);
 $color-accent-hover: var(--color-accent-hover, #000000);
 
 $color-white: var(--color-white, #fff);
@@ -39,36 +39,35 @@ $color-error: var(--color-error, #900);
 $color-success: var(--color-success, #19BE32);
 $color-border: var(--color-border, #e6e3df);
 
-$container-max-width: var(--container-max-width, 110rem);
-$gutters: var(--gutters, 1.25rem);
+$container-max-width: var(--container-max-width, 88rem);
+$gutters: var(--gutters, 1rem);
 
 $base-font-weight: var(--base-font-weight, 500);
 $text-size: var(--text-size, 1rem);
-$text-size-md: var(--text-size-md, 1.125rem);
-$text-size-lg: var(--text-size-lg, 1.25rem);
-$text-size-sm: var(--text-size-sm, .875rem);
-$text-size-xs: var(--text-size-xs, .75rem);
-$text-line-height: var(--text-line-height, 1.4);
+$text-size-sm: var(--text-size-sm, 0.9rem);
+$text-size-xs: var(--text-size-xs, 0.7rem);
+$text-size-xxs: var(--text-size-xxs, 0.6rem);
+$text-line-height: var(--text-line-height, 1.35);
 
-$space-md: var(--space-md, 1rem);
-$space: var(--space, 1.25rem);
-$space-lg: var(--space-lg, 2.5rem);
+$space-md: var(--space-md, 0.8rem);
+$space: var(--space, 1rem);
+$space-lg: var(--space-lg, 2rem);
 
-$header-fixed-height: var(--header-fixed-height, 6rem);
-$icon-size: var(--icon-size, 1.5rem);
+$header-fixed-height: var(--header-fixed-height, 4.8rem);
+$icon-size: var(--icon-size, 1.2rem);
 
-$radius: var(--radius, 1rem);
-$radius-sm: var(--radius-sm, .5rem);
+$radius: var(--radius, 0.8rem);
+$radius-sm: var(--radius-sm, 0.4rem);
 
-$input-height-sm: var(--input-height-sm, 3rem);
-$input-height: var(--input-height, 4.1875rem);
-$input-height-lg: var(--input-height-lg, 5rem);
+$input-height-sm: var(--input-height-sm, 2.4rem);
+$input-height: var(--input-height, 3.35rem);
+$input-height-lg: var(--input-height-lg, 4rem);
 
-$title-size: var(--title-size, 6rem);
-$title-size-md: var(--title-size-md, 1.375rem);
-$title-size-sm: var(--title-size-sm, 1.125rem);
+$title-size: var(--title-size, 4.8rem);
+$title-size-md: var(--title-size-md, 2.4rem);
+$title-size-sm: var(--title-size-sm, 1.1rem);
 $title-size-xs: var(--title-size-xs, 1rem);
-$title-size-mini: var(--title-size-mini, .875rem);
+$title-size-mini: var(--title-size-mini, 0.9rem);
 
 $duration: var(--duration, .3s);
 $letter-spacing: var(--letter-spacing, 0);
@@ -79,11 +78,11 @@ $letter-spacing: var(--letter-spacing, 0);
 	--color-white: #fff;
 	--color-background: #ffffff;
 
-	--color-base: #000000;
-	--color-base-rgb: 0,0,0;
+	--color-base: #666666;
+	--color-base-rgb: 102,102,102;
 
-	--color-accent: #2a2a2a;
-    --color-accent-rgb: 42,42,42;
+	--color-accent: #000000;
+    --color-accent-rgb: 0,0,0;
     --color-accent-hover: #000000;
 
     --color-border: #e6e3df;
@@ -96,43 +95,41 @@ $letter-spacing: var(--letter-spacing, 0);
 	--color-error: #900;
 	--color-success: #19BE32;
 
-    --container-max-width: 110rem;
-    --gutters: 1.25rem;
-    --space-lg: 2.5rem;
-    --space-md: 1rem;
-    --space: 1.25rem;
+    --container-max-width: 88rem;
+    --gutters: 1rem;
+    --space-lg: 2rem;
+    --space-md: 0.8rem;
+    --space: 1rem;
 
-    --header-fixed-height: 6rem;
+    --header-fixed-height: 4.8rem;
 
-    --icon-size: 1.5rem;
+    --icon-size: 1.2rem;
 
-    --radius: 1rem;
-    --radius-sm: .5rem;
+    --radius: 0.8rem;
+    --radius-sm: 0.4rem;
 
-    --input-height-sm: 3rem;
-    --input-height: 4.1875rem; // 67px (дизайн)
-    --input-height-lg: 5rem;
+    --input-height-sm: 2.4rem;
+    --input-height: 3.35rem; // 67px (дизайн)
+    --input-height-lg: 4rem;
 
-    --title-size: 6rem;
-    --title-size-md: 1.375rem;
-    --title-size-sm: 1.125rem;
+    --title-size: 4.8rem;
+    --title-size-md: 2.4rem;
+    --title-size-sm: 1.1rem;
     --title-size-xs: 1rem;
-    --title-size-mini: .875rem;
+    --title-size-mini: 0.9rem;
 
     --base-font-weight: 500;
-
-    --text-size-lg: 1.25rem;
-    --text-size-md: 1.125rem;
     --text-size: 1rem;
-    --text-size-sm: .875rem;
-    --text-size-xs: .75rem;
-	--text-line-height: 1.4;
+    --text-size-sm: 0.9rem;
+    --text-size-xs: 0.7rem;
+    --text-size-xxs: 0.6rem;
+	--text-line-height: 1.35;
 
 	--duration: .3s;
     --letter-spacing: 0;
 
     @include media($breakpoint-adaptive) {
-        --title-size: 3rem;
-        --header-fixed-height: 4.5rem;
+        --title-size: 2.4rem;
+        --header-fixed-height: 3.6rem;
     }
 }

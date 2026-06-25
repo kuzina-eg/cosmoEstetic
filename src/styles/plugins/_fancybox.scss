@@ -3,12 +3,12 @@
 @import "@fancyapps/ui/dist/fancybox/fancybox.css";
 
 .fancybox__backdrop {
-    background-color: rgba($color-base-rgb,.5);
+    background-color: rgba($color-accent-rgb,.5);
     opacity: 1;
 }
 
 .fancybox__thumbs {
-    --f-thumb-border-radius: .5rem;
+    --f-thumb-border-radius: 0.4rem;
     --f-thumb-outline: 1px;
     --f-thumb-outline-color: var(--color-light-grey);
 
@@ -16,7 +16,7 @@
 
 .fancybox__content {
     border-radius: $radius;
-    padding: 2rem;
+    padding: 1.6rem;
 
     & > img {
         background-color: #FFFFFF;
@@ -32,13 +32,13 @@
     --f-button-outline-color: rgba(46,57,95,.2);
     --f-button-active-bg: rgba(46,57,95,.2);
     --f-button-hover-color: #2E395F;
-    --f-button-width: 1.5rem;
-    --f-button-height: 1.5rem;
-    --f-button-svg-width: .875rem;
-    --f-button-svg-height: .875rem;
+    --f-button-width: 1.2rem;
+    --f-button-height: 1.2rem;
+    --f-button-svg-width: 0.7rem;
+    --f-button-svg-height: 0.7rem;
     --f-button-svg-stroke-width: 4;
-    top: 1rem;
-    right: 1rem;
+    top: 0.8rem;
+    right: 0.8rem;
     border-radius: 0;
 
     &:hover {
@@ -51,24 +51,24 @@
 }
 
 .modal {
-    width: 20rem;
+    width: 16rem;
     max-width: 100%;
 
     &--map {
-        width: 65rem;
+        width: 52rem;
     }
 
     &__title {
-        margin-bottom: .5rem;
+        margin-bottom: 0.4rem;
     }
 
     &__descr {
-        margin-bottom: 1.75rem;
+        margin-bottom: 1.4rem;
         color: var(--color-dark-grey);
         line-height: 1.25;
 
         p {
-            margin-bottom: .5rem;
+            margin-bottom: 0.4rem;
 
             &:last-child {
                 margin-bottom: 0;

@@ -2,10 +2,10 @@
 .styleguide {
     display: flex;
     flex-direction: column;
-    gap: 4rem;
-    padding-bottom: 4rem;
+    gap: 3.2rem;
+    padding-bottom: 3.2rem;
 
-    font-size: $text-size-lg; // 20px
+    font-size: $text-size; // 20px
     line-height: 1.35;
     color: $color-dark-grey;
 
@@ -13,25 +13,25 @@
         font-size: $title-size; // 96px
         font-weight: 600;
         line-height: 1;
-        color: $color-base;
+        color: $color-accent;
         margin: 0;
     }
 
     h2 {
-        font-size: 3rem; // 48px
+        font-size: $title-size-md; // 48px
         font-weight: 600;
         line-height: 1;
-        color: $color-base;
+        color: $color-accent;
         margin: 0;
     }
 
     h3 {
-        font-size: $title-size-md; // 22px
+        font-size: $title-size-sm; // 22px
         font-weight: 600;
         line-height: 1;
         text-transform: uppercase;
         letter-spacing: 0;
-        color: $color-base;
+        color: $color-accent;
         margin: 0;
     }
 
@@ -41,10 +41,10 @@
 
     ul:not([class]) {
         margin: 0;
-        padding-left: 1.25rem;
+        padding-left: 1rem;
         display: flex;
         flex-direction: column;
-        gap: .5rem;
+        gap: 0.4rem;
 
         li {
             list-style: disc;
@@ -54,8 +54,8 @@
     .ui-checkbox__checked {
         border-radius: 0;
         border-width: 1px;
-        width: 2rem; // 32px (Figma)
-        height: 2rem;
+        width: 1.6rem; // 32px (Figma)
+        height: 1.6rem;
     }
 
     .ui-checkbox_radio .ui-checkbox__checked {
@@ -63,14 +63,14 @@
     }
 
     .ui-checkbox__checked-icon {
-        background: $color-base;
+        background: $color-accent;
     }
 }
 
 .sg-section {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 0.8rem;
 }
 
 .sg-content {
@@ -78,15 +78,15 @@
 
     &__media {
         float: left;
-        width: 25.625rem; // 410px (дизайн)
+        width: 20.5rem; // 410px (дизайн)
         max-width: 100%;
         height: auto;
-        margin: 0 2.5rem 1rem 0;
+        margin: 0 2rem 0.8rem 0;
 
         @include media(mob) {
             float: none;
             width: 100%;
-            margin: 0 0 1.5rem;
+            margin: 0 0 1.2rem;
         }
     }
 
@@ -98,11 +98,11 @@
 .sg-toggles {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 0.8rem;
 }
 
 .sg-buttons {
     display: flex;
     flex-wrap: wrap;
-    gap: 1.5rem;
+    gap: 1.2rem;
 }
