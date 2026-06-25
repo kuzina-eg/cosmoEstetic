@@ -21,8 +21,21 @@ $grid-breakpoints: (
 $breakpoint-adaptive: pc;
 
 $base-font-family: var(--base-font-family, 'Wanted Sans', 'Onest', sans-serif);
-$color-background: var(--color-background, #ffffff);
+$base-font-weight: var(--base-font-weight, 400);
+$text-line-height: var(--text-line-height, 1.35);
 
+$text-size: var(--text-size, 1rem);
+$text-size-sm: var(--text-size-sm, 0.9rem);
+$text-size-xs: var(--text-size-xs, 0.7rem);
+$text-size-xxs: var(--text-size-xxs, 0.6rem);
+
+$title-size: var(--title-size, 4.8rem);
+$title-size-md: var(--title-size-md, 2.4rem);
+$title-size-sm: var(--title-size-sm, 1.1rem);
+$title-size-xs: var(--title-size-xs, 1rem);
+$title-size-mini: var(--title-size-mini, 0.9rem);
+
+$color-background: var(--color-background, #ffffff);
 $color-base: var(--color-base, #666666);
 $color-base-rgb: var(--color-base-rgb, 102,102,102);
 $color-accent: var(--color-accent, #000000);
@@ -42,13 +55,6 @@ $color-border: var(--color-border, #e6e3df);
 $container-max-width: var(--container-max-width, 88rem);
 $gutters: var(--gutters, 1rem);
 
-$base-font-weight: var(--base-font-weight, 500);
-$text-size: var(--text-size, 1rem);
-$text-size-sm: var(--text-size-sm, 0.9rem);
-$text-size-xs: var(--text-size-xs, 0.7rem);
-$text-size-xxs: var(--text-size-xxs, 0.6rem);
-$text-line-height: var(--text-line-height, 1.35);
-
 $space-md: var(--space-md, 0.8rem);
 $space: var(--space, 1rem);
 $space-lg: var(--space-lg, 2rem);
@@ -63,24 +69,30 @@ $input-height-sm: var(--input-height-sm, 2.4rem);
 $input-height: var(--input-height, 3.35rem);
 $input-height-lg: var(--input-height-lg, 4rem);
 
-$title-size: var(--title-size, 4.8rem);
-$title-size-md: var(--title-size-md, 2.4rem);
-$title-size-sm: var(--title-size-sm, 1.1rem);
-$title-size-xs: var(--title-size-xs, 1rem);
-$title-size-mini: var(--title-size-mini, 0.9rem);
-
 $duration: var(--duration, .3s);
 $letter-spacing: var(--letter-spacing, 0);
 
 :root {
     --base-font-family: 'Wanted Sans', 'Onest', sans-serif;
+    --base-font-weight: 400;
+    --text-line-height: 1.35;
 
-	--color-white: #fff;
+    --text-size: 1rem;
+    --text-size-sm: 0.9rem;
+    --text-size-xs: 0.7rem;
+    --text-size-xxs: 0.6rem;
+
+    --title-size: 4.8rem;
+    --title-size-md: 2.4rem;
+    --title-size-sm: 1.1rem;
+    --title-size-xs: 1rem;
+    --title-size-mini: 0.9rem;
+
 	--color-background: #ffffff;
-
 	--color-base: #666666;
 	--color-base-rgb: 102,102,102;
 
+    --color-white: #fff;
 	--color-accent: #000000;
     --color-accent-rgb: 0,0,0;
     --color-accent-hover: #000000;
@@ -111,19 +123,6 @@ $letter-spacing: var(--letter-spacing, 0);
     --input-height-sm: 2.4rem;
     --input-height: 3.35rem; // 67px (дизайн)
     --input-height-lg: 4rem;
-
-    --title-size: 4.8rem;
-    --title-size-md: 2.4rem;
-    --title-size-sm: 1.1rem;
-    --title-size-xs: 1rem;
-    --title-size-mini: 0.9rem;
-
-    --base-font-weight: 500;
-    --text-size: 1rem;
-    --text-size-sm: 0.9rem;
-    --text-size-xs: 0.7rem;
-    --text-size-xxs: 0.6rem;
-	--text-line-height: 1.35;
 
 	--duration: .3s;
     --letter-spacing: 0;

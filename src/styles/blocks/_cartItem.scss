@@ -55,7 +55,6 @@
 
     &__desc {
         margin: 0;
-        font-size: 1rem; // 20px
         line-height: 1.35;
         color: $color-base;
     }
@@ -106,7 +105,6 @@
     }
 
     @include media(pc) {
-
         &__image {
             width: 6.4rem;
             height: 6.4rem;

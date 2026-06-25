@@ -66,7 +66,6 @@
 
     &__desc {
         margin: 0;
-        font-size: 1rem; // 20px (Regular)
         line-height: 1.35;
         color: $color-base;
     }
@@ -92,7 +91,7 @@
     &__price {
         flex: 0 0 13%;
         align-items: flex-start;
-        white-space: nowrap; // цена не должна переноситься
+        white-space: nowrap;
 
         .price__old {
             font-size: $title-size-sm; // 22px

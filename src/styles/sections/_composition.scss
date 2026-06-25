@@ -11,10 +11,9 @@
   margin: 0 0 0.4rem; // 8px → ИНХ
 }
 
-.composition__inci {
+.composition__ingredients {
   margin: 0 0 3.2rem; // 64px → первый блок
   color: $color-dark-grey;
-  font-size: 1rem; // 20px (H5 Regular)
   line-height: 1.35;
 }
 
@@ -82,7 +81,6 @@
 .composition__text {
   margin: 0;
   color: $color-dark-grey;
-  font-size: 1rem; // 20px (H5 Regular)
   line-height: 1.35;
 }
 
@@ -93,7 +91,6 @@
   flex-direction: column;
   gap: 0.4rem;
   color: $color-dark-grey;
-  font-size: 1rem; // 20px
   line-height: 1.35;
 
   li {

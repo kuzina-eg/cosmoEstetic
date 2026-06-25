@@ -261,11 +261,19 @@ a, button, select {
 }
 
 .text--lg {
-    font-size: $text-size;
+    font-size: $title-size-sm;
 }
 
-.text--md {
+.text--sm {
     font-size: $text-size-sm;
+}
+
+.text--xs {
+    font-size: $text-size-xs;
+}
+
+.text--xxs {
+    font-size: $text-size-xxs;
 }
 
 .text--nowrap {
@@ -296,28 +304,3 @@ a.text--primary:hover {
     color: $color-accent-hover !important;
 }
 
-.text--light {
-    color: $color-dark-grey !important;
-
-    svg {
-        fill: $color-grey-second;
-    }
-}
-
-a.text--light:hover {
-    color: $color-accent-hover !important;
-
-    svg {
-        fill: $color-accent-hover;
-    }
-}
-
-.more {
-}
-
-.box {
-    background-color: $color-light-grey;
-    padding: 1.55rem;
-    border: $color-grey-second 1px solid;
-    border-radius: $radius;
-}

@@ -42,7 +42,6 @@
         font-weight: 600;
         color: $color-white;
         margin-bottom: 0.4rem; // 8px (дизайн)
-        font-size: 1rem; // 20px
     }
 
     &__menu {
@@ -59,7 +58,6 @@
         align-items: baseline;
         gap: 0.4rem;
         color: $color-white;
-        font-size: 1rem; // 20px
         text-decoration: none;
         transition: color $duration;
 
@@ -107,9 +105,5 @@
         width: 1.2rem;
         height: 1.2rem;
         fill: currentColor;
-    }
-
-    &__copy {
-        font-size: 1rem; // 20px
     }
 }
