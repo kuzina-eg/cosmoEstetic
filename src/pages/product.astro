@@ -35,7 +35,6 @@ const delivery = [
     <Breadcrumbs items={[{ text: 'Главная', url: '/' }, { text: 'Хлебные', url: '#' }, { text: 'Крошки' }]} />
 
     <div class="product">
-      <!-- ===== GALLERY ===== -->
       <div class="product__gallery product-gallery">
         <div class="swiper product-gallery__main js-main-photo">
           <div class="swiper-wrapper">
@@ -67,14 +66,12 @@ const delivery = [
         </div>
       </div>
 
-      <!-- ===== INFO ===== -->
       <div class="product__info">
         <div class="product__header">
           <h1 class="product__title" set:html={typograf('Essential Lip Balm')} />
           <p class="product__subtitle" set:html={typograf('Увлажняющий Бальзам для губ Essential Lip Balm бесцветный')} />
         </div>
 
-        <!-- Characteristics -->
         <div class="product__minititle" set:html={typograf('характеристики')} />
         <dl class="specs">
           {specs.map((s) => (
@@ -85,7 +82,6 @@ const delivery = [
           ))}
         </dl>
 
-        <!-- Description -->
         <div class="product__minititle" set:html={typograf('Заголовок')} />
         <div class="product__desc">
           <p class="product__text" set:html={typograf('Увлажняющий бальзам для губ с нежным оттенком молочного шоколада. Для тех, кто устал от повседневного цвета своих губ – изысканный и чудесный коричневый оттенок любимого бальзама, который можно наслаивать для получения разной интенсивности цвета.')} />
@@ -94,7 +90,6 @@ const delivery = [
           </ul>
         </div>
 
-        <!-- Delivery -->
         <div class="product__minititle">
           Ваш город: Москва,&nbsp;<a href="#city" data-fancybox class="product__city-change">изменить</a>
         </div>
@@ -107,7 +102,6 @@ const delivery = [
           ))}
         </dl>
 
-        <!-- Buy row -->
         <div class="product__buy">
           <Price price="3 000 ₽" oldPrice="4 000 ₽" class="product__price" />
           <Button type="link" href="#cart" style="outline" fill icon="bag" class="product__buy-btn">

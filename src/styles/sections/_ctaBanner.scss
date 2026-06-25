@@ -39,9 +39,6 @@
     }
 
     &__text {
-        font-size: $text-size; // 20px (H5 Regular)
-        color: $color-dark-grey;
-        line-height: 1.35;
         max-width: 43rem; // 860px
 
         p {

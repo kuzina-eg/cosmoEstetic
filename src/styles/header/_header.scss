@@ -51,7 +51,6 @@
         align-items: center;
         gap: 0.4rem;
         color: $color-accent;
-        font-size: $text-size;
         text-decoration: none;
         transition: $duration color, $duration opacity;
 
@@ -230,7 +229,6 @@
         align-items: baseline;
         gap: 0.4rem;
         color: rgba(255, 255, 255, .7);
-        font-size: $text-size;
         text-decoration: none;
         transition: $duration color;
 
@@ -402,7 +400,6 @@
         display: block;
         padding: 0.6rem 1.6rem;
         color: $color-accent;
-        font-size: $text-size;
         white-space: nowrap;
         text-decoration: none;
         transition: $duration background;

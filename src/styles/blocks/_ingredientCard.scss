@@ -23,7 +23,6 @@
         margin: 0;
         font-size: 1rem; // 20px (H4 SemiBold)
         font-weight: 600;
-        line-height: 1.35;
         text-transform: uppercase;
         color: $color-accent;
     }
@@ -31,7 +30,5 @@
     &__text {
         margin: 0;
         font-weight: 400;
-        line-height: 1.35;
-        color: $color-dark-grey;
     }
 }

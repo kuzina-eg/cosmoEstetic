@@ -23,7 +23,6 @@ const tableRows = Array.from({ length: 5 }, () => ['Строка', 'Строка
 
         <div class="description">
 
-            <!-- 1. Typography -->
             <section class="description__section">
                 <h1>Заголовок h1</h1>
             </section>
@@ -36,7 +35,6 @@ const tableRows = Array.from({ length: 5 }, () => ['Строка', 'Строка
                 <h3>ЗАГОЛОВОК H3</h3>
             </section>
 
-            <!-- 2. Content block -->
             <section class="description__section description__section--flow">
                 <img
                     class="description__media description__media--float lazy"
@@ -49,14 +47,12 @@ const tableRows = Array.from({ length: 5 }, () => ['Строка', 'Строка
                 <p class="description__text">{lipText}</p>
             </section>
 
-            <!-- 3. Text paragraphs -->
             <section class="description__section">
                 <p>{lipTextSm}</p>
                 <p>{lipTextSm}</p>
                 <p>{lipTextSm}</p>
             </section>
 
-            <!-- 4. Paragraph + bullet list -->
             <section class="description__section">
                 <p>
                     Увлажняющий бальзам для губ с нежным оттенком молочного шоколада. Для тех, кто устал от повседневного цвета своих губ – изысканный и чудесный коричневый оттенок любимого бальзама, который можно наслаивать для получения разной интенсивности цвета.
@@ -79,12 +75,10 @@ const tableRows = Array.from({ length: 5 }, () => ['Строка', 'Строка
                 </ol>
             </section>
 
-            <!-- 5. Table -->
             <section class="description__section">
                 <Table headers={tableHeaders} rows={tableRows} />
             </section>
 
-            <!-- 6. Modal triggers -->
             <section class="description__section">
                 <div class="l-grid l-gap-20">
                     <Button type="link" href="#recovery" data-fancybox style="outline" fill icon="unlock">Восстановление — введите e-mail</Button>
@@ -99,7 +93,6 @@ const tableRows = Array.from({ length: 5 }, () => ['Строка', 'Строка
         <section class="form-section">
             <form class="form">
 
-                <!-- Left column -->
                 <div class="form__column">
                     <Button type="button" style="outline" icon="unlock" fill>Кнопка</Button>
 
@@ -118,7 +111,6 @@ const tableRows = Array.from({ length: 5 }, () => ['Строка', 'Строка
                     </div>
                 </div>
 
-                <!-- Right column -->
                 <div class="form__column">
                     <Button type="button" icon="unlock" fill>Кнопка</Button>
 

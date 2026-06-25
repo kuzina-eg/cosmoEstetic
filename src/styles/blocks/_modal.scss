@@ -85,7 +85,6 @@
 
     &__hint {
         margin: 1.2rem 0 0.6rem;
-        color: $color-dark-grey;
         font-size: $text-size-xs;
 
         &:first-child {
@@ -105,8 +104,6 @@
 
 .modal .ui-checkbox {
     gap: 0.4rem; // 8px (дизайн)
-    font-size: 1rem; // 20px (H5 Regular)
-    color: $color-dark-grey;
 }
 
 .modal .ui-checkbox__checked {
@@ -139,7 +136,6 @@
     background: none;
     border: none;
     cursor: pointer;
-    color: $color-dark-grey;
     line-height: 0;
     transition: color $duration;
 
@@ -219,6 +215,5 @@
 }
 
 .modal-status__text {
-    font-size: $text-size;
     color: $color-base;
 }

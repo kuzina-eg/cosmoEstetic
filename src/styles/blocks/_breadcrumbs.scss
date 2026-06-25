@@ -18,7 +18,6 @@
     }
 
     &__link {
-        color: $color-dark-grey;
         text-decoration: none;
         transition: $duration color;
 
@@ -28,10 +27,8 @@
     }
 
     &__current {
-        color: $color-dark-grey;
     }
 
     &__sep {
-        color: $color-dark-grey;
     }
 }

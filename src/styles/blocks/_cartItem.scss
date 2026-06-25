@@ -55,7 +55,6 @@
 
     &__desc {
         margin: 0;
-        line-height: 1.35;
         color: $color-base;
     }
 
@@ -73,7 +72,6 @@
         background: $color-accent;
         color: $color-white;
         font-size: 0.6rem; // 12px
-        line-height: 1.35;
         white-space: nowrap;
     }
 
@@ -87,7 +85,6 @@
 
         .price__old {
             font-size: $title-size-sm; // 22px
-            color: $color-dark-grey;
             text-decoration: line-through;
         }
 

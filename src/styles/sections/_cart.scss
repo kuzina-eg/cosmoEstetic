@@ -32,7 +32,6 @@
 
         .price__old {
             font-size: $title-size-sm; // 22px
-            color: $color-dark-grey;
             text-decoration: line-through;
         }
 
@@ -104,8 +103,6 @@
     .ui-checkbox {
         flex: none;
         gap: 1.2rem; // 24px бокс → подпись
-        font-size: 1rem; // 20px
-        color: $color-dark-grey;
         cursor: pointer;
     }
 
@@ -192,11 +189,9 @@
         gap: 1.2rem; // 24px
         font-weight: 600;
         text-transform: uppercase;
-        line-height: 1.35;
 
         &-label {
             flex: none;
-            color: $color-dark-grey;
         }
 
         &-line {
@@ -215,8 +210,6 @@
 
     &__agree.ui-checkbox {
         gap: 0.4rem; // 8px
-        font-size: 1rem; // 20px
-        color: $color-dark-grey;
     }
 
     &__submit {
