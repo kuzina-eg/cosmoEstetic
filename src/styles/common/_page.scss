@@ -4,15 +4,6 @@
     color: $color-accent;
     margin: 0 0 3.2rem; // 64px → контент (дизайн)
     line-height: 1;
-
-    @include media(tab) {
-        // font-size: 2rem;
-        margin-bottom: 2rem;
-    }
-
-    @include media(mob) {
-        // font-size: 1.6rem;
-    }
 }
 
 .page-top {
@@ -21,10 +12,6 @@
     @include media(tab) {
         padding-top: 2rem;
     }
-
-    @include media(mob) {
-        padding-top: 1.2rem;
-    }
 }
 
 .main .container.page-top {
@@ -32,9 +19,5 @@
 
     @include media(tab) {
         gap: 2rem;
-    }
-
-    @include media(mob) {
-        gap: 1.2rem;
     }
 }

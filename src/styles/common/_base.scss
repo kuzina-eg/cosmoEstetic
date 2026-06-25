@@ -140,11 +140,6 @@ table {
     border-spacing: 0;
 	text-align: left;
 
-    @include media(mob) {
-        // font-size: $text-size;
-
-    }
-
 	th, td {
         padding: 0.75rem 1rem;
         text-align: left;
@@ -185,10 +180,6 @@ table {
         flex-direction: column;
         gap: $space-lg;
 
-        @include media($breakpoint-adaptive) {
-            gap: 1.2rem;
-        }
-
         & > h1,
         & > .h1,
         & > h2,
@@ -227,10 +218,6 @@ table {
             display: flex;
             flex-direction: column;
             gap: $space-lg;
-
-        @include media($breakpoint-adaptive) {
-            gap: 1.2rem;
-        }
     }
 
     &__title {
@@ -253,24 +240,11 @@ table {
     padding: 8rem 0; // 160px (главная)
 
     @include media(pc) {
-        padding: 4.8rem 0;
-    }
-
-    @include media(tab) {
-    }
-
-    @include media(mob) {
+         padding: 4.8rem 0;
     }
 
     &--sm {
         padding: 3.2rem 0; // 64px
-
-        @include media(tab) {
-            padding: 2.4rem 0;
-        }
-
-        @include media(mob) {
-        }
     }
 }
 

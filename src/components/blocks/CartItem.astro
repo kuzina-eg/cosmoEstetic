@@ -28,26 +28,26 @@ const {
     badges = [],
 } = Astro.props;
 ---
-<article class="cart-item js-cart-item" data-price={price} data-old-price={oldPrice ?? price}>
-    <a href="#" class="cart-item__image-link">
-        <img class="cart-item__image lazy" data-src={`${image}@1x.webp`} data-srcset={`${image}@2x.webp 2x`} alt={title} />
+<article class="item-cart js-item-cart" data-price={price} data-old-price={oldPrice ?? price}>
+    <a href="#" class="item-cart__image-link">
+        <img class="item-cart__image lazy" data-src={`${image}@1x.webp`} data-srcset={`${image}@2x.webp 2x`} alt={title} />
     </a>
-    <div class="cart-item__info">
-        <h3 class="cart-item__title"><a href="#" set:html={typograf(title)} /></h3>
-        <p class="cart-item__desc" set:html={typograf(description)} />
+    <div class="item-cart__info">
+        <h3 class="item-cart__title"><a href="#" set:html={typograf(title)} /></h3>
+        <p class="item-cart__desc" set:html={typograf(description)} />
         {badges.length > 0 && (
-            <div class="cart-item__badges">
-                {badges.map((b) => <span class="cart-item__badge">{b}</span>)}
+            <div class="item-cart__badges">
+                {badges.map((b) => <span class="item-cart__badge">{b}</span>)}
             </div>
         )}
     </div>
-    <div class="cart-item__counter count-control js-count">
+    <div class="item-cart__counter count-control js-count">
         <button class="count-control__minus count-control__btn js-count-minus" type="button" aria-label="Меньше"><Icon name="minus" /></button>
         <input class="count-control__input" type="text" inputmode="numeric" value={qty} aria-label="Количество" />
         <button class="count-control__plus count-control__btn js-count-plus" type="button" aria-label="Больше"><Icon name="plus" /></button>
     </div>
-    <Price price={priceText} oldPrice={oldPriceText} class="cart-item__price" />
-    <div class="cart-item__action">
-        <Button type="button" style="outline" fill icon="trash" class="cart-item__remove js-cart-remove">Удалить из корзины</Button>
+    <Price price={priceText} oldPrice={oldPriceText} class="item-cart__price" />
+    <div class="item-cart__action">
+        <Button type="button" style="outline" fill icon="trash" class="item-cart__remove js-cart-remove">Удалить из корзины</Button>
     </div>
 </article>

@@ -36,14 +36,6 @@
         line-height: 1;
         letter-spacing: 0;
         margin-bottom: 0.4rem;
-
-        @include media(tab) {
-            // font-size: 2rem;
-        }
-
-        @include media(mob) {
-            // font-size: 1.6rem;
-        }
     }
 
     &__text {
@@ -61,7 +53,6 @@
         }
 
         @include media(mob) {
-            // font-size: $text-size;
             max-width: 100%;
         }
     }

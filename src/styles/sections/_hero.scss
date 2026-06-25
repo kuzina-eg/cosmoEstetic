@@ -40,16 +40,6 @@
         width: 100%;
         padding-top: 3.2rem;
         padding-bottom: 3.2rem;
-
-        @include media(tab) {
-            padding-top: 2.4rem;
-            padding-bottom: 2.4rem;
-        }
-
-        @include media(mob) {
-            padding-top: 1.6rem;
-            padding-bottom: 1.6rem;
-        }
     }
 
     &__content {
@@ -69,14 +59,6 @@
         margin-top: 0;
         margin-bottom: 1.2rem;
         letter-spacing: $letter-spacing;
-
-        @include media(tab) {
-            margin-bottom: 1rem;
-        }
-
-        @include media(mob) {
-            margin-bottom: 0.8rem;
-        }
     }
 
     &__text {
@@ -89,12 +71,6 @@
 
         @include media(tab) {
             max-width: 100%;
-            margin-bottom: 1.2rem;
-        }
-
-        @include media(mob) {
-            // font-size: $text-size;
-            margin-bottom: 1rem;
         }
     }
 

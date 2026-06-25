@@ -1,115 +1,4 @@
 .item-cart {
-    display: grid;
-    gap: 0.8rem;
-    padding: 1.6rem;
-    border: $color-grey-second 1px solid;
-    border-radius: $radius;
-
-    &__product {
-        display: grid;
-        grid-template-columns: 6.4rem 1fr;
-        gap: 1.6rem;
-        align-items: flex-start;
-    }
-
-    @include media(pc) {
-        &--history {
-            display: flex;
-            flex-wrap: wrap;
-        }
-
-        &--history &__product {
-            grid-template-columns: 100%;
-            gap: 0.4rem;
-            width: 100%;
-        }
-
-        &--history &__add-review {
-            width: 100%;
-        }
-
-        &--history &__controls {
-            display: block;
-        }
-
-        &--history &__add-review:empty {
-            display: none;
-        }
-    }
-
-    &__photo {
-        border: $color-border 1px solid;
-        border-radius: $radius-sm;
-        width: 6.4rem;
-        height: 6.4rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        overflow: hidden;
-
-        img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
-        }
-    }
-
-    &__detail {
-        align-self: center;
-    }
-
-    &__title {
-        margin-bottom: 0.4rem;
-
-        &:last-child {
-            margin-bottom: 0;
-        }
-
-        a {
-            text-decoration: none;
-        }
-    }
-
-    &__descr,
-    &__date {
-        color: $color-dark-grey;
-    }
-
-    &__date {
-        margin-bottom: 0.4rem;
-    }
-
-    &__controls {
-        margin-right: -0.4rem;
-        display: grid;
-        grid-template-columns: 5.9rem 1fr 2.4rem;
-        gap: 0.4rem;
-        align-items: center;
-    }
-
-    &__price {
-        text-align: center;
-    }
-
-    @include media-min(pc) {
-        grid-template-columns: 2rem 1fr 14.65rem;
-        align-items: center;
-
-        &--history {
-            grid-template-columns: 1fr 12.8rem 4.4rem;
-        }
-
-        &--history &__price {
-            text-align: right;
-        }
-
-        &--history &__controls {
-            display: block;
-        }
-    }
-}
-
-.cart-item {
     display: flex;
     align-items: center;
     gap: 1.6rem; // 32px
@@ -217,7 +106,6 @@
     }
 
     @include media(pc) {
-        gap: 1.2rem;
 
         &__image {
             width: 6.4rem;
@@ -241,13 +129,16 @@
             flex: 1 1 calc(100% - 6.8rem);
         }
 
-        &__counter { order: 3; }
-        &__price { order: 4; }
+        &__counter {
+            order: 3;
+        }
+        &__price {
+            order: 4;
+        }
         &__action {
             order: 5;
             flex: 1 1 auto;
             width: auto;
-            margin-left: auto;
         }
     }
 
@@ -258,7 +149,6 @@
         }
 
         &__price .price__current {
-            // font-size: 1.8rem;
         }
     }
 }

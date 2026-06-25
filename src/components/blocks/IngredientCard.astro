@@ -9,15 +9,15 @@ interface Props {
 
 const { image, name, text } = Astro.props;
 ---
-<article class="ingredient-card">
+<article class="item-ingredient">
     <img
-        class="ingredient-card__image lazy"
+        class="item-ingredient__image lazy"
         data-src={`${image}@1x.webp`}
         data-srcset={`${image}@2x.webp 2x`}
         alt={name}
     />
-    <div class="ingredient-card__body">
-        <h3 class="ingredient-card__name" set:html={typograf(name)} />
-        <p class="ingredient-card__text" set:html={typograf(text)} />
+    <div class="item-ingredient__body">
+        <h3 class="item-ingredient__name" set:html={typograf(name)} />
+        <p class="item-ingredient__text" set:html={typograf(text)} />
     </div>
 </article>

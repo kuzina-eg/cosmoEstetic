@@ -1,5 +1,5 @@
 
-.ingredient-card {
+.item-ingredient {
     display: flex;
     flex-direction: column;
     gap: 1.6rem; // 32px (дизайн)
@@ -34,12 +34,5 @@
         font-weight: 400;
         line-height: 1.35;
         color: $color-dark-grey;
-    }
-
-    @include media(mob) {
-        &__name,
-        &__text {
-            // font-size: 0.85rem;
-        }
     }
 }

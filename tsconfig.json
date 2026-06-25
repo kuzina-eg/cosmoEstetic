@@ -10,8 +10,9 @@
       "@components/*": ["src/components/*"],
       "@styles/*": ["src/styles/*"],
       "@scripts/*": ["src/scripts/*"],
-      "@utils/*": ["src/utils/*"],
-      "@nodeModules/*": ["node_modules/*"]
+      "@utils/*": ["src/utils/*"]
     }
-  }
+  },
+  "include": [".astro/types.d.ts", "**/*"],
+  "exclude": ["node_modules", "dist"]
 }

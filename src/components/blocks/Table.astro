@@ -7,15 +7,15 @@ interface Props {
 
 const { headers, rows, class: className } = Astro.props;
 ---
-<div class:list={['table-wrap', className]}>
-    <table class="table">
+<div class:list={['table-wrapper', className]}>
+    <table>
         <thead>
-            <tr>{headers.map((h) => <th class="table__th">{h}</th>)}</tr>
+            <tr>{headers.map((h) => <th>{h}</th>)}</tr>
         </thead>
         <tbody>
             {rows.map((r) => (
-                <tr class="table__tr">
-                    {r.map((c) => <td class="table__td">{c}</td>)}
+                <tr>
+                    {r.map((c) => <td>{c}</td>)}
                 </tr>
             ))}
         </tbody>

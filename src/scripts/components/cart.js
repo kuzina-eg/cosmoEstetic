@@ -20,7 +20,7 @@ export default function cart() {
         let total = 0;
         let oldTotal = 0;
 
-        root.querySelectorAll('.js-cart-item').forEach((item) => {
+        root.querySelectorAll('.js-item-cart').forEach((item) => {
             const price = Number(item.getAttribute('data-price')) || 0;
             const oldPrice = Number(item.getAttribute('data-old-price')) || price;
             const qtyInput = item.querySelector('.count-control__input');
@@ -46,7 +46,7 @@ export default function cart() {
     };
 
     // Quantity +/- and manual input
-    root.querySelectorAll('.js-cart-item').forEach((item) => {
+    root.querySelectorAll('.js-item-cart').forEach((item) => {
         const input = item.querySelector('.count-control__input');
         const minus = item.querySelector('.js-count-minus');
         const plus = item.querySelector('.js-count-plus');
@@ -73,7 +73,7 @@ export default function cart() {
     // Remove item
     root.querySelectorAll('.js-cart-remove').forEach((btn) => {
         btn.addEventListener('click', () => {
-            const item = btn.closest('.js-cart-item');
+            const item = btn.closest('.js-item-cart');
             if (item) item.remove();
             recalc();
         });

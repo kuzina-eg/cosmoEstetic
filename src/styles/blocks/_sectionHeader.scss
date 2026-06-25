@@ -4,20 +4,12 @@
     gap: 0.4rem; // 8px заголовок→подзаголовок (дизайн)
     margin-bottom: 3.2rem; // 64px header→сетка (дизайн)
 
-    @include media(tab) {
-        margin-bottom: 2rem;
-    }
-
     &__title {
         font-size: $title-size-md; // 48px (H2 Wanted Sans SemiBold)
         font-weight: 600;
         color: $color-accent;
         line-height: 1;
         margin: 0;
-
-        @include media(mob) {
-            // font-size: 1.6rem;
-        }
     }
 
     &__subtitle {

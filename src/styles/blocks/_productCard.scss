@@ -122,11 +122,4 @@
         color: $color-accent;
         white-space: nowrap;
     }
-
-    @include media(mob) {
-        &__name { font-size: 1rem; }
-        &__price { font-size: 1.8rem; }
-        &__price-old,
-        &__text { font-size: 0.85rem; }
-    }
 }

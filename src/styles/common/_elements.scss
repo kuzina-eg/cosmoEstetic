@@ -3,20 +3,39 @@ table {
 }
 
 .table-wrapper {
-	overflow: auto;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch; // плавный скролл на тач-устройствах
 
-    &:not(:last-child) {
-        margin-bottom: $space;
+    table {
+        min-width: 100%; // заполняет контейнер, когда контента мало
+        width: max-content; // растёт по контенту → горизонтальный скролл, когда не влезает
+        border-collapse: collapse;
+        font-size: $text-size; // 20px (Figma H4/H5)
     }
 
-	table {
-        min-width: 30rem;
+    th,
+    td {
+        height: 2.4rem; // 48px (Figma)
+        padding: 0.4rem 1.2rem; // 24px по горизонтали (Figma)
+        text-align: left;
+        vertical-align: middle;
+        border: 1px solid $color-border;
+        white-space: nowrap; // не переносим контент — вместо этого прокрутка
     }
 
-    @include media(mob) {
-        margin-left: calc($gutters * -1);
-        margin-right: calc($gutters * -1);
-        padding-right: $gutters;
-        padding-left: $gutters;
+    th {
+        font-weight: 600;
+        text-transform: uppercase;
+        color: $color-white;
+        background: $color-accent;
+    }
+
+    td {
+        color: $color-accent;
+    }
+
+    tr:nth-child(odd) td {
+        background: $color-grey;
     }
 }

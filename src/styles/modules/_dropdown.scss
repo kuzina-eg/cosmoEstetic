@@ -153,12 +153,10 @@
         &:focus-visible {
             outline: none;
             background: $color-grey;
-
 		}
 
         @include hover {
             background: $color-grey;
-
         }
 	}
 

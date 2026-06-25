@@ -1,5 +1,5 @@
 
-.catalog-item {
+.item-product {
     display: flex;
     align-items: center;
     gap: 1.6rem; // 32px (дизайн)
@@ -22,7 +22,7 @@
         display: block;
         overflow: hidden;
 
-        &:hover .catalog-item__image {
+        &:hover .item-product__image {
             transform: scale(1.03);
         }
     }
@@ -112,8 +112,6 @@
     }
 
     @include media(pc) {
-        gap: 1.2rem;
-
         &__image {
             width: 14.4rem;
             height: 14.4rem;
@@ -149,8 +147,6 @@
     }
 
     @include media(mob) {
-        gap: 0.8rem;
-
         &__image {
             width: 6.4rem;
             height: 6.4rem;
@@ -159,10 +155,6 @@
         &__action {
             flex: 1 1 100%;
             width: 100%;
-        }
-
-        &__price .price__current {
-            // font-size: 1.8rem;
         }
     }
 }

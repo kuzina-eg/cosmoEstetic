@@ -10,9 +10,11 @@ interface Props {
 
 const { user } = Astro.props;
 
+const pathname = Astro.url.pathname;
+
 const nav = [
   {
-    text: 'Магазин', url: '#', active: true,
+    text: 'Магазин', url: '#', match: 'catalog',
     columns: [
       { title: 'Для Ваших губ', links: [{ text: 'Бальзамы Lip Balm', url: 'catalog.html' }] },
       { title: 'Категория 2', links: [{ text: 'Бальзамы Lip Balm', url: 'catalog.html' }] },
@@ -63,7 +65,7 @@ const nav = [
       <ul class="header__nav-list js-menu-popup">
         {nav.map((i) => (
           <li class:list={['header__nav-item', 'js-menu-item', i.columns && 'header__nav-item--has-dropdown']}>
-            <a href={i.url} class:list={['header__nav-link', i.active && 'is-active']}>
+            <a href={i.url} class:list={['header__nav-link', i.match && pathname.includes(i.match) && 'is-active']}>
               <span class="header__nav-text" set:html={typograf(i.text)} />
             </a>
             {i.columns && (

@@ -9,12 +9,10 @@
 
         @include media(tab) {
             grid-template-columns: repeat(2, 1fr);
-            gap: 1.6rem;
         }
 
         @include media(mob) {
             grid-template-columns: 1fr;
-            gap: 2rem;
         }
     }
 }

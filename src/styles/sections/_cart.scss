@@ -5,14 +5,6 @@
     font-weight: 600;
     line-height: 1;
     color: $color-accent;
-
-    @include media(tab) {
-        // font-size: 2rem;
-    }
-
-    @include media(mob) {
-        // font-size: 1.6rem;
-    }
 }
 
 .cart-items {
@@ -66,14 +58,6 @@
             width: 100%;
         }
     }
-
-    @include media(mob) {
-        gap: 1.2rem;
-
-        &__sum .price__current {
-            // font-size: 1.8rem;
-        }
-    }
 }
 
 .cart-extra {
@@ -90,10 +74,6 @@
     display: flex;
     flex-direction: column;
     gap: 3.2rem; // 64px заголовок → контент
-
-    @include media(tab) {
-        gap: 2rem;
-    }
 }
 
 .delivery-list {
@@ -131,10 +111,16 @@
     }
 
     @include media(mob) {
-        flex-wrap: wrap;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: .5rem;
 
-        &__line { display: none; }
-        &__price { margin-left: auto; }
+        &__line {
+            display: none;
+        }
+        &__price {
+            margin-left: 2.8rem;
+        }
     }
 }
 
@@ -162,7 +148,6 @@
 
         @include media(tab) {
             grid-template-columns: 1fr;
-            gap: 2rem;
             align-items: stretch;
         }
     }
@@ -171,10 +156,6 @@
         display: flex;
         flex-direction: column;
         gap: 3.2rem; // 64px заголовок → форма
-
-        @include media(tab) {
-            gap: 2rem;
-        }
     }
 
     &__fields {
@@ -187,17 +168,8 @@
         display: flex;
         gap: 0.8rem; // 16px
 
-        .ui-input {
-            flex: 1 1 0;
-            min-width: 0;
-        }
-
-        &-btn {
-            flex: 1 1 0;
-            min-width: 0;
-        }
-
         @include media(mob) {
+            margin-top: 1.5rem;
             flex-direction: column;
         }
     }
