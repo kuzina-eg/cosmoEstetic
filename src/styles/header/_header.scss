@@ -17,7 +17,7 @@
         min-height: 5.6rem; // ~112px
 
         @include media(mob) {
-            min-height: 3.2rem;
+            min-height: 4rem; // +25%
         }
     }
 
@@ -34,7 +34,8 @@
             height: auto;
 
             @include media(mob) {
-                max-width: 6.4rem;
+                max-width: 9.6rem; // +50%
+                max-height: 4.8rem; // +50%
             }
         }
     }
@@ -65,6 +66,11 @@
         height: $icon-size;
         flex-shrink: 0;
         fill: currentColor;
+
+        @include media(mob) {
+            width: calc(#{$icon-size} * 1.25); // +25%
+            height: calc(#{$icon-size} * 1.25);
+        }
     }
 
     &__action-text {
@@ -78,7 +84,7 @@
         position: relative;
 
         @include media(mob) {
-            min-height: 2.4rem;
+            min-height: 3rem; // +25%
 
             &.is-open {
                 .header__nav-list {
@@ -110,7 +116,8 @@
             background: $color-accent;
             z-index: 100;
             box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
-            max-height: calc(100vh - var(--header-fixed-height, 4.8rem));
+            // динамическая высота экрана минус header__top и header__nav
+            max-height: calc(var(--dvh, 1vh) * 100 - var(--header-top-height, 4.8rem) - var(--header-nav-height, 3rem));
             overflow-y: auto;
         }
     }
@@ -141,6 +148,10 @@
         transition: $duration background, $duration color;
         cursor: pointer;
 
+        @include media-min(tab) {
+            white-space: nowrap;
+        }
+
         &.is-active,
         &:hover {
             background: $color-accent;
@@ -148,7 +159,10 @@
         }
 
         @include media(mob) {
-            min-height: 2.4rem;
+            min-height: 3rem; // +25%
+            padding: 0 0.75rem; // +25%
+            gap: 0.375rem; // +25%
+            font-size: calc(#{$text-size-sm} * 1.25); // +25%
             justify-content: space-between;
             border-bottom: 1px solid rgba(255, 255, 255, .1);
         }
@@ -175,6 +189,7 @@
             box-shadow: none;
             transform: none;
             display: none;
+            padding: 2rem; // +25%
             background: rgba(0, 0, 0, .25);
         }
     }
@@ -194,6 +209,11 @@
         font-weight: 600;
         font-size: $text-size;
         margin-bottom: 0.6rem;
+
+        @include media(mob) {
+            font-size: calc(#{$text-size} * 1.25); // +25%
+            margin-bottom: 0.75rem; // +25%
+        }
     }
 
     &__dropdown-list {
@@ -213,6 +233,11 @@
         font-size: $text-size;
         text-decoration: none;
         transition: $duration color;
+
+        @include media(mob) {
+            gap: 0.5rem; // +25%
+            font-size: calc(#{$text-size} * 1.25); // +25%
+        }
 
         &::before {
             content: '•';
@@ -251,7 +276,7 @@
     &__burger {
         display: none;
         position: absolute;
-        right: 1rem;
+        right: .5rem;
         top: 50%;
         transform: translateY(-50%);
         z-index: 10;
@@ -272,7 +297,48 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            padding: 0.5rem; // +25%
+
+            .ui-icon {
+                width: calc(#{$icon-size} * 1.25); // +25%
+                height: calc(#{$icon-size} * 1.25);
+            }
         }
+    }
+
+    // Прилипание меню к верху при скролле вверх (умная фиксация).
+    // headerFixing.js вешает на .js-header классы is-fixed / is-hidden.
+    &.is-fixed {
+        // резервируем высоту nav, который уходит из потока, чтобы контент не прыгал
+        padding-bottom: 4.4rem; // = высота .header__nav
+
+        @include media(mob) {
+            padding-bottom: 3rem;
+
+            // в зафиксированном состоянии header__top уже не виден — вычитаем только header__nav
+            .header__nav-list {
+                max-height: calc(var(--dvh, 1vh) * 100 - var(--header-nav-height, 3rem));
+            }
+        }
+
+        .header__nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            transition: transform $duration ease;
+        }
+    }
+
+    // скролл вниз — меню прячется вверх; скролл вверх — возвращается
+    &.is-fixed.is-hidden .header__nav {
+        transform: translateY(-100%);
+    }
+
+    // первый кадр фиксации — мгновенно, без анимации (чтобы меню не мигнуло)
+    &.no-anim .header__nav {
+        transition: none;
     }
 }
 

@@ -18,7 +18,7 @@
     }
 
     &__image-link {
-        flex: none;
+        flex: 0 0 23%; // колонка с фото
         display: block;
         overflow: hidden;
 
@@ -29,8 +29,9 @@
 
     &__image {
         display: block;
-        width: 20rem; // 400px
-        height: 20rem;
+        width: 100%;
+        height: auto;
+        aspect-ratio: 1 / 1; // квадрат вне зависимости от ширины колонки
         object-fit: cover;
         object-position: center;
         background-color: $color-grey;
@@ -38,7 +39,7 @@
     }
 
     &__info {
-        flex: 1 1 0;
+        flex: 1 1 auto;
         min-width: 0;
         display: flex;
         flex-direction: column;
@@ -89,8 +90,9 @@
     }
 
     &__price {
-        flex: none;
+        flex: 0 0 13%;
         align-items: flex-start;
+        white-space: nowrap; // цена не должна переноситься
 
         .price__old {
             font-size: $title-size-sm; // 22px
@@ -107,54 +109,38 @@
     }
 
     &__action {
-        flex: none;
-        width: 20.5rem; // 410px
-    }
-
-    @include media(pc) {
-        &__image {
-            width: 14.4rem;
-            height: 14.4rem;
-        }
-
-        &__action {
-            width: 14.4rem;
-        }
+        flex: 0 0 22%;
     }
 
     @include media(tab) {
         flex-wrap: wrap;
 
-        &__image {
-            width: 9.6rem;
-            height: 9.6rem;
+        &__image-link {
+            flex: 0 0 9.6rem;
         }
 
         &__info {
-            flex: 1 1 calc(100% - 10.8rem);
+            flex: 1 1 0; // рядом с фото, без переноса на новую строку
         }
 
         &__price {
+            flex: 0 0 100%;
             order: 3;
         }
 
         &__action {
+            flex: 0 0 100%;
             order: 4;
-            flex: 1 1 auto;
-            width: auto;
-            margin-left: auto;
         }
     }
 
     @include media(mob) {
-        &__image {
-            width: 6.4rem;
-            height: 6.4rem;
+        &__image-link {
+            flex: 0 0 6.4rem;
         }
 
         &__action {
             flex: 1 1 100%;
-            width: 100%;
         }
     }
 }

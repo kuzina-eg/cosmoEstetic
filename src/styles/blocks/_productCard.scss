@@ -53,6 +53,10 @@
         display: flex;
         align-items: flex-end;
         gap: 1.6rem; // 32px
+
+        @media (min-width: 992px) and (max-width: 1300px) {
+            flex-direction: column;
+        }
     }
 
     &__info {

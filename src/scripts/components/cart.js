@@ -1,4 +1,3 @@
-
 export default function cart() {
     const root = document.querySelector('.js-cart');
     if (!root) return;

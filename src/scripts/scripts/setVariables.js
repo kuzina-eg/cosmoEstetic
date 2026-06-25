@@ -14,6 +14,21 @@ export default function setVariables() {
     };
 
     /**
+     * Set header section heights (для расчёта высоты выпадающего меню)
+     */
+    const setHeaderHeights = () => {
+        const top = document.querySelector('.header__top');
+        const nav = document.querySelector('.header__nav');
+
+        if (top) {
+            document.documentElement.style.setProperty('--header-top-height', `${top.offsetHeight}px`);
+        }
+        if (nav) {
+            document.documentElement.style.setProperty('--header-nav-height', `${nav.offsetHeight}px`);
+        }
+    };
+
+    /**
      * Set variable screen mode
      */
     const setScreenMode = () => {
@@ -29,10 +44,12 @@ export default function setVariables() {
 
     setScreenHeightProperty();
     setScreenDynamicHeightProperty();
+    setHeaderHeights();
     setScreenMode();
 
     window.addEventListener('resize', () => {
         setScreenDynamicHeightProperty();
+        setHeaderHeights();
         setScreenMode();
     });
 }
