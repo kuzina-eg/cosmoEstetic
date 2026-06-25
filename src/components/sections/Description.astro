@@ -1,7 +1,7 @@
 ---
 import typograf from '@utils/typograf';
 
-const inci = 'DIISOSTEARYL MALATE, ETHYLHEXYL PALMITATE, TRIDECYL TRIMELLITATE, HYDROGENATED STYREN EISOPRENE COPOLYMER, ISONONYL ISONONANOATE, POLYISOBUTENE, TOCOPHEROL (ТОКОФЕРОЛ), SYNTHETIC WAX, SILICA DIMETHYL SILYLATE, OCTYLDODECANOL, BUTYROSPERMUM PARKII (SHEA) BUTTER (МАСЛО ШИ (КАРИТЭ)), PALMITOYL TRIPEPTIDE-1 (ПЕПТИД), 4-METHOXYCINNAMATE, PARFUM, SQUALANE (СКВАЛАН), SUN FLOWER SEED OIL (МАСЛО СЕМЯН ПОДСОЛНЕЧНИКА), CASTOR OIL (КАСТОРОВОЕ МАСЛО), VITAMIN E (ВИТАМИН Е), SHEA BUTTER-REFINED (РАФИНИРОВАННОЕ МАСЛО ШИ), HYALURONIC ACID (ГИАЛУРОНОВАЯ КИСЛОТА), CERAMIDES (ЦЕРАМИДЫ), RED IRON OXIDE, CARBON DIOXIDE (TITANIUM DIOXIDE), BLACK IRON OXIDE';
+const ingredients = 'DIISOSTEARYL MALATE, ETHYLHEXYL PALMITATE, TRIDECYL TRIMELLITATE, HYDROGENATED STYREN EISOPRENE COPOLYMER, ISONONYL ISONONANOATE, POLYISOBUTENE, TOCOPHEROL (ТОКОФЕРОЛ), SYNTHETIC WAX, SILICA DIMETHYL SILYLATE, OCTYLDODECANOL, BUTYROSPERMUM PARKII (SHEA) BUTTER (МАСЛО ШИ (КАРИТЭ)), PALMITOYL TRIPEPTIDE-1 (ПЕПТИД), 4-METHOXYCINNAMATE, PARFUM, SQUALANE (СКВАЛАН), SUN FLOWER SEED OIL (МАСЛО СЕМЯН ПОДСОЛНЕЧНИКА), CASTOR OIL (КАСТОРОВОЕ МАСЛО), VITAMIN E (ВИТАМИН Е), SHEA BUTTER-REFINED (РАФИНИРОВАННОЕ МАСЛО ШИ), HYALURONIC ACID (ГИАЛУРОНОВАЯ КИСЛОТА), CERAMIDES (ЦЕРАМИДЫ), RED IRON OXIDE, CARBON DIOXIDE (TITANIUM DIOXIDE), BLACK IRON OXIDE';
 
 const balmHeading = 'Бальзам для губ с пептидами CosmoEstetic Lip Perfection Chocolate';
 const balmText = 'Увлажняющий бальзам для губ с нежным оттенком молочного шоколада. Для тех, кто устал от повседневного цвета своих губ – изысканный и чудесный коричневый оттенок любимого бальзама, который можно наслаивать для получения разной интенсивности цвета.';
@@ -19,38 +19,40 @@ const activeText = [
   '— Сквалан и витамин "Е" укрепляют барьер и защищают губы от внешних факторов — мороза, ветра, солнца и сухого воздуха.',
 ];
 ---
-<section class="section section--sm composition">
-  <div class="container composition__inner">
-    <h2 class="composition__title" set:html={typograf('Состав')} />
-    <p class="composition__inci" set:html={typograf(inci)} />
+<section class="description section section--sm section--filled">
+  <div class="container">
+    <div class="description__section">
+        <div class="description__title" set:html={typograf('Состав')} />
+        <div class="product__ingredients"><p set:html={typograf(ingredients)} /></div>
+    </div>
 
-    <div class="composition__row">
-      <img class="composition__media lazy" data-src="img/products/05@1x.webp" data-srcset="img/products/05@2x.webp 2x" alt="" />
-      <div class="composition__content">
-        <h3 class="composition__heading" set:html={typograf(balmHeading)} />
-        <p class="composition__text" set:html={typograf(balmText)} />
-        <ul class="composition__features">
+    <div class="description__row">
+      <img class="description__media lazy" width="860" height="394" data-src="img/products/05@1x.webp" data-srcset="img/products/05@2x.webp 2x" alt="" />
+      <div class="description__content">
+        <div class="product__minititle" set:html={typograf(balmHeading)} />
+        <p set:html={typograf(balmText)} />
+        <ul>
           {balmFeatures.map((f) => <li set:html={typograf(f)} />)}
         </ul>
       </div>
     </div>
 
-    <div class="composition__row composition__row--reverse">
-      <div class="composition__content">
-        <h3 class="composition__heading" set:html={typograf('Незаменимый бальзам для губ от CosmoEstetic')} />
-        <p class="composition__text" set:html={typograf('Идеален после контурной пластики губ. Дарит глубокое увлажнение и регенерирует ткани. Смягчает губы и способствует восстановлению, поддерживая эластичность кожи губ. Устраняет шелушение и защищает от обветривания. Тает на губах словно стеклянная глазурь. Имеет густую питательную текстуру без липкости.')} />
-        <h3 class="composition__heading" set:html={typograf('Активные компоненты')} />
-        {activeText.map((p) => <p class="composition__text" set:html={typograf(p)} />)}
+    <div class="description__row description__row--reverse">
+      <div class="description__content">
+        <div class="product__minititle" set:html={typograf('Незаменимый бальзам для губ от CosmoEstetic')} />
+        <p set:html={typograf('Идеален после контурной пластики губ. Дарит глубокое увлажнение и регенерирует ткани. Смягчает губы и способствует восстановлению, поддерживая эластичность кожи губ. Устраняет шелушение и защищает от обветривания. Тает на губах словно стеклянная глазурь. Имеет густую питательную текстуру без липкости.')} />
+        <div class="product__minititle" set:html={typograf('Активные компоненты')} />
+        {activeText.map((p) => <p set:html={typograf(p)} />)}
       </div>
-      <img class="composition__media lazy" data-src="img/products/06@1x.webp" data-srcset="img/products/06@2x.webp 2x" alt="" />
+      <img class="description__media lazy" width="860" height="558" data-src="img/products/06@1x.webp" data-srcset="img/products/06@2x.webp 2x" alt="" />
     </div>
 
-    <div class="composition__row">
-      <img class="composition__media lazy" data-src="img/products/07@1x.webp" data-srcset="img/products/07@2x.webp 2x" alt="" />
-      <div class="composition__content">
-        <h3 class="composition__heading" set:html={typograf(balmHeading)} />
-        <p class="composition__text" set:html={typograf(balmText)} />
-        <ul class="composition__features">
+    <div class="description__row">
+      <img class="description__media lazy" width="860" height="394" data-src="img/products/07@1x.webp" data-srcset="img/products/07@2x.webp 2x" alt="" />
+      <div class="description__content">
+        <div class="product__minititle" set:html={typograf(balmHeading)} />
+        <p set:html={typograf(balmText)} />
+        <ul>
           {balmFeatures.map((f) => <li set:html={typograf(f)} />)}
         </ul>
       </div>

@@ -9,66 +9,94 @@ import Table from '@components/blocks/Table.astro';
 
 const demoSelect = [{ value: '1', text: 'Пункт 1' }, { value: '2', text: 'Пункт 2' }];
 
-const lipText = 'Комплекс масел (касторовое масло, масло жожоба, масло ши, масло подсолнечника) и церамиды способствует глубокому увлажнению, снимают ощущения стянутости, раздражения и трещинок. Глубоко питает и удерживает влагу, защищая губы от сухости, шелушения и обветривания. Если ваши губы были сухими или обветренными, после применения нашего бальзама они обязательно станут мягкими и ухоженными. Формула с сигнальным пептидом Palmitoyl Tripeptide-1 разглаживает губы, уменьшает мелкие морщинки и возвращает губам наполненность и красивый объём. Palmitoyl Tripeptide-1 помогает коже губ вырабатывать больше коллагена и гиалуроновой кислоты. Пептид улучшает плотность кожи губ.';
+const lipText = 'Комплекс масел (касторовое масло, масло жожоба, масло ши, масло подсолнечника) и церамиды способствует глубокому увлажнению, снимают ощущения стянутости, раздражения и трещинок. Глубоко питает и удерживает влагу, защищая губы от сухости, шелушения и обветривания. Если ваши губы были сухими или обветренными, после применения нашего бальзама они обязательно станут мягкими и ухоженными. Формула с сигнальным пептидом Palmitoyl Tripeptide-1 разглаживает губы, уменьшает мелкие морщинки и возвращает губам наполненность и красивый объем. Palmitoyl Tripeptide-1 помогает коже губ вырабатывать больше коллагена и гиалуроновой кислоты. Пептид улучшает плотность кожи губ. Сквалан и витамин "Е" укрепляют барьер и защищают губы от внешних факторов — мороза, ветра, солнца и сухого воздуха.Комплекс масел (касторовое масло, масло жожоба, масло ши, масло подсолнечника) и церамиды способствует глубокому увлажнению, снимают ощущения стянутости, раздражения и трещинок. Глубоко питает и удерживает влагу, защищая губы от сухости, шелушения и обветривания. Если ваши губы были сухими или обветренными, после применения нашего бальзама они обязательно станут мягкими и ухоженными. Формула с сигнальным пептидом Palmitoyl Tripeptide-1 разглаживает губы, уменьшает мелкие морщинки и возвращает губам наполненность и красивый объем. Palmitoyl Tripeptide-1 помогает коже губ вырабатывать больше коллагена и гиалуроновой кислоты. Пептид улучшает плотность кожи губ. Сквалан и витамин "Е" укрепляют барьер и защищают губы от внешних факторов — мороза, ветра, солнца и сухого воздуха.Комплекс масел (касторовое масло, масло жожоба, масло ши, масло подсолнечника) и церамиды способствует глубокому увлажнению, снимают ощущения стянутости, раздражения и трещинок. Глубоко питает и удерживает влагу, защищая губы от сухости, шелушения и обветривания. Если ваши губы были сухими или обветренными, после применения нашего бальзама они обязательно станут мягкими и ухоженными. Формула с сигнальным пептидом Palmitoyl Tripeptide-1 разглаживает губы, уменьшает мелкие морщинки и возвращает губам наполненность и красивый объем. Palmitoyl Tripeptide-1 помогает коже губ вырабатывать больше коллагена и гиалуроновой кислоты. Пептид улучшает плотность кожи губ. Сквалан и витамин "Е" укрепляют барьер и защищают губы от внешних факторов — мороза, ветра, солнца и сухого воздуха.Комплекс масел (касторовое масло, масло жожоба, масло ши, масло подсолнечника) и церамиды способствует глубокому увлажнению, снимают ощущения стянутости, раздражения и трещинок. Глубоко питает и удерживает влагу, защищая губы от сухости, шелушения и обветривания. Если ваши губы были сухими или обветренными, после применения нашего бальзама они обязательно станут мягкими и ухоженными. Формула с сигнальным пептидом Palmitoyl Tripeptide-1 разглаживает губы, уменьшает мелкие морщинки и возвращает губам наполненность и красивый объем. Palmitoyl Tripeptide-1 помогает коже губ вырабатывать больше коллагена и гиалуроновой кислоты. Пептид улучшает плотность кожи губ. Сквалан и витамин "Е" укрепляют барьер и защищают губы от внешних факторов — мороза, ветра, солнца и сухого воздуха.';
+const lipTextSm = 'Комплекс масел (касторовое масло, масло жожоба, масло ши, масло подсолнечника) и церамиды способствует глубокому увлажнению, снимают ощущения стянутости, раздражения и трещинок. Глубоко питает и удерживает влагу, защищая губы от сухости, шелушения и обветривания. Если ваши губы были сухими или обветренными, после применения нашего бальзама они обязательно станут мягкими и ухоженными. Формула с сигнальным пептидом Palmitoyl Tripeptide-1 разглаживает губы, уменьшает мелкие морщинки и возвращает губам наполненность и красивый объём. Palmitoyl Tripeptide-1 помогает коже губ вырабатывать больше коллагена и гиалуроновой кислоты. Пептид улучшает плотность кожи губ.';
 
 const tableHeaders = ['КОЛОНКА 1', 'КОЛОНКА 2', 'КОЛОНКА 3', 'КОЛОНКА 4', 'КОЛОНКА 5'];
 const tableRows = Array.from({ length: 5 }, () => ['Строка', 'Строка', 'Строка', 'Строка', 'Строка']);
 ---
 
 <Layout title="Стайлгайд">
-    <div class="container page-top styleguide">
+    <div class="container page-top">
 
         <Breadcrumbs items={[{ text: 'Главная', url: '/' }, { text: 'Хлебные', url: '#' }, { text: 'Крошки' }]} />
 
-        <!-- 1. Typography -->
-        <section class="sg-section">
-            <h1>Заголовок h1</h1>
-            <h2>Заголовок h2</h2>
-            <h3>ЗАГОЛОВОК H3</h3>
-        </section>
+        <div class="description">
 
-        <!-- 2. Content block -->
-        <section class="sg-section">
-            <div class="sg-content">
+            <!-- 1. Typography -->
+            <section class="description__section">
+                <h1>Заголовок h1</h1>
+            </section>
+
+            <section class="description__section">
+                <h2>Заголовок h2</h2>
+            </section>
+
+            <section class="description__section">
+                <h3>ЗАГОЛОВОК H3</h3>
+            </section>
+
+            <!-- 2. Content block -->
+            <section class="description__section description__section--flow">
                 <img
-                    class="sg-content__media lazy"
+                    class="description__media description__media--float lazy"
+                    width="559"
+                    height="560"
                     data-src="img/products/01@1x.webp"
                     data-srcset="img/products/01@2x.webp 2x"
                     alt="Продукт"
                 />
-                <p class="sg-content__text">{lipText}</p>
-            </div>
-        </section>
+                <p class="description__text">{lipText}</p>
+            </section>
 
-        <!-- 3. Text paragraphs -->
-        <section class="sg-section">
-            <p>{lipText}</p>
-            <p>{lipText}</p>
-            <p>{lipText}</p>
-        </section>
+            <!-- 3. Text paragraphs -->
+            <section class="description__section">
+                <p>{lipTextSm}</p>
+                <p>{lipTextSm}</p>
+                <p>{lipTextSm}</p>
+            </section>
 
-        <!-- 4. Paragraph + bullet list -->
-        <section class="sg-section">
-            <p>
-                Увлажняющий бальзам для губ с нежным оттенком молочного шоколада. Для тех, кто устал от повседневного цвета своих губ – изысканный и чудесный коричневый оттенок любимого бальзама, который можно наслаивать для получения разной интенсивности цвета.
-            </p>
-            <ul>
-                <li>Глубоко питает, увлажняет и ухаживает за хрупкой кожей ваших губ.</li>
-                <li>Обогащён пептидами, гиалуроновой кислотой, питательными маслами и витамином «Е». Активные компоненты увлажняют и разглаживают губы от морщинок, а так же придают им зеркальный блеск.</li>
-                <li>Защищает от обветривания</li>
-                <li>Возвращает объём ваших губ</li>
-                <li>Anti-Age-эффект</li>
-                <li>Защита от ультрафиолета SPF 15+++</li>
-            </ul>
-        </section>
+            <!-- 4. Paragraph + bullet list -->
+            <section class="description__section">
+                <p>
+                    Увлажняющий бальзам для губ с нежным оттенком молочного шоколада. Для тех, кто устал от повседневного цвета своих губ – изысканный и чудесный коричневый оттенок любимого бальзама, который можно наслаивать для получения разной интенсивности цвета.
+                </p>
+                <ul>
+                    <li>Глубоко питает, увлажняет и ухаживает за хрупкой кожей ваших губ.</li>
+                    <li>Обогащён пептидами, гиалуроновой кислотой, питательными маслами и витамином «Е». Активные компоненты увлажняют и разглаживают губы от морщинок, а так же придают им зеркальный блеск.</li>
+                    <li>Защищает от обветривания</li>
+                    <li>Возвращает объём ваших губ</li>
+                    <li>Anti-Age-эффект</li>
+                    <li>Защита от ультрафиолета SPF 15+++</li>
+                </ul>
+            </section>
 
-        <!-- 5. Table -->
-        <section class="sg-section">
-            <Table headers={tableHeaders} rows={tableRows} />
-        </section>
+            <section class="description__section">
+                <ol>
+                    <li>Очистите губы перед нанесением.</li>
+                    <li>Нанесите бальзам тонким слоем.</li>
+                    <li>При необходимости повторите для большей насыщенности.</li>
+                </ol>
+            </section>
 
-        <!-- 6. Form elements -->
-        <section class="sg-section">
+            <!-- 5. Table -->
+            <section class="description__section">
+                <Table headers={tableHeaders} rows={tableRows} />
+            </section>
+
+            <!-- 6. Modal triggers -->
+            <section class="description__section">
+                <div class="l-grid l-gap-20">
+                    <Button type="link" href="#recovery" data-fancybox style="outline" fill icon="unlock">Восстановление — введите e-mail</Button>
+                    <Button type="link" href="#recovery-reset" data-fancybox style="outline" fill icon="unlock">Восстановление — новый пароль</Button>
+                    <Button type="link" href="#error" data-fancybox style="outline" fill icon="warning">Окно ошибки</Button>
+                    <Button type="link" href="#success" data-fancybox style="outline" fill icon="check">Окно успеха</Button>
+                </div>
+            </section>
+
+        </div>
+
+        <section class="form-section">
             <form class="form">
 
                 <!-- Left column -->
@@ -83,6 +111,11 @@ const tableRows = Array.from({ length: 5 }, () => ['Строка', 'Строка
                     <div class="form__control"><Dropdown type="select" isField buttonTitle="Селект" inputName="demo-select" options={demoSelect} /></div>
 
                     <div class="form__control"><Input type="textarea" rows="5" placeholder="Текстареа" /></div>
+
+                    <div class="form__toggles">
+                        <Checkbox name="demo-checkbox">Чекбокс</Checkbox>
+                        <Checkbox name="demo-checkbox" checked>Чекбокс</Checkbox>
+                    </div>
                 </div>
 
                 <!-- Right column -->
@@ -97,35 +130,14 @@ const tableRows = Array.from({ length: 5 }, () => ['Строка', 'Строка
                     <div class="form__control"><Dropdown type="select" isField buttonTitle="Селект" inputName="demo-select" options={demoSelect} /></div>
 
                     <div class="form__control"><Input type="textarea" rows="5" placeholder="Текстареа" /></div>
+
+                    <div class="form__toggles">
+                        <Checkbox type="radio" name="demo-radio">Радио</Checkbox>
+                        <Checkbox type="radio" name="demo-radio" checked>Радио</Checkbox>
+                    </div>
                 </div>
 
             </form>
-        </section>
-
-        <!-- 7. Checkboxes -->
-        <section class="sg-section">
-            <div class="sg-toggles">
-                <Checkbox name="demo-checkbox">Чекбокс</Checkbox>
-                <Checkbox name="demo-checkbox" checked>Чекбокс</Checkbox>
-            </div>
-        </section>
-
-        <!-- 8. Radios -->
-        <section class="sg-section">
-            <div class="sg-toggles">
-                <Checkbox type="radio" name="demo-radio">Радио</Checkbox>
-                <Checkbox type="radio" name="demo-radio" checked>Радио</Checkbox>
-            </div>
-        </section>
-
-        <!-- 9. Modal triggers -->
-        <section class="sg-section">
-            <div class="sg-buttons">
-                <Button type="link" href="#recovery" data-fancybox style="outline" fill icon="unlock">Восстановление — введите e-mail</Button>
-                <Button type="link" href="#recovery-reset" data-fancybox style="outline" fill icon="unlock">Восстановление — новый пароль</Button>
-                <Button type="link" href="#error" data-fancybox style="outline" fill icon="warning">Окно ошибки</Button>
-                <Button type="link" href="#success" data-fancybox style="outline" fill icon="check">Окно успеха</Button>
-            </div>
         </section>
 
     </div>

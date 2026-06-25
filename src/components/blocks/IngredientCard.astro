@@ -12,6 +12,8 @@ const { image, name, text } = Astro.props;
 <article class="item-ingredient">
     <img
         class="item-ingredient__image lazy"
+        width="410"
+        height="410"
         data-src={`${image}@1x.webp`}
         data-srcset={`${image}@2x.webp 2x`}
         alt={name}

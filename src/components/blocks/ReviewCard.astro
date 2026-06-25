@@ -13,6 +13,8 @@ const { image, rating = 5, text, author } = Astro.props;
     <a class="review-card__image-link" href={`${image}@2x.webp`} data-fancybox="reviews" data-caption={author}>
         <img
             class="review-card__image lazy"
+            width="410"
+            height="480"
             data-src={`${image}@1x.webp`}
             data-srcset={`${image}@2x.webp 2x`}
             alt={author}

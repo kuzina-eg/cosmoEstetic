@@ -17,6 +17,8 @@ const { image, name, text, price, oldPrice, badges = [] } = Astro.props;
     <a href="#" class="product-card__image-link">
         <img
             class="product-card__image lazy"
+            width="560"
+            height="560"
             data-src={`${image}@1x.webp`}
             data-srcset={`${image}@2x.webp 2x`}
             alt={name}

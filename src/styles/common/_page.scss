@@ -8,13 +8,17 @@
 
 .page-top {
     padding-top: 3.6rem; // 72px (дизайн: меню → хлебные крошки)
+    padding-bottom: 3.2rem;
 
     @include media(tab) {
         padding-top: 2rem;
+        padding-bottom: 2rem;
     }
 }
 
 .main .container.page-top {
+    display: flex;
+    flex-direction: column;
     gap: 3.2rem; // 64px (дизайн)
 
     @include media(tab) {

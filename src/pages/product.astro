@@ -6,7 +6,7 @@ import Price from '@components/blocks/Price.astro';
 import Button from '@components/modules/Button.astro';
 import Checkbox from '@components/modules/Checkbox.astro';
 import Icon from '@components/modules/Icon.astro';
-import Composition from '@components/sections/Composition.astro';
+import Description from '@components/sections/Description.astro';
 import Reviews from '@components/sections/Reviews.astro';
 import typograf from '@utils/typograf';
 
@@ -41,7 +41,7 @@ const delivery = [
           <div class="swiper-wrapper">
             {images.map((src) => (
               <div class="swiper-slide">
-                <img class="product-gallery__img lazy" data-src={`${src}@1x.webp`} data-srcset={`${src}@2x.webp 2x`} alt="" />
+                <img class="product-gallery__img lazy" width="860" height="840" data-src={`${src}@1x.webp`} data-srcset={`${src}@2x.webp 2x`} alt="" />
               </div>
             ))}
           </div>
@@ -54,7 +54,7 @@ const delivery = [
           <div class="swiper-wrapper">
             {images.map((src) => (
               <div class="swiper-slide product-gallery__thumb">
-                <img class="product-gallery__thumb-img lazy" data-src={`${src}@1x.webp`} data-srcset={`${src}@2x.webp 2x`} alt="" />
+                <img class="product-gallery__thumb-img lazy" width="276" height="269" data-src={`${src}@1x.webp`} data-srcset={`${src}@2x.webp 2x`} alt="" />
               </div>
             ))}
           </div>
@@ -75,7 +75,7 @@ const delivery = [
         </div>
 
         <!-- Characteristics -->
-        <div class="product__label" set:html={typograf('характеристики')} />
+        <div class="product__minititle" set:html={typograf('характеристики')} />
         <dl class="specs">
           {specs.map((s) => (
             <div class="specs__row">
@@ -86,7 +86,7 @@ const delivery = [
         </dl>
 
         <!-- Description -->
-        <div class="product__label" set:html={typograf('Заголовок')} />
+        <div class="product__minititle" set:html={typograf('Заголовок')} />
         <div class="product__desc">
           <p class="product__text" set:html={typograf('Увлажняющий бальзам для губ с нежным оттенком молочного шоколада. Для тех, кто устал от повседневного цвета своих губ – изысканный и чудесный коричневый оттенок любимого бальзама, который можно наслаивать для получения разной интенсивности цвета.')} />
           <ul class="product__features">
@@ -95,7 +95,7 @@ const delivery = [
         </div>
 
         <!-- Delivery -->
-        <div class="product__city">
+        <div class="product__minititle">
           Ваш город: Москва,&nbsp;<a href="#city" data-fancybox class="product__city-change">изменить</a>
         </div>
         <dl class="specs product__delivery">
@@ -117,7 +117,7 @@ const delivery = [
       </div>
     </div>
   </div>
-  <Composition />
+  <Description />
   <Reviews
     sm
     title="Превосходные результаты"

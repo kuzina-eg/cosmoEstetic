@@ -4,7 +4,6 @@
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     gap: 2rem; // 40px (дизайн)
     align-items: start;
-    margin-bottom: 3.2rem; // 64px → к секции «Состав»
 
     @include media(tab) {
         grid-template-columns: 1fr;
@@ -116,9 +115,17 @@
         line-height: 1.35;
     }
 
-    &__label {
+    &__minititle {
+        margin: 0;
         font-weight: 600;
+        font-size: 1rem; // 20px
+        line-height: 1.35;
+        text-transform: uppercase;
         color: $color-accent;
+    }
+
+    &__ingredient {
+        text-transform: uppercase;
     }
 
     &__text {
@@ -141,16 +148,12 @@
         }
     }
 
-    &__city {
-        color: $color-accent;
-    }
-
     &__city-change {
-        color: $color-dark-grey;
+        color: inherit;
         text-decoration: underline;
 
         &:hover {
-            color: $color-accent;
+            text-decoration: none;
         }
     }
 

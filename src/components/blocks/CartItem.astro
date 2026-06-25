@@ -30,7 +30,7 @@ const {
 ---
 <article class="item-cart js-item-cart" data-price={price} data-old-price={oldPrice ?? price}>
     <a href="#" class="item-cart__image-link">
-        <img class="item-cart__image lazy" data-src={`${image}@1x.webp`} data-srcset={`${image}@2x.webp 2x`} alt={title} />
+        <img class="item-cart__image lazy" width="160" height="160" data-src={`${image}@1x.webp`} data-srcset={`${image}@2x.webp 2x`} alt={title} />
     </a>
     <div class="item-cart__info">
         <h3 class="item-cart__title"><a href="#" set:html={typograf(title)} /></h3>

@@ -176,10 +176,6 @@ table {
 	width: 100%;
 
     .container {
-        display: flex;
-        flex-direction: column;
-        gap: $space-lg;
-
         & > h1,
         & > .h1,
         & > h2,
@@ -245,6 +241,10 @@ table {
 
     &--sm {
         padding: 3.2rem 0; // 64px
+    }
+
+    &--filled {
+        background: $color-light-grey;
     }
 }
 
