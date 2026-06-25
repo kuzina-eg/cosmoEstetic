@@ -1,0 +1,146 @@
+.description {
+    display: flow-root; // нормальный поток + содержит float-врезку
+
+    &__section {
+        &:not(:last-child) {
+            margin-bottom: 3.2rem; // 64px между секциями
+        }
+
+        // для врезки с обтеканием (нужен flow-root, чтобы блок содержал float)
+        &--flow {
+            display: flow-root;
+        }
+    }
+
+    // типографика статьи
+    p,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    ul:not([class]),
+    ol:not([class]) {
+        margin: 0 0 1lh; // одна строка: font-size × line-height
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    h1 {
+        font-size: $title-size; // 96px
+        font-weight: 600;
+        line-height: 1;
+        color: $color-accent;
+    }
+
+    h2 {
+        font-size: $title-size-md; // 48px
+        font-weight: 600;
+        line-height: 1;
+        color: $color-accent;
+    }
+
+    h3 {
+        font-size: $title-size-sm; // 22px
+        font-weight: 600;
+        line-height: 1;
+        text-transform: uppercase;
+        letter-spacing: 0;
+        color: $color-accent;
+    }
+
+    ul:not([class]),
+    ol:not([class]) {
+        padding-left: 1.2rem; // место под маркеры
+
+        li:not(:last-child) {
+            margin-bottom: 0.4rem; // зазор между пунктами
+        }
+    }
+
+    ul:not([class]) li {
+        list-style: disc;
+    }
+
+    ol:not([class]) li {
+        list-style: decimal;
+    }
+
+    &__title {
+        font-size: $title-size-md; // 48px (H2 SemiBold)
+        font-weight: 600;
+        color: $color-accent;
+        line-height: 1;
+        margin: 0 0 0.4rem; // 8px → лид
+    }
+
+    &__row {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: 2rem; // 40px
+        align-items: stretch;
+        margin-bottom: 3.2rem; // 64px между блоками
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        @include media(tab) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    &__row--reverse &__media {
+        order: 1;
+
+        @include media(tab) {
+            order: -1;
+        }
+    }
+
+    &__media {
+        display: block;
+        align-self: stretch;
+        width: 100%;
+        height: 100%;
+        min-height: 19.7rem; // 394px (минимальная высота блока в дизайне)
+        object-fit: cover;
+        object-position: center;
+
+        @include media(tab) {
+            min-height: 14.4rem;
+        }
+
+        @include media(mob) {
+            min-height: 9.6rem;
+        }
+
+        // врезка с обтеканием текстом (например в стайлгайде)
+        &--float {
+            float: left;
+            align-self: auto;
+            width: 20.5rem; // 410px (дизайн)
+            max-width: 100%;
+            height: auto;
+            min-height: 0;
+            margin: 0 2rem 0.8rem 0;
+
+            @include media(mob) {
+                float: none;
+                width: 100%;
+                margin: 0 0 1.2rem;
+            }
+        }
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem; // 16px заголовок → текст
+        min-width: 0;
+    }
+}
+
