@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>CosmoEstetic - Корзина</title>
+    <meta name="description" content="Описание страницы">
+    <link rel="icon" href="/favicon/favicon.ico" sizes="any">
+    <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="/favicon/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <header class="header js-header">
+            <div class="header__top">
+                <div class="header__container container"> <a href="/" class="header__logo"> <img src="img/logo.svg" width="224" height="64" alt="CosmoEstetic"> </a>
+                    <div class="header__actions"> <a href="#city" data-fancybox class="header__action">
+                            <svg class="ui-icon ui-icon-map-pin header__action-icon">
+                                <use xlink:href="img/icons.svg#map-pin"></use>
+                            </svg><span class="header__action-text">Москва</span>
+                        </a> <a href="#" class="header__action">
+                            <svg class="ui-icon ui-icon-cart header__action-icon">
+                                <use xlink:href="img/icons.svg#cart"></use>
+                            </svg><span class="header__action-text">Корзина пуста</span>
+                        </a> <a href="#login" data-fancybox class="header__action">
+                            <svg class="ui-icon ui-icon-user header__action-icon">
+                                <use xlink:href="img/icons.svg#user"></use>
+                            </svg><span class="header__action-text">Войти</span>
+                        </a> </div>
+                </div>
+            </div>
+            <nav class="header__nav js-menu">
+                <button class="header__burger js-menu-burger" type="button" aria-label="Меню">
+                    <svg class="ui-icon ui-icon-menu">
+                        <use xlink:href="img/icons.svg#menu"></use>
+                    </svg>
+                </button>
+                <div class="container header__nav-container">
+                    <ul class="header__nav-list js-menu-popup">
+                        <li class="header__nav-item js-menu-item header__nav-item--has-dropdown"> <a href="#" class="header__nav-link"> <span class="header__nav-text">Магазин</span> </a>
+                            <div class="header__dropdown js-menu-dropdown">
+                                <div class="header__dropdown-inner">
+                                    <div class="header__dropdown-col">
+                                        <div class="header__dropdown-title">Для&nbsp;Ваших губ</div>
+                                        <ul class="header__dropdown-list">
+                                            <li><a href="catalog.html" class="header__dropdown-link">Бальзамы Lip Balm</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="header__dropdown-col">
+                                        <div class="header__dropdown-title">Категория 2</div>
+                                        <ul class="header__dropdown-list">
+                                            <li><a href="catalog.html" class="header__dropdown-link">Бальзамы Lip Balm</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="header__nav-item js-menu-item"> <a href="styleguide.html" class="header__nav-link"> <span class="header__nav-text">CosmoEstetic</span> </a> </li>
+                        <li class="header__nav-item js-menu-item"> <a href="styleguide.html" class="header__nav-link"> <span class="header__nav-text">Акции</span> </a> </li>
+                        <li class="header__nav-item js-menu-item header__nav-item--has-dropdown"> <a href="styleguide.html" class="header__nav-link"> <span class="header__nav-text">Для&nbsp;покупателей</span> </a>
+                            <div class="header__dropdown js-menu-dropdown">
+                                <div class="header__dropdown-inner">
+                                    <div class="header__dropdown-col">
+                                        <div class="header__dropdown-title">Помощь</div>
+                                        <ul class="header__dropdown-list">
+                                            <li><a href="styleguide.html" class="header__dropdown-link">Доставка</a></li>
+                                            <li><a href="styleguide.html" class="header__dropdown-link">Оплата</a></li>
+                                            <li><a href="styleguide.html" class="header__dropdown-link">Возврат</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="header__nav-item js-menu-item"> <a href="styleguide.html" class="header__nav-link"> <span class="header__nav-text">Поддержка покупателей</span> </a> </li>
+                        <li class="header__nav-item js-menu-item"> <a href="styleguide.html" class="header__nav-link"> <span class="header__nav-text">Для&nbsp;партнеров</span> </a> </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <main class="main">
+            <div class="js-cart">
+                <div class="container page-top">
+                    <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                        <ul class="breadcrumbs__list">
+                            <li class="breadcrumbs__item"> <a href="/" class="breadcrumbs__link">Главная</a> <span class="breadcrumbs__sep">—</span> </li>
+                            <li class="breadcrumbs__item"> <a href="#" class="breadcrumbs__link">Хлебные</a> <span class="breadcrumbs__sep">—</span> </li>
+                            <li class="breadcrumbs__item"> <span class="breadcrumbs__current">Крошки</span> </li>
+                        </ul>
+                    </nav>
+                    <h1 class="page-title">Корзина</h1>
+                    <div class="cart-items">
+                        <div class="cart-list">
+                            <article class="item-cart js-item-cart" data-price="3000" data-old-price="4000"> <a href="#" class="item-cart__image-link"> <img class="item-cart__image lazy" width="160" height="160" data-src="img/products/01@1x.webp" data-srcset="img/products/01@2x.webp 2x" alt="Essential Lip Balm"> </a>
+                                <div class="item-cart__info">
+                                    <h3 class="item-cart__title"><a href="#">Essential Lip Balm</a></h3>
+                                    <p class="item-cart__desc">Увлажняющий Бальзам для&nbsp;губ Essential Lip Balm бесцветный</p>
+                                    <div class="item-cart__badges"> <span class="item-cart__badge">Новинка</span><span class="item-cart__badge">Распродажа</span><span class="item-cart__badge">Лучшая цена</span> </div>
+                                </div>
+                                <div class="item-cart__counter count-control js-count">
+                                    <button class="count-control__minus count-control__btn js-count-minus" type="button" aria-label="Меньше">
+                                        <svg class="ui-icon ui-icon-minus">
+                                            <use xlink:href="img/icons.svg#minus"></use>
+                                        </svg>
+                                    </button> <input class="count-control__input" type="text" inputmode="numeric" value="1" aria-label="Количество">
+                                    <button class="count-control__plus count-control__btn js-count-plus" type="button" aria-label="Больше">
+                                        <svg class="ui-icon ui-icon-plus">
+                                            <use xlink:href="img/icons.svg#plus"></use>
+                                        </svg>
+                                    </button>
+                                </div>
+                                <div class="price item-cart__price"> <span class="price__old">4&nbsp;000&nbsp;₽</span> <span class="price__current">3&nbsp;000&nbsp;₽</span> </div>
+                                <div class="item-cart__action">
+                                    <button type="button" class="ui-button ui-button--outline ui-button--fill item-cart__remove js-cart-remove"><span class="ui-button__text"> Удалить из корзины </span>
+                                        <svg class="ui-icon ui-icon-trash ui-button__icon">
+                                            <use xlink:href="img/icons.svg#trash"></use>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </article>
+                            <article class="item-cart js-item-cart" data-price="3000" data-old-price="4000"> <a href="#" class="item-cart__image-link"> <img class="item-cart__image lazy" width="160" height="160" data-src="img/products/02@1x.webp" data-srcset="img/products/02@2x.webp 2x" alt="Essential Lip Balm"> </a>
+                                <div class="item-cart__info">
+                                    <h3 class="item-cart__title"><a href="#">Essential Lip Balm</a></h3>
+                                    <p class="item-cart__desc">Увлажняющий Бальзам для&nbsp;губ Essential Lip Balm бесцветный</p>
+                                    <div class="item-cart__badges"> <span class="item-cart__badge">Новинка</span><span class="item-cart__badge">Распродажа</span><span class="item-cart__badge">Лучшая цена</span> </div>
+                                </div>
+                                <div class="item-cart__counter count-control js-count">
+                                    <button class="count-control__minus count-control__btn js-count-minus" type="button" aria-label="Меньше">
+                                        <svg class="ui-icon ui-icon-minus">
+                                            <use xlink:href="img/icons.svg#minus"></use>
+                                        </svg>
+                                    </button> <input class="count-control__input" type="text" inputmode="numeric" value="1" aria-label="Количество">
+                                    <button class="count-control__plus count-control__btn js-count-plus" type="button" aria-label="Больше">
+                                        <svg class="ui-icon ui-icon-plus">
+                                            <use xlink:href="img/icons.svg#plus"></use>
+                                        </svg>
+                                    </button>
+                                </div>
+                                <div class="price item-cart__price"> <span class="price__old">4&nbsp;000&nbsp;₽</span> <span class="price__current">3&nbsp;000&nbsp;₽</span> </div>
+                                <div class="item-cart__action">
+                                    <button type="button" class="ui-button ui-button--outline ui-button--fill item-cart__remove js-cart-remove"><span class="ui-button__text"> Удалить из корзины </span>
+                                        <svg class="ui-icon ui-icon-trash ui-button__icon">
+                                            <use xlink:href="img/icons.svg#trash"></use>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </article>
+                            <article class="item-cart js-item-cart" data-price="3000" data-old-price="4000"> <a href="#" class="item-cart__image-link"> <img class="item-cart__image lazy" width="160" height="160" data-src="img/products/03@1x.webp" data-srcset="img/products/03@2x.webp 2x" alt="Essential Lip Balm"> </a>
+                                <div class="item-cart__info">
+                                    <h3 class="item-cart__title"><a href="#">Essential Lip Balm</a></h3>
+                                    <p class="item-cart__desc">Увлажняющий Бальзам для&nbsp;губ Essential Lip Balm бесцветный</p>
+                                    <div class="item-cart__badges"> <span class="item-cart__badge">Новинка</span><span class="item-cart__badge">Распродажа</span><span class="item-cart__badge">Лучшая цена</span> </div>
+                                </div>
+                                <div class="item-cart__counter count-control js-count">
+                                    <button class="count-control__minus count-control__btn js-count-minus" type="button" aria-label="Меньше">
+                                        <svg class="ui-icon ui-icon-minus">
+                                            <use xlink:href="img/icons.svg#minus"></use>
+                                        </svg>
+                                    </button> <input class="count-control__input" type="text" inputmode="numeric" value="1" aria-label="Количество">
+                                    <button class="count-control__plus count-control__btn js-count-plus" type="button" aria-label="Больше">
+                                        <svg class="ui-icon ui-icon-plus">
+                                            <use xlink:href="img/icons.svg#plus"></use>
+                                        </svg>
+                                    </button>
+                                </div>
+                                <div class="price item-cart__price"> <span class="price__old">4&nbsp;000&nbsp;₽</span> <span class="price__current">3&nbsp;000&nbsp;₽</span> </div>
+                                <div class="item-cart__action">
+                                    <button type="button" class="ui-button ui-button--outline ui-button--fill item-cart__remove js-cart-remove"><span class="ui-button__text"> Удалить из корзины </span>
+                                        <svg class="ui-icon ui-icon-trash ui-button__icon">
+                                            <use xlink:href="img/icons.svg#trash"></use>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="cart-total">
+                            <div class="cart-total__label">Итого товаров <span class="js-cart-count">2</span> шт.</div>
+                            <div class="price cart-total__sum"> <span class="price__old js-cart-old-total">16&nbsp;000&nbsp;₽</span> <span class="price__current js-cart-total">9&nbsp;000&nbsp;₽</span> </div>
+                            <div class="cart-total__action"> <a href="#checkout" class="ui-button ui-button--fill cart-total__btn"><span class="ui-button__text"> Перейти к оформлению </span>
+                                    <svg class="ui-icon ui-icon-arrow-right ui-button__icon">
+                                        <use xlink:href="img/icons.svg#arrow-right"></use>
+                                    </svg>
+                                </a> </div>
+                        </div>
+                    </div>
+                </div>
+                <form class="cart-order" data-js-form novalidate>
+                    <section class="section section--sm cart-extra">
+                        <div class="container">
+                            <div class="cart-extra__inner">
+                                <div class="cart-block">
+                                    <h2 class="cart-title">Способ доставки:</h2>
+                                    <div class="delivery-list">
+                                        <div class="delivery-option"> <label class="ui-checkbox ui-checkbox_radio delivery-option__check js-delivery" data-delivery="500"> <input class="ui-checkbox__input " type="radio" name="delivery" /> <span class="ui-checkbox__checked"> <span class="ui-checkbox__focused"></span> </span> <span class="ui-checkbox__text"> <span>Стоимость доставки СДЭК до&nbsp;ПВЗ:</span> </span> </label> <span class="delivery-option__line"></span> <span class="delivery-option__price">500&nbsp;₽</span> </div>
+                                        <div class="delivery-option"> <label class="ui-checkbox ui-checkbox_radio delivery-option__check js-delivery" data-delivery="1000"> <input class="ui-checkbox__input " type="radio" name="delivery" checked /> <span class="ui-checkbox__checked"> <span class="ui-checkbox__focused"></span> </span> <span class="ui-checkbox__text"> <span>Стоимость доставки СДЭК-курьер:</span> </span> </label> <span class="delivery-option__line"></span> <span class="delivery-option__price">1&nbsp;000&nbsp;₽</span> </div>
+                                        <div class="delivery-option"> <label class="ui-checkbox ui-checkbox_radio delivery-option__check js-delivery" data-delivery="0"> <input class="ui-checkbox__input " type="radio" name="delivery" /> <span class="ui-checkbox__checked"> <span class="ui-checkbox__focused"></span> </span> <span class="ui-checkbox__text"> <span>При&nbsp;заказе от&nbsp;4000&nbsp;₽</span> </span> </label> <span class="delivery-option__line"></span> <span class="delivery-option__price">Доставка бесплатная</span> </div>
+                                    </div>
+                                    <div class="cart-address ui-dropdown ui-dropdown_select is-placeholder js-dropdown" data-dropdown="select">
+                                        <button class="ui-dropdown__button ui-input js-dropdown-button" type="button" aria-label="Адрес доставки" role="combobox"> <span class="ui-dropdown__button-text js-dropdown-button-text" role="textbox"> Адрес доставки </span> <span class="ui-dropdown__button-icon-box"><span class="ui-dropdown__button-icon"></span></span> </button> <input type="text" class="ui-dropdown__input ui-input js-dropdown-input" name="address" readonly tabindex="-1">
+                                        <div class="ui-dropdown__popup js-dropdown-popup" aria-hidden="true">
+                                            <div class="ui-dropdown__scroll js-dropdown-scroll js-scrollbar">
+                                                <div class="ui-dropdown__list js-dropdown-list" tabindex="0" role="listbox">
+                                                    <div class="ui-dropdown__option  js-dropdown-option" data-value="1" data-text-value="Москва, ул. Тверская, д. 1" role="option" aria-selected="false"> Москва, ул. Тверская, д. 1 </div>
+                                                    <div class="ui-dropdown__option  js-dropdown-option" data-value="2" data-text-value="Москва, ул. Арбат, д. 10" role="option" aria-selected="false"> Москва, ул. Арбат, д. 10 </div>
+                                                    <div class="ui-dropdown__option  js-dropdown-option" data-value="3" data-text-value="Москва, Ленинский пр-т, д. 25" role="option" aria-selected="false"> Москва, Ленинский пр-т, д. 25 </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cart-block">
+                                    <h2 class="cart-title">Карта ПВЗ</h2> <iframe class="cart-map" src="https://yandex.ru/map-widget/v1/?ll=37.620%2C55.753&z=11" width="100%" height="720" frameborder="0" loading="lazy" allowfullscreen title="Карта ПВЗ"></iframe>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="section section--sm checkout" id="checkout">
+                        <div class="container">
+                            <div class="checkout__grid">
+                                <div class="checkout__col">
+                                    <h2 class="cart-title">Оформление заказа</h2>
+                                    <div class="checkout__fields">
+                                        <div class="form-field"> <input class="ui-input" type="text" name="name" placeholder="ФИО">
+                                            <div class="form-field__error">Введите ФИО</div>
+                                        </div>
+                                        <div class="form-field"> <input class="ui-input" type="email" name="email" placeholder="E-MAIL">
+                                            <div class="form-field__error">Введите корректный E-mail</div>
+                                        </div>
+                                        <div class="form-field"> <input class="ui-input" type="tel" name="phone" placeholder="ТЕЛЕФОН">
+                                            <div class="form-field__error">Введите телефон</div>
+                                        </div>
+                                        <div class="checkout__promo"> <input class="ui-input" type="text" name="promo" placeholder="ПРОМОКОД">
+                                            <button type="button" class="ui-button ui-button--outline ui-button--fill checkout__promo-btn"><span class="ui-button__text"> Активировать промокод </span>
+                                                <svg class="ui-icon ui-icon-sale ui-button__icon">
+                                                    <use xlink:href="img/icons.svg#sale"></use>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="checkout__summary">
+                                    <dl class="checkout__rows">
+                                        <div class="checkout__row">
+                                            <dt class="checkout__row-label">Количество товаров</dt> <span class="checkout__row-line"></span>
+                                            <dd class="checkout__row-value js-order-count">3</dd>
+                                        </div>
+                                        <div class="checkout__row">
+                                            <dt class="checkout__row-label">Доставка</dt> <span class="checkout__row-line"></span>
+                                            <dd class="checkout__row-value js-order-delivery">1&nbsp;000&nbsp;₽</dd>
+                                        </div>
+                                        <div class="checkout__row">
+                                            <dt class="checkout__row-label">Итого</dt> <span class="checkout__row-line"></span>
+                                            <dd class="checkout__row-value js-order-total">10&nbsp;000&nbsp;₽</dd>
+                                        </div>
+                                    </dl>
+                                    <div class="form-field form-field--agree"> <label class="ui-checkbox ui-checkbox_checkbox checkout__agree"> <input class="ui-checkbox__input " type="checkbox" name="agree" checked /> <span class="ui-checkbox__checked"> <span class="ui-checkbox__checked-icon"></span> <span class="ui-checkbox__focused"></span> </span> <span class="ui-checkbox__text"><span>Я&nbsp;соглашаюсь с&nbsp;условиями публичной оферты</span></span> </label>
+                                        <div class="form-field__error">Подтвердите согласие с офертой</div>
+                                    </div>
+                                    <button type="submit" class="ui-button ui-button--fill checkout__submit"><span class="ui-button__text"> Оформить заказ </span>
+                                        <svg class="ui-icon ui-icon-wallet ui-button__icon">
+                                            <use xlink:href="img/icons.svg#wallet"></use>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </form>
+            </div>
+        </main>
+        <footer class="footer">
+            <div class="footer__container container">
+                <div class="footer__col footer__col--info">
+                    <div class="footer__title">Полезная информация</div>
+                    <ul class="footer__menu">
+                        <li class="footer__menu-item"><a href="#" class="footer__link">О&nbsp;доставке</a></li>
+                        <li class="footer__menu-item"><a href="#" class="footer__link">Об&nbsp;оплате</a></li>
+                        <li class="footer__menu-item"><a href="#" class="footer__link">Про&nbsp;возвраты</a></li>
+                    </ul>
+                </div>
+                <div class="footer__col footer__col--legal">
+                    <div class="footer__title">Правовая информация</div>
+                    <ul class="footer__menu">
+                        <li class="footer__menu-item"><a href="#" class="footer__link">Политика конфиденциальности</a></li>
+                        <li class="footer__menu-item"><a href="#" class="footer__link">Публичная оферта</a></li>
+                        <li class="footer__menu-item"><a href="#" class="footer__link">Обработка персональных данных</a></li>
+                    </ul>
+                </div>
+                <div class="footer__col footer__col--brand"> <a href="/" class="footer__logo"> <img src="img/logo.svg" width="224" height="64" alt="CosmoEstetic"> </a>
+                    <div class="footer__socials"> <a href="#" class="footer__social" aria-label="fb">
+                            <svg class="ui-icon ui-icon-fb footer__social-icon">
+                                <use xlink:href="img/icons.svg#fb"></use>
+                            </svg>
+                        </a><a href="#" class="footer__social" aria-label="instagram">
+                            <svg class="ui-icon ui-icon-instagram footer__social-icon">
+                                <use xlink:href="img/icons.svg#instagram"></use>
+                            </svg>
+                        </a><a href="#" class="footer__social" aria-label="youtube">
+                            <svg class="ui-icon ui-icon-youtube footer__social-icon">
+                                <use xlink:href="img/icons.svg#youtube"></use>
+                            </svg>
+                        </a><a href="#" class="footer__social" aria-label="vk">
+                            <svg class="ui-icon ui-icon-vk footer__social-icon">
+                                <use xlink:href="img/icons.svg#vk"></use>
+                            </svg>
+                        </a><a href="#" class="footer__social" aria-label="telegram">
+                            <svg class="ui-icon ui-icon-telegram footer__social-icon">
+                                <use xlink:href="img/icons.svg#telegram"></use>
+                            </svg>
+                        </a><a href="#" class="footer__social" aria-label="tiktok">
+                            <svg class="ui-icon ui-icon-tiktok footer__social-icon">
+                                <use xlink:href="img/icons.svg#tiktok"></use>
+                            </svg>
+                        </a> </div>
+                    <div class="footer__copy">©&nbsp;2026 CosmoEstetic Luxury Cosmetics.</div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <div class="modal" id="register" style="display: none;">
+        <button class="modal__close" type="button" data-fancybox-close aria-label="Закрыть">
+            <svg class="ui-icon ui-icon-close modal__close-icon">
+                <use xlink:href="img/icons.svg#close"></use>
+            </svg>
+        </button>
+        <div class="modal__header">
+            <h2 class="modal__title">Регистрация</h2>
+        </div>
+        <div class="modal__body">
+            <form class="modal__form" data-js-form>
+                <div class="form-field"> <input class="ui-input form-field__input" type="text" name="name" placeholder="ИМЯ">
+                    <div class="form-field__error">Введите ваше имя</div>
+                </div>
+                <div class="form-field"> <input class="ui-input form-field__input" type="email" name="email" placeholder="EMAIL">
+                    <div class="form-field__error">Введите корректный E-mail</div>
+                </div>
+                <div class="form-field form-field--password">
+                    <div class="form-field__control"> <input class="ui-input form-field__input" type="password" name="password" placeholder="ПАРОЛЬ">
+                        <button class="form-field__eye js-password-toggle" type="button" aria-label="Показать пароль">
+                            <svg class="ui-icon ui-icon-eye">
+                                <use xlink:href="img/icons.svg#eye"></use>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="form-field__error">Введите пароль</div>
+                </div>
+                <div class="form-field form-field--password">
+                    <div class="form-field__control"> <input class="ui-input form-field__input" type="password" name="password_repeat" placeholder="ПОВТОРИТЕ ПАРОЛЬ">
+                        <button class="form-field__eye js-password-toggle" type="button" aria-label="Показать пароль">
+                            <svg class="ui-icon ui-icon-eye">
+                                <use xlink:href="img/icons.svg#eye"></use>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="form-field__error">Пароли не совпадают</div>
+                </div>
+                <div class="form-field form-field--agree"> <label class="ui-checkbox ui-checkbox_checkbox"> <input class="ui-checkbox__input " type="checkbox" name="agree" checked /> <span class="ui-checkbox__checked"> <span class="ui-checkbox__checked-icon"></span> <span class="ui-checkbox__focused"></span> </span> <span class="ui-checkbox__text">Я соглашаюсь с условиями публичной оферты</span> </label>
+                    <div class="form-field__error">Подтвердите согласие с офертой</div>
+                </div>
+                <button type="submit" class="ui-button ui-button--fill modal__action"><span class="ui-button__text"> Регистрация </span>
+                    <svg class="ui-icon ui-icon-user-plus ui-button__icon">
+                        <use xlink:href="img/icons.svg#user-plus"></use>
+                    </svg>
+                </button>
+                <div class="modal__hint">Уже есть аккаунт?</div> <a href="#login" data-fancybox class="ui-button ui-button--outline ui-button--fill modal__action"><span class="ui-button__text"> Войти </span>
+                    <svg class="ui-icon ui-icon-unlock ui-button__icon">
+                        <use xlink:href="img/icons.svg#unlock"></use>
+                    </svg>
+                </a>
+            </form>
+        </div>
+    </div>
+    <div class="modal" id="login" style="display: none;">
+        <button class="modal__close" type="button" data-fancybox-close aria-label="Закрыть">
+            <svg class="ui-icon ui-icon-close modal__close-icon">
+                <use xlink:href="img/icons.svg#close"></use>
+            </svg>
+        </button>
+        <div class="modal__header">
+            <h2 class="modal__title">Вход в&nbsp;аккаунт</h2>
+        </div>
+        <div class="modal__body">
+            <form class="modal__form" data-js-form>
+                <div class="form-field"> <input class="ui-input form-field__input" type="email" name="email" placeholder="EMAIL">
+                    <div class="form-field__error">Введите корректный E-mail</div>
+                </div>
+                <div class="form-field form-field--password">
+                    <div class="form-field__control"> <input class="ui-input form-field__input" type="password" name="password" placeholder="ПАРОЛЬ">
+                        <button class="form-field__eye js-password-toggle" type="button" aria-label="Показать пароль">
+                            <svg class="ui-icon ui-icon-eye">
+                                <use xlink:href="img/icons.svg#eye"></use>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="form-field__error">Введите пароль</div>
+                </div>
+                <div class="modal__error">Неверный логин или пароль</div>
+                <div class="form-field form-field--agree"> <label class="ui-checkbox ui-checkbox_checkbox"> <input class="ui-checkbox__input " type="checkbox" name="agree" checked /> <span class="ui-checkbox__checked"> <span class="ui-checkbox__checked-icon"></span> <span class="ui-checkbox__focused"></span> </span> <span class="ui-checkbox__text">Я соглашаюсь с условиями публичной оферты</span> </label>
+                    <div class="form-field__error">Подтвердите согласие с офертой</div>
+                </div>
+                <button type="submit" class="ui-button ui-button--fill modal__action"><span class="ui-button__text"> Войти </span>
+                    <svg class="ui-icon ui-icon-unlock ui-button__icon">
+                        <use xlink:href="img/icons.svg#unlock"></use>
+                    </svg>
+                </button> <a href="#register" data-fancybox class="ui-button ui-button--outline ui-button--fill modal__action"><span class="ui-button__text"> Регистрация </span>
+                    <svg class="ui-icon ui-icon-user-plus ui-button__icon">
+                        <use xlink:href="img/icons.svg#user-plus"></use>
+                    </svg>
+                </a>
+            </form>
+        </div>
+    </div>
+    <div class="modal" id="recovery" style="display: none;">
+        <button class="modal__close" type="button" data-fancybox-close aria-label="Закрыть">
+            <svg class="ui-icon ui-icon-close modal__close-icon">
+                <use xlink:href="img/icons.svg#close"></use>
+            </svg>
+        </button>
+        <div class="modal__header">
+            <h2 class="modal__title">Восстановление пароля</h2>
+        </div>
+        <div class="modal__body">
+            <form class="modal__form" data-js-form>
+                <div class="form-field"> <input class="ui-input form-field__input" type="email" name="email" placeholder="EMAIL">
+                    <div class="form-field__error">Введите корректный E-mail</div>
+                </div>
+                <button type="submit" class="ui-button ui-button--fill modal__action"><span class="ui-button__text"> Отправить код </span>
+                    <svg class="ui-icon ui-icon-check ui-button__icon">
+                        <use xlink:href="img/icons.svg#check"></use>
+                    </svg>
+                </button>
+            </form>
+        </div>
+    </div>
+    <div class="modal" id="recovery-reset" style="display: none;">
+        <button class="modal__close" type="button" data-fancybox-close aria-label="Закрыть">
+            <svg class="ui-icon ui-icon-close modal__close-icon">
+                <use xlink:href="img/icons.svg#close"></use>
+            </svg>
+        </button>
+        <div class="modal__header">
+            <h2 class="modal__title">Восстановление пароля</h2>
+        </div>
+        <div class="modal__body">
+            <form class="modal__form" data-js-form>
+                <div class="form-field"> <input class="ui-input form-field__input" type="text" name="code" placeholder="КОД ИЗ EMAIL">
+                    <div class="form-field__error">Не верный код</div>
+                </div>
+                <div class="form-field form-field--password">
+                    <div class="form-field__control"> <input class="ui-input form-field__input" type="password" name="password" placeholder="НОВЫЙ ПАРОЛЬ">
+                        <button class="form-field__eye js-password-toggle" type="button" aria-label="Показать пароль">
+                            <svg class="ui-icon ui-icon-eye">
+                                <use xlink:href="img/icons.svg#eye"></use>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="form-field__error">Введите пароль</div>
+                </div>
+                <div class="form-field form-field--password">
+                    <div class="form-field__control"> <input class="ui-input form-field__input" type="password" name="password_repeat" placeholder="ПОВТОРИТЕ ПАРОЛЬ">
+                        <button class="form-field__eye js-password-toggle" type="button" aria-label="Показать пароль">
+                            <svg class="ui-icon ui-icon-eye">
+                                <use xlink:href="img/icons.svg#eye"></use>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="form-field__error">Пароли не совпадают</div>
+                </div>
+                <button type="submit" class="ui-button ui-button--fill modal__action"><span class="ui-button__text"> Сохранить пароль </span>
+                    <svg class="ui-icon ui-icon-check ui-button__icon">
+                        <use xlink:href="img/icons.svg#check"></use>
+                    </svg>
+                </button>
+            </form>
+        </div>
+    </div>
+    <div class="modal" id="city" style="display: none;">
+        <button class="modal__close" type="button" data-fancybox-close aria-label="Закрыть">
+            <svg class="ui-icon ui-icon-close modal__close-icon">
+                <use xlink:href="img/icons.svg#close"></use>
+            </svg>
+        </button>
+        <div class="modal__header">
+            <h2 class="modal__title">Выберите город</h2>
+        </div>
+        <div class="modal__body">
+            <form class="modal__form modal-city js-city" data-js-form>
+                <div class="modal-city__search"> <input class="ui-input modal-city__input js-city-input" type="text" name="city" placeholder="Москва" autocomplete="off">
+                    <button class="modal-city__search-btn" type="button" aria-label="Найти">
+                        <svg class="ui-icon ui-icon-search">
+                            <use xlink:href="img/icons.svg#search"></use>
+                        </svg>
+                    </button>
+                    <ul class="modal-city__suggestions js-city-suggestions">
+                        <li class="modal-city__suggestion js-city-suggestion">Санкт-Петербург</li>
+                        <li class="modal-city__suggestion js-city-suggestion">Самара</li>
+                    </ul>
+                </div>
+                <button type="submit" class="ui-button ui-button--fill modal__action"><span class="ui-button__text"> Подтвердить </span>
+                    <svg class="ui-icon ui-icon-check ui-button__icon">
+                        <use xlink:href="img/icons.svg#check"></use>
+                    </svg>
+                </button>
+            </form>
+        </div>
+    </div>
+    <div class="modal" id="error" style="display: none;">
+        <button class="modal__close" type="button" data-fancybox-close aria-label="Закрыть">
+            <svg class="ui-icon ui-icon-close modal__close-icon">
+                <use xlink:href="img/icons.svg#close"></use>
+            </svg>
+        </button>
+        <div class="modal__body">
+            <div class="modal-status modal-status--error"> <span class="modal-status__icon">
+                    <svg class="ui-icon ui-icon-warning">
+                        <use xlink:href="img/icons.svg#warning"></use>
+                    </svg>
+                </span>
+                <div class="modal-status__text">Текст ошибки</div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="success" style="display: none;">
+        <button class="modal__close" type="button" data-fancybox-close aria-label="Закрыть">
+            <svg class="ui-icon ui-icon-close modal__close-icon">
+                <use xlink:href="img/icons.svg#close"></use>
+            </svg>
+        </button>
+        <div class="modal__body">
+            <div class="modal-status modal-status--success"> <span class="modal-status__icon">
+                    <svg class="ui-icon ui-icon-success">
+                        <use xlink:href="img/icons.svg#success"></use>
+                    </svg>
+                </span>
+                <div class="modal-status__text">Изменения сохранены</div>
+            </div>
+        </div>
+    </div>
+    <script src="js/swiper.min.js"></script>
+    <script src="js/fancybox.min.js"></script>
+    <script src="js/imask.min.js"></script>
+    <script src="js/lazyload.min.js"></script>
+    <script src="js/dynamic-adapt.js"></script>
+    <script src="js/set-variables.js"></script>
+    <script src="js/dropdown.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>

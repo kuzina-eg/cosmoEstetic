@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="icon" type="image/svg+xml" href="favicon/favicon.svg">
+    <title>CosmoEstetic</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <main class="main">
+            <div class="container">
+                <div class="site-pages">
+                    <h1 class="site-pages__title">CosmoEstetic</h1>
+                    <div class="site-pages__table">
+                        <div class="site-pages__head">
+                            <div>Страница</div>
+                            <div>Статус</div>
+                        </div>
+                        <div class="site-pages__item"> <a class="site-pages__link" href="home.html">Главная</a>
+                            <div class="site-pages__status"></div>
+                        </div>
+                        <div class="site-pages__item"> <a class="site-pages__link" href="catalog.html">Каталог</a>
+                            <div class="site-pages__status"></div>
+                        </div>
+                        <div class="site-pages__item"> <a class="site-pages__link" href="product.html">Карточка товара</a>
+                            <div class="site-pages__status"></div>
+                        </div>
+                        <div class="site-pages__item"> <a class="site-pages__link" href="cart.html">Корзина</a>
+                            <div class="site-pages__status"></div>
+                        </div>
+                        <div class="site-pages__item"> <a class="site-pages__link" href="styleguide.html">Стайлгайд</a>
+                            <div class="site-pages__status"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="js/swiper.min.js"></script>
+    <script src="js/fancybox.min.js"></script>
+    <script src="js/imask.min.js"></script>
+    <script src="js/lazyload.min.js"></script>
+    <script src="js/dynamic-adapt.js"></script>
+    <script src="js/set-variables.js"></script>
+    <script src="js/dropdown.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>
+<style>
+    .site-pages {
+        padding-top: 5rem;
+        padding-bottom: 8rem;
+    }
+
+    .site-pages__title {
+        margin-top: 0;
+        margin-bottom: 3rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid #e6e3df;
+        font-weight: 600;
+        font-size: 3rem;
+        color: #1a1a1a;
+    }
+
+    .site-pages__head {
+        display: grid;
+        grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+        color: #fff;
+        background: #1a1a1a;
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
+        font-size: 0.875rem;
+        font-weight: 600;
+    }
+
+    .site-pages__head>* {
+        padding: 1rem 1.5rem;
+    }
+
+    .site-pages__item {
+        display: grid;
+        grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+    }
+
+    .site-pages__item:nth-child(2n) {
+        background: #f4f2ef;
+    }
+
+    .site-pages__item>* {
+        padding: 1rem 1.5rem;
+    }
+
+    .site-pages__item.disabled {
+        opacity: 0.3;
+        pointer-events: none;
+    }
+
+    .site-pages__link {
+        width: fit-content;
+        text-decoration: none;
+        color: #1a1a1a;
+        border-bottom: 1px solid transparent;
+        transition: border-color 0.3s;
+    }
+
+    .site-pages__link:hover {
+        border-color: #1a1a1a;
+    }
+
+    .site-pages__status {
+        color: #6b6b6b;
+        font-size: 0.875rem;
+    }
+
+    @media (max-width: 575px) {
+        .site-pages__title {
+            font-size: 2rem;
+        }
+
+        .site-pages__table {
+            margin-left: -1.25rem;
+            margin-right: -1.25rem;
+        }
+    }
+</style>
