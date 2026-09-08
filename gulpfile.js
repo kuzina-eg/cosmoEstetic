@@ -41,7 +41,13 @@ const beautifyTask = () => {
         .pipe(replace('href="/assets', 'href="assets'))
         .pipe(replace('src="/assets', 'src="assets'))
         .pipe(replace('src="/js', 'src="js'))
-        .pipe(beautify.html({ indent_size: 4,  "max_preserve_newlines": 1,    }))
+        .pipe(beautify.html({
+            indent_size: 4,
+            max_preserve_newlines: 1,
+            // button/svg/use переносим как блочные (по умолчанию js-beautify держит их инлайн);
+            // текстовые инлайны (a, span, b, i …) оставляем, чтобы не ломать переносы в тексте
+            inline: ['a','abbr','area','audio','b','bdi','bdo','br','canvas','cite','code','data','datalist','del','dfn','em','embed','i','iframe','img','input','ins','kbd','label','map','mark','meter','noscript','object','output','progress','q','ruby','s','samp','select','small','span','strong','sub','sup','textarea','time','u','var','video','wbr','text','acronym','big','strike','tt'],
+        }))
         .pipe(gulp.dest(dist))
 }
 
