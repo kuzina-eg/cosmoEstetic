@@ -2443,7 +2443,6 @@ input::-ms-clear {
 }
 .header__top {
   background: var(--color-white, #fff);
-  border-bottom: 1px solid var(--color-border, #e6e3df);
 }
 .header__container {
   display: flex;
@@ -2480,7 +2479,7 @@ input::-ms-clear {
   gap: 1.8rem;
 }
 .header__action {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   gap: 0.4rem;
   color: var(--color-accent, #000000);
@@ -2744,21 +2743,35 @@ input::-ms-clear {
 .header__user {
   position: relative;
 }
+.header__user::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  height: calc(var(--header-top-height, 5.6rem) / 2 - 50%);
+  pointer-events: none;
+}
 .header__user-button {
   background: none;
   border: none;
   cursor: pointer;
   font: inherit;
+  max-width: 10rem;
+}
+.header__user-button .header__action-text {
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 .header__user-menu {
   position: absolute;
-  top: 100%;
+  top: calc(50% + var(--header-top-height, 5.6rem) / 2);
+  left: 0;
   right: 0;
-  margin-top: 0.8rem;
-  min-width: 12.8rem;
-  background: var(--color-white, #fff);
-  border: 1px solid var(--color-border, #e6e3df);
-  padding: 0.8rem 0;
+  display: flex;
+  justify-content: flex-end;
   z-index: 60;
   opacity: 0;
   visibility: hidden;
@@ -2769,14 +2782,31 @@ input::-ms-clear {
 .header__user-menu::before {
   content: "";
   position: absolute;
-  top: -6px;
-  right: 2rem;
-  width: 12px;
-  height: 12px;
+  top: -0.4rem;
+  left: calc(var(--icon-size, 1.2rem) / 2 - 0.4rem);
+  width: 0.8rem;
+  height: 0.8rem;
   background: var(--color-white, #fff);
   border-top: 1px solid var(--color-border, #e6e3df);
   border-left: 1px solid var(--color-border, #e6e3df);
   transform: rotate(45deg);
+  z-index: 1;
+}
+@media (max-width: 767.98px) {
+  .header__user-menu::before {
+    width: 0.64rem;
+    height: 0.64rem;
+    top: -0.32rem;
+    left: calc(var(--icon-size, 1.2rem) * 1.25 / 2 - 0.32rem);
+  }
+}
+.header__user-list {
+  position: relative;
+  min-width: 12.8rem;
+  background: var(--color-white, #fff);
+  border: 1px solid var(--color-border, #e6e3df);
+  padding: 0.9rem 0;
+  pointer-events: auto;
 }
 .header__user.is-open .header__user-menu {
   opacity: 1;
@@ -2791,10 +2821,13 @@ input::-ms-clear {
     transform: none;
     pointer-events: auto;
   }
+  .header__user:hover::after {
+    pointer-events: auto;
+  }
 }
 .header__user-link {
   display: block;
-  padding: 0.6rem 1.6rem;
+  padding: 0.3rem 1.2rem;
   color: var(--color-accent, #000000);
   white-space: nowrap;
   text-decoration: none;
