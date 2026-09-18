@@ -1,0 +1,49 @@
+---
+import Layout from '@layouts/Layout.astro';
+import Breadcrumbs from '@components/blocks/Breadcrumbs.astro';
+import PostMedia from '@components/blocks/PostMedia.astro';
+import CtaBanner from '@components/sections/CtaBanner.astro';
+import formatDate from '@utils/formatDate';
+import typograf from '@utils/typograf';
+import posts from '@data/posts.json';
+
+const post = posts[0];
+
+// Тело поста: строки — абзацы, объекты — медиа по центру колонки
+const content = [
+    'Зимой губы оказываются между двух огней. На улице их сушит мороз и ветер, дома — отопление, которое опускает влажность воздуха до двадцати процентов. Липидный барьер истончается, влага испаряется быстрее, чем кожа успевает её удержать, и появляется то самое ощущение стянутости, которое хочется немедленно чем-нибудь замазать.',
+    'Проблема в том, что большинство привычных средств работает ровно до тех пор, пока они лежат на губах. Как только плёнка стирается, всё возвращается — а иногда становится хуже, потому что вместе с плёнкой уходит и остаток собственных липидов.',
+    { type: 'image', src: 'img/ingredients/04', alt: 'Компоненты зимнего ухода' },
+    'Работающий уход зимой строится на двух вещах: восстановлении барьера и защите от испарения. За первое отвечают липиды, близкие к собственным, — сквалан, масло ши, церамиды. За второе — окклюзивные компоненты, которые физически удерживают влагу внутри.',
+    'Ниже — короткое видео о том, как ведут себя разные текстуры на морозе и почему плотный стик выигрывает у лёгкого блеска именно в холодное время года.',
+    { type: 'embed', src: 'https://www.youtube.com/embed/aqz-KE-bpKQ', title: 'Текстуры бальзама на морозе' },
+    'И последнее: наносить бальзам имеет смысл не тогда, когда губы уже потрескались, а за двадцать–тридцать минут до выхода на улицу. Барьеру нужно время, чтобы средство распределилось и закрепилось, иначе первый же порыв ветра снимет его вместе с влагой.',
+];
+---
+<Layout title={post.title}>
+  <div class="container page-top">
+    <Breadcrumbs items={[
+      { text: 'Главная', url: '/' },
+      { text: 'Блог', url: 'blog.html' },
+      { text: post.title },
+    ]} />
+
+    <article class="post">
+      <header class="post__header">
+        <h1 class="page-title post__title" set:html={typograf(post.title)} />
+        <time class="post__date" datetime={post.date}>{formatDate(post.date)}</time>
+      </header>
+
+      <PostMedia media={post.media} class="post__cover" width={1064} height={600} />
+
+      <div class="post__content">
+        {content.map((block) => (
+          typeof block === 'string'
+            ? <p class="post__text" set:html={typograf(block)} />
+            : <PostMedia media={block} class="post__media" width={840} height={520} />
+        ))}
+      </div>
+    </article>
+  </div>
+  <CtaBanner />
+</Layout>

@@ -1,0 +1,116 @@
+---
+/**
+ * Медиа поста: картинка, внешний эмбед (YouTube / VK / Rutube) или локальное видео.
+ *
+ * Видео и эмбед не грузятся сразу — рисуется превью с кнопкой play, а настоящий
+ * плеер подставляет в этот же контейнер videoFacade.js по клику. Фасад включается
+ * только если у медиа есть poster: без превью показывать нечего, поэтому плеер
+ * выводится сразу.
+ *
+ * Пропорции и размещение задаются классом снаружи — компонент про содержимое.
+ */
+interface Props {
+    media?: {
+        type?: 'image' | 'embed' | 'video';
+        src?: string;
+        alt?: string;
+        title?: string;
+        poster?: string;
+    };
+    width?: number | string;
+    height?: number | string;
+    isLazy?: boolean;
+    class?: string;
+}
+
+const {
+    media,
+    width = 640,
+    height = 400,
+    isLazy = true,
+    class: className,
+} = Astro.props;
+
+const { type = 'image', src, alt = '', title, poster } = media || {};
+const mediaClass = 'post-media';
+
+const isPlayable = type === 'embed' || type === 'video';
+const hasFacade = isPlayable && Boolean(poster);
+const playLabel = title ? `Смотреть видео: ${title}` : 'Смотреть видео';
+---
+{src && (
+    <div
+        class:list={[
+            className,
+            mediaClass,
+            `${mediaClass}--${type}`,
+            hasFacade && `${mediaClass}--facade`,
+            hasFacade && 'js-video-facade',
+        ]}
+        data-video-type={hasFacade ? type : null}
+        data-video-src={hasFacade ? src : null}
+        data-video-title={hasFacade ? (title || alt) : null}
+    >
+        {type === 'image' && (
+            isLazy
+                ? <img
+                    class={`${mediaClass}__image lazy`}
+                    width={width}
+                    height={height}
+                    data-src={`${src}@1x.webp`}
+                    data-srcset={`${src}@2x.webp 2x`}
+                    alt={alt}
+                  />
+                : <img
+                    class={`${mediaClass}__image`}
+                    width={width}
+                    height={height}
+                    src={`${src}@1x.webp`}
+                    srcset={`${src}@2x.webp 2x`}
+                    alt={alt}
+                  />
+        )}
+
+        {hasFacade && (
+            <Fragment>
+                <img
+                    class={`${mediaClass}__image lazy`}
+                    width={width}
+                    height={height}
+                    data-src={`${poster}@1x.webp`}
+                    data-srcset={`${poster}@2x.webp 2x`}
+                    alt={alt}
+                />
+                <button
+                    class={`${mediaClass}__play js-video-play`}
+                    type="button"
+                    aria-label={playLabel}
+                ></button>
+            </Fragment>
+        )}
+
+        {type === 'embed' && !hasFacade && (
+            <iframe
+                class={`${mediaClass}__frame`}
+                src={src}
+                title={title || alt}
+                loading="lazy"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; fullscreen; gyroscope; picture-in-picture; screen-wake-lock"
+                allowfullscreen
+            ></iframe>
+        )}
+
+        {type === 'video' && !hasFacade && (
+            <video
+                class={`${mediaClass}__video`}
+                controls
+                preload="none"
+                poster={poster ? `${poster}@1x.webp` : null}
+                title={title || alt}
+            >
+                <source src={src} type="video/mp4" />
+            </video>
+        )}
+    </div>
+)}

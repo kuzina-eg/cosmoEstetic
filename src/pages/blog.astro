@@ -1,0 +1,17 @@
+---
+import Layout from '@layouts/Layout.astro';
+import Breadcrumbs from '@components/blocks/Breadcrumbs.astro';
+import PostList from '@components/blocks/PostList.astro';
+import Pagination from '@components/blocks/Pagination.astro';
+import CtaBanner from '@components/sections/CtaBanner.astro';
+import posts from '@data/posts.json';
+---
+<Layout title="Блог">
+  <div class="container page-top">
+    <Breadcrumbs items={[{ text: 'Главная', url: '/' }, { text: 'Блог' }]} />
+    <h1 class="page-title">Блог</h1>
+    <PostList items={posts} titleTag="h2" />
+    <Pagination pages={5} current={1} />
+  </div>
+  <CtaBanner />
+</Layout>

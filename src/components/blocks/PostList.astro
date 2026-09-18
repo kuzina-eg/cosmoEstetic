@@ -1,0 +1,14 @@
+---
+import PostCard from '@components/blocks/PostCard.astro';
+
+interface Props {
+    items?: any[];
+    titleTag?: 'h2' | 'h3';
+    class?: string;
+}
+
+const { items = [], titleTag, class: className } = Astro.props;
+---
+<div class:list={[className, 'post-list']}>
+    {items.map((post) => <PostCard {...post} titleTag={titleTag} />)}
+</div>

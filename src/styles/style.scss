@@ -41,6 +41,8 @@
 @import "./blocks/ingredientCard";
 @import "./blocks/reviewCard";
 @import "./blocks/sliderArrow";
+@import "./blocks/postCard";
+@import "./blocks/pagination";
 
 @import "./sections/hero";
 @import "./sections/product";
@@ -51,8 +53,10 @@
 @import "./sections/ctaBanner";
 @import "./sections/cart";
 @import "./sections/description";
+@import "./sections/blog";
 
 @import "./pages/p404";
+@import "./pages/post";
 
 @import "./blocks/modal";
 

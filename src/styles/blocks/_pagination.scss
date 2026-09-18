@@ -1,0 +1,49 @@
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+
+    &__list {
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    &__link,
+    &__arrow {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 2rem;
+        height: 2rem;
+        padding: 0 0.4rem;
+        border: 1px solid transparent;
+        color: $color-accent;
+        text-decoration: none;
+        transition: $duration color, $duration background, $duration border-color;
+
+        @include hover {
+            background: $color-grey;
+        }
+    }
+
+    &__link.is-active {
+        border-color: $color-accent;
+        background: $color-grey;
+    }
+
+    &__arrow.is-disabled {
+        opacity: .35;
+        pointer-events: none;
+    }
+
+    &__arrow-icon {
+        width: 1.2rem;
+        height: 1.2rem;
+        fill: currentColor;
+    }
+}

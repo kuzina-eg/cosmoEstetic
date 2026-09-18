@@ -1,0 +1,33 @@
+---
+import SectionHeader from '@components/blocks/SectionHeader.astro';
+import PostList from '@components/blocks/PostList.astro';
+import Button from '@components/modules/Button.astro';
+import posts from '@data/posts.json';
+
+interface Props {
+    title?: string;
+    subtitle?: string;
+    limit?: number;
+    sm?: boolean; // компактные вертикальные отступы (внутренние страницы)
+    class?: string;
+}
+
+const {
+    title = 'Блог',
+    subtitle,
+    limit = 5,
+    sm = false,
+    class: className,
+} = Astro.props;
+
+const items = posts.slice(0, limit);
+---
+<section class:list={[className, 'section', sm && 'section--sm', 'blog']}>
+    <div class="container">
+        <SectionHeader title={title} subtitle={subtitle} />
+        <PostList items={items} class="blog__list" />
+        <div class="blog__action">
+            <Button type="link" href="blog.html" icon="arrow-right">Перейти в блог</Button>
+        </div>
+    </div>
+</section>

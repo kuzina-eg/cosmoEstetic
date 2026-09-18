@@ -1,0 +1,50 @@
+---
+import PostMedia from '@components/blocks/PostMedia.astro';
+import formatDate from '@utils/formatDate';
+import typograf from '@utils/typograf';
+
+interface Props {
+    title: string;
+    url?: string;
+    date?: string;
+    excerpt?: string;
+    media?: any;
+    titleTag?: 'h2' | 'h3';
+    class?: string;
+}
+
+const {
+    title,
+    url = 'post.html',
+    date,
+    excerpt,
+    media,
+    titleTag: TitleTag = 'h3',
+    class: className,
+} = Astro.props;
+
+// Картинку заворачиваем в ссылку, видео и эмбед — нет:
+// ссылка поверх них перехватила бы клик по плееру.
+const isMediaLinked = media && (media.type === 'image' || media.type === undefined);
+---
+<article class:list={[className, 'post-card']}>
+    {media && (
+        isMediaLinked
+            ? <a class="post-card__media-link" href={url} tabindex="-1" aria-hidden="true">
+                <PostMedia media={media} class="post-card__media" />
+              </a>
+            : <PostMedia media={media} class="post-card__media" />
+    )}
+
+    <div class="post-card__body">
+        <TitleTag class="post-card__title">
+            <a class="post-card__title-link" href={url} set:html={typograf(title)} />
+        </TitleTag>
+
+        {date && <time class="post-card__date" datetime={date}>{formatDate(date)}</time>}
+
+        {excerpt && <p class="post-card__excerpt" set:html={typograf(excerpt)} />}
+
+        <a class="post-card__more" href={url}>просмотреть весь текст</a>
+    </div>
+</article>

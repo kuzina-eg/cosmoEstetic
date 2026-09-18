@@ -1,0 +1,54 @@
+---
+import Icon from '@components/modules/Icon.astro';
+
+/**
+ * Пагинация — только вёрстка: ссылки ведут в заглушку, активная страница задаётся пропом.
+ * Реальные адреса подставит бэкенд.
+ */
+interface Props {
+    pages?: number;
+    current?: number;
+    url?: string;
+    class?: string;
+}
+
+const {
+    pages = 5,
+    current = 1,
+    url = '#',
+    class: className,
+} = Astro.props;
+
+const items = Array.from({ length: pages }, (_, i) => i + 1);
+const isFirst = current <= 1;
+const isLast = current >= pages;
+---
+<nav class:list={[className, 'pagination']} aria-label="Навигация по страницам">
+    <a
+        class:list={['pagination__arrow', 'pagination__arrow--prev', isFirst && 'is-disabled']}
+        href={url}
+        aria-label="Предыдущая страница"
+        aria-disabled={isFirst ? 'true' : null}
+        tabindex={isFirst ? -1 : null}
+    ><Icon name="arrow-left" class="pagination__arrow-icon" /></a>
+
+    <ul class="pagination__list">
+        {items.map((n) => (
+            <li class="pagination__item">
+                <a
+                    class:list={['pagination__link', n === current && 'is-active']}
+                    href={url}
+                    aria-current={n === current ? 'page' : null}
+                >{n}</a>
+            </li>
+        ))}
+    </ul>
+
+    <a
+        class:list={['pagination__arrow', 'pagination__arrow--next', isLast && 'is-disabled']}
+        href={url}
+        aria-label="Следующая страница"
+        aria-disabled={isLast ? 'true' : null}
+        tabindex={isLast ? -1 : null}
+    ><Icon name="arrow-right" class="pagination__arrow-icon" /></a>
+</nav>

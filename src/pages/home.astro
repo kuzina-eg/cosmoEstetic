@@ -5,6 +5,7 @@ import Ingredients from '@components/sections/Ingredients.astro';
 import Products from '@components/sections/Products.astro';
 import PromoBanner from '@components/sections/PromoBanner.astro';
 import Reviews from '@components/sections/Reviews.astro';
+import Blog from '@components/sections/Blog.astro';
 import CtaBanner from '@components/sections/CtaBanner.astro';
 
 const ingredients = [
@@ -42,6 +43,7 @@ const products = [
     { ...lipBalm, image: 'img/products/03', badges: ['Лучшая цена'] },
 ];
 
+const blogSubtitle = 'Разбираем состав, показываем производство и отвечаем на вопросы, которые чаще всего задают об уходе за губами.';
 const reviewsSubtitle = 'Наши клиенты отмечают не только улучшение состояния своих губ, но и кардинальные перемены в своей повседневной жизни.';
 ---
 <Layout title="Главная">
@@ -58,5 +60,6 @@ const reviewsSubtitle = 'Наши клиенты отмечают не толь�
     />
     <PromoBanner />
     <Reviews title="Превосходные результаты" subtitle={reviewsSubtitle} />
+    <Blog title="Блог" subtitle={blogSubtitle} />
     <CtaBanner />
 </Layout>

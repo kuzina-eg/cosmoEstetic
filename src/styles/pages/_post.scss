@@ -1,0 +1,45 @@
+.post {
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+
+    &__header {
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+
+    &__title {
+        margin-bottom: 0; // .page-title несёт свой margin, здесь его держит gap
+    }
+
+    &__date {
+        font-size: $text-size-xs;
+        color: $color-base;
+    }
+
+    &__cover {
+        aspect-ratio: 16 / 9;
+    }
+
+    // Колонка текста ограничена по ширине и стоит по центру
+    &__content {
+        display: flex;
+        flex-direction: column;
+        gap: 1.6rem;
+        width: 100%;
+        max-width: 53.2rem; // 1064px
+        margin: 0 auto;
+    }
+
+    &__text {
+        margin: 0;
+        color: $color-base;
+    }
+
+    // Фото и видео внутри текста — по центру колонки
+    &__media {
+        margin: 0.8rem auto;
+        aspect-ratio: 16 / 9;
+    }
+}

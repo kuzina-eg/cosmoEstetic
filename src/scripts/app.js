@@ -44,3 +44,7 @@ cart();
 /////// Dropdown (кастомный селект)
 import { setDropdowns } from './components/dropdown.js';
 setDropdowns();
+
+/////// VideoFacade (превью + play вместо сразу загруженного видео)
+import videoFacade from './components/videoFacade.js';
+videoFacade();
