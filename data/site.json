@@ -46,6 +46,18 @@
             "link": "post.html",
             "status": "",
             "disabled": false
+        },
+        {
+            "name": "Наши ингредиенты",
+            "link": "ingredients.html",
+            "status": "",
+            "disabled": false
+        },
+        {
+            "name": "Заказ принят",
+            "link": "order.html",
+            "status": "",
+            "disabled": false
         }
     ]
 }
