@@ -83,6 +83,21 @@
         }
     }
 
+    // Реквизиты: мельче и приглушённее копирайта. Серый здесь — приглушённый
+    // белый, а не токен $color-base: на фоне #0a0a0a тот был бы почти не виден.
+    &__requisites {
+        display: flex;
+        flex-direction: column;
+        gap: 0.2rem;
+        font-size: $text-size-xs;
+        color: rgba(255, 255, 255, .6);
+        text-align: right;
+
+        @include media(mob) {
+            text-align: left;
+        }
+    }
+
     &__socials {
         display: flex;
         gap: 0.8rem;

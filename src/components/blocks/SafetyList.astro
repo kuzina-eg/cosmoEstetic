@@ -1,0 +1,25 @@
+---
+import typograf from '@utils/typograf';
+
+/** Горизонтальный ряд отметок «без парабенов», «не тестируется на животных» и т.п. */
+interface Props {
+    items?: { icon: string; text: string }[];
+    class?: string;
+}
+
+const { items = [], class: className } = Astro.props;
+---
+<ul class:list={[className, 'safety-list']}>
+    {items.map((item) => (
+        <li class="safety-list__item">
+            <img
+                class="safety-list__icon lazy"
+                width="377"
+                height="377"
+                data-src={`img/ingredients/${item.icon}.png`}
+                alt=""
+            />
+            <span class="safety-list__text" set:html={typograf(item.text)} />
+        </li>
+    ))}
+</ul>

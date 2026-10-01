@@ -64,6 +64,44 @@
         margin: 0;
         padding-left: 1.9rem; // 38px — текст справа от кавычки (дизайн)
         color: $color-base;
+
+        // длинный отзыв сворачиваем до четырёх строк
+        display: -webkit-box;
+        -webkit-line-clamp: 4;
+        line-clamp: 4;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    &.is-expanded &__text {
+        -webkit-line-clamp: unset;
+        line-clamp: unset;
+        overflow: visible;
+    }
+
+    // Кнопка-ссылка: переключает состояние, поэтому button, а не <a>.
+    // [hidden] дублируем явно — display ниже перебил бы правило из normalize.
+    &__more {
+        align-self: flex-start;
+        margin-left: 1.9rem; // равняем по колонке текста, а не по кавычке
+        padding: 0;
+        border: 0;
+        background: none;
+        display: inline-flex;
+        font: inherit;
+        color: $color-accent;
+        text-decoration: underline;
+        text-underline-offset: 0.3rem;
+        cursor: pointer;
+        transition: color $duration;
+
+        &[hidden] {
+            display: none;
+        }
+
+        @include hover {
+            color: rgba($color-accent-rgb, .7);
+        }
     }
 
     &__quote {

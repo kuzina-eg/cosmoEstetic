@@ -45,6 +45,10 @@ cart();
 import { setDropdowns } from './components/dropdown.js';
 setDropdowns();
 
-/////// VideoFacade (превью + play вместо сразу загруженного видео)
-import videoFacade from './components/videoFacade.js';
-videoFacade();
+/////// VideoPlayer (превью + play, свои пропорции и контролы)
+import videoPlayer from './components/videoPlayer.js';
+videoPlayer();
+
+/////// ReviewMore (разворот длинных отзывов)
+import reviewMore from './components/reviewMore.js';
+reviewMore();

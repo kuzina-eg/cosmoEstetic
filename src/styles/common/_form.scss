@@ -71,6 +71,7 @@
 
     &--password .ui-input {
         padding-right: 2.8rem;
+        text-transform: none; // пароль не капсом, в т.ч. при показе через «глаз»
     }
 
     &__eye {

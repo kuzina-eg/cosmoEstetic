@@ -1,0 +1,52 @@
+---
+import typograf from '@utils/typograf';
+
+/**
+ * Отметка о регистрации товара в «Честном знаке» со ссылкой на Национальный каталог.
+ * Логотипы разной пропорции (516×200 и 255×110), поэтому выравниваются по высоте,
+ * а атрибуты width/height оставлены настоящими — они держат пропорцию и гасят прыжок.
+ */
+interface Props {
+    url?: string;
+    title?: string;
+    linkText?: string;
+    class?: string;
+}
+
+const {
+    url = '#',
+    title = 'Товар зарегистрирован в системе «Честный знак»',
+    linkText = 'Ссылка на продукцию в «Национальном каталоге»',
+    class: className,
+} = Astro.props;
+---
+<div class:list={[className, 'product-mark']}>
+    <div class="product-mark__title product__minititle" set:html={typograf(title)} />
+
+    <div class="product-mark__logos">
+        <img
+            class="product-mark__logo"
+            src="img/nkt-logo.png"
+            width="516"
+            height="200"
+            alt="Национальный каталог"
+            loading="lazy"
+        />
+        <img
+            class="product-mark__logo"
+            src="img/chz.svg"
+            width="255"
+            height="110"
+            alt="Честный знак"
+            loading="lazy"
+        />
+    </div>
+
+    <a
+        class="product-mark__link"
+        href={url}
+        target="_blank"
+        rel="noopener"
+        set:html={typograf(linkText)}
+    />
+</div>

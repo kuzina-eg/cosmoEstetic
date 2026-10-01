@@ -26,7 +26,8 @@ const { image, rating = 5, text, author } = Astro.props;
                 <Icon name="star" class:list={['review-card__star', n < rating && 'is-active']} />
             ))}
         </div>
-        <blockquote class="review-card__text"><span class="review-card__quote">“</span><span set:html={typograf(text)} /></blockquote>
+        <blockquote class="review-card__text js-review-text"><span class="review-card__quote">“</span><span set:html={typograf(text)} /></blockquote>
+        <button class="review-card__more js-review-more" type="button" hidden>показать весь текст</button>
         <div class="review-card__author">{author}</div>
     </div>
 </article>

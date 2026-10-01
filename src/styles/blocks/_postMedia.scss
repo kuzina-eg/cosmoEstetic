@@ -1,0 +1,168 @@
+// Медиа поста: картинка, свой видеофайл, YouTube, VK.
+// Пропорции приходят инлайн-стилем: стартовые из данных, настоящие —
+// из loadedmetadata, их выставляет videoPlayer.js.
+.post-media {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    background: $color-grey; // подложка, видна при letterbox
+
+    &__image,
+    &__frame,
+    &__video {
+        display: block;
+        width: 100%;
+        height: 100%;
+        border: 0;
+    }
+
+    &__image {
+        object-fit: cover;
+        object-position: center;
+        transition: transform $duration ease;
+    }
+
+    // У картинки своя пропорция — не навязываем ей рамку видео
+    &--image {
+        .post-media__image {
+            height: auto;
+        }
+    }
+
+    &__video {
+        object-fit: cover;
+        background: #0a0a0a;
+    }
+
+    &--video,
+    &--youtube,
+    &--vk,
+    &--embed {
+        cursor: pointer;
+    }
+
+    &__play {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 3.2rem;
+        height: 3.2rem;
+        padding: 0;
+        border: 0;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, .9);
+        color: $color-accent;
+        cursor: pointer;
+        transition: $duration background, $duration transform;
+
+        &::before {
+            content: "";
+            width: 1.2rem;
+            height: 1.2rem;
+            margin-left: 0.2rem; // оптическая компенсация треугольника
+            mask-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='black' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8 5v14l11-7z'/%3E%3C/svg%3E%0A");
+            mask-repeat: no-repeat;
+            mask-size: 100%;
+            background: currentColor;
+        }
+
+        @include hover {
+            background: $color-white;
+            transform: translate(-50%, -50%) scale(1.06);
+        }
+    }
+
+    &.is-playing &__play {
+        display: none;
+    }
+
+    // постер своего файла прячем, когда пошло воспроизведение
+    &.is-playing &__image {
+        display: none;
+    }
+
+    // ── свои контролы (только для собственных файлов) ───────────────
+    &__bar {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 3;
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        padding: 0.8rem;
+        background: linear-gradient(to top, rgba(0, 0, 0, .75), rgba(0, 0, 0, 0));
+        color: $color-white;
+
+        // display:flex выше перебивает [hidden]{display:none} из normalize —
+        // возвращаем атрибуту силу явным правилом
+        &[hidden] {
+            display: none;
+        }
+    }
+
+    &__toggle {
+        flex: none;
+        width: 1.4rem;
+        height: 1.4rem;
+        padding: 0;
+        border: 0;
+        background: none;
+        color: inherit;
+        cursor: pointer;
+
+        &::before {
+            content: "";
+            display: block;
+            width: 100%;
+            height: 100%;
+            mask-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='black' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6 5h4v14H6zM14 5h4v14h-4z'/%3E%3C/svg%3E%0A");
+            mask-repeat: no-repeat;
+            mask-size: 100%;
+            background: currentColor;
+        }
+    }
+
+    &.is-paused &__toggle::before {
+        mask-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='black' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8 5v14l11-7z'/%3E%3C/svg%3E%0A");
+    }
+
+    &__progress {
+        flex: 1 1 auto;
+        position: relative;
+        height: 0.3rem;
+        background: rgba(255, 255, 255, .3);
+        cursor: pointer;
+        touch-action: none; // иначе перетаскивание уедет в скролл страницы
+
+        &:focus-visible {
+            outline: 2px solid $color-white;
+            outline-offset: 3px;
+        }
+    }
+
+    &__progress-fill {
+        width: 0;
+        height: 100%;
+        background: $color-white;
+    }
+
+    &__time {
+        flex: none;
+        font-size: $text-size-xs;
+        font-variant-numeric: tabular-nums; // цифры не прыгают при отсчёте
+        white-space: nowrap;
+    }
+
+    &__time-sep {
+        margin: 0 0.2rem;
+        opacity: .6;
+    }
+
+}

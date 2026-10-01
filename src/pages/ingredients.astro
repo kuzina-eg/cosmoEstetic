@@ -1,0 +1,51 @@
+---
+import Layout from '@layouts/Layout.astro';
+import Breadcrumbs from '@components/blocks/Breadcrumbs.astro';
+import SafetyList from '@components/blocks/SafetyList.astro';
+import Ingredients from '@components/sections/Ingredients.astro';
+import CtaBanner from '@components/sections/CtaBanner.astro';
+import ingredients from '@data/ingredients.json';
+import typograf from '@utils/typograf';
+
+const safety = [
+    { icon: 'parabens_free', text: 'Не содержит парабенов' },
+    { icon: 'not_tested_animals', text: 'Не тестируется на животных' },
+    { icon: 'pag_free', text: 'Без ПЭГ' },
+    { icon: 'bpa_free', text: 'Без фталатов' },
+    { icon: 'mineral_oil_free', text: 'Без минеральных масел' },
+];
+
+const intro = 'Все наши ингредиенты проходят тщательную проверку на безопасность и получены из ответственных источников. Мы постоянно исследуем и пересматриваем инновационные способы замены традиционных косметических ингредиентов безопасными альтернативами. Прозрачность, строгий список запрещённых ингредиентов и стремление использовать активные компоненты для ухода за кожей на максимально эффективном уровне являются ключевыми принципами нашего процесса. В результате мы получаем продукт, который одновременно высокоэффективен и безопасен, роскошен и интуитивно понятен.';
+
+const about = 'Команда CosmoEstetic уверена: качественная косметика стирает грань между макияжем и уходом. Мы разрабатываем максимально безопасные продукты нового поколения, объединяющие в себе насыщенные пигменты и питательные формулы. Наша косметика создана для того, чтобы вы могли легко подчеркнуть естественную красоту, а ваша кожа при этом выглядела потрясающе и чувствовала себя великолепно.';
+---
+<Layout title="Наши ингредиенты">
+  <div class="container page-top">
+    <Breadcrumbs items={[
+      { text: 'Главная', url: '/' },
+      { text: 'CosmoEstetic', url: 'styleguide.html' },
+      { text: 'Наши ингредиенты' },
+    ]} />
+
+    <h1 class="page-title" set:html={typograf('Ингредиенты в нашей косметике')} />
+
+    <div class="description">
+      <p set:html={typograf(intro)} />
+    </div>
+
+    <SafetyList items={safety} />
+
+    <div class="description">
+      <p set:html={typograf(about)} />
+    </div>
+  </div>
+
+  <Ingredients
+    sm
+    title="Состав, которому доверяют"
+    subtitle="Четыре компонента, вокруг которых построены все наши формулы."
+    items={ingredients}
+  />
+
+  <CtaBanner />
+</Layout>

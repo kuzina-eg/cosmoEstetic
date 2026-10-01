@@ -1,5 +1,6 @@
 ---
 import PostMedia from '@components/blocks/PostMedia.astro';
+import { detectMediaKind } from '@utils/media';
 import formatDate from '@utils/formatDate';
 import typograf from '@utils/typograf';
 
@@ -25,7 +26,7 @@ const {
 
 // Картинку заворачиваем в ссылку, видео и эмбед — нет:
 // ссылка поверх них перехватила бы клик по плееру.
-const isMediaLinked = media && (media.type === 'image' || media.type === undefined);
+const isMediaLinked = Boolean(media) && detectMediaKind(media) === 'image';
 ---
 <article class:list={[className, 'post-card']}>
     {media && (

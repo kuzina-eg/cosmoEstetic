@@ -1,76 +1,3 @@
-// Медиа поста — общий контейнер для картинки, эмбеда и локального видео.
-// Пропорции задаются здесь, размещение — классом снаружи.
-.post-media {
-    position: relative;
-    overflow: hidden;
-    width: 100%;
-    aspect-ratio: 16 / 10;
-    background: $color-grey;
-
-    &__image,
-    &__frame,
-    &__video {
-        display: block;
-        width: 100%;
-        height: 100%;
-        border: 0;
-    }
-
-    &__image,
-    &__video {
-        object-fit: cover;
-        object-position: center;
-    }
-
-    &__image {
-        transition: transform $duration ease;
-    }
-
-    // Фасад: превью + кнопка play вместо сразу загруженного плеера
-    &--facade {
-        cursor: pointer;
-    }
-
-    &__play {
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 3.2rem;
-        height: 3.2rem;
-        padding: 0;
-        border: 0;
-        border-radius: 50%;
-        background: rgba(255, 255, 255, .9);
-        color: $color-accent;
-        cursor: pointer;
-        transition: $duration background, $duration transform;
-
-        &::before {
-            content: "";
-            width: 1.2rem;
-            height: 1.2rem;
-            margin-left: 0.2rem; // оптическая компенсация треугольника
-            mask-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='black' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8 5v14l11-7z'/%3E%3C/svg%3E%0A");
-            mask-repeat: no-repeat;
-            mask-size: 100%;
-            background: currentColor;
-        }
-
-        @include hover {
-            background: $color-white;
-            transform: translate(-50%, -50%) scale(1.06);
-        }
-    }
-
-    &.is-playing &__play {
-        display: none;
-    }
-}
-
 .post-list {
     display: flex;
     flex-direction: column;
@@ -92,6 +19,7 @@
         flex: 0 0 32%;
         width: 32%;
         align-self: flex-start; // не растягиваем — пропорции важнее
+        max-height: 32rem;      // вертикальный ролик не должен раздувать карточку
     }
 
     &__media-link {
@@ -166,6 +94,7 @@
         > .post-card__media {
             flex: none;
             width: 100%;
+            max-height: none;
         }
 
         &__more {

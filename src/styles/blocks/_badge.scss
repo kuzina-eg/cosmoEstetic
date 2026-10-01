@@ -19,6 +19,15 @@
     &--best {
         background: $color-accent;
     }
+
+    // статусы заказа
+    &--wait {
+        background: #e8552d; // тот же сигнальный цвет, что у ошибок форм
+    }
+
+    &--done {
+        background: $color-success;
+    }
 }
 
 .badge-list {

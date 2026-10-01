@@ -1,116 +1,123 @@
 ---
+import { detectMediaKind, embedSrc, resolvePoster, previewSrc, ratioStyle } from '@utils/media';
+
 /**
- * Медиа поста: картинка, внешний эмбед (YouTube / VK / Rutube) или локальное видео.
+ * Медиа поста: картинка, свой видеофайл, YouTube или VK.
  *
- * Видео и эмбед не грузятся сразу — рисуется превью с кнопкой play, а настоящий
- * плеер подставляет в этот же контейнер videoFacade.js по клику. Фасад включается
- * только если у медиа есть poster: без превью показывать нечего, поэтому плеер
- * выводится сразу.
+ * Ничего не грузится до клика — сначала превью с кнопкой play.
+ * Превью у своего файла это кадр из него самого (media fragment #t=),
+ * у YouTube — картинка по ID, у VK и прочих — поле poster.
  *
- * Пропорции и размещение задаются классом снаружи — компонент про содержимое.
+ * Пропорции: у своего файла берутся из loadedmetadata уже в браузере,
+ * здесь стоит лишь стартовое значение, чтобы макет не прыгал.
  */
 interface Props {
-    media?: {
-        type?: 'image' | 'embed' | 'video';
-        src?: string;
-        alt?: string;
-        title?: string;
-        poster?: string;
-    };
+    media?: any;
     width?: number | string;
     height?: number | string;
-    isLazy?: boolean;
     class?: string;
 }
 
-const {
-    media,
-    width = 640,
-    height = 400,
-    isLazy = true,
-    class: className,
-} = Astro.props;
+const { media, width = 640, height = 400, class: className } = Astro.props;
 
-const { type = 'image', src, alt = '', title, poster } = media || {};
-const mediaClass = 'post-media';
+const kind = media ? detectMediaKind(media) : 'image';
+const { src, alt = '', title } = media || {};
 
-const isPlayable = type === 'embed' || type === 'video';
-const hasFacade = isPlayable && Boolean(poster);
+const poster = media ? resolvePoster(media) : null;
+const preview = media ? previewSrc(media) : '';
+const ratio = ratioStyle(media || {});
+
+const isFile = kind === 'video';
+const isEmbed = kind === 'youtube' || kind === 'vk' || kind === 'embed';
 const playLabel = title ? `Смотреть видео: ${title}` : 'Смотреть видео';
+
+const mediaClass = 'post-media';
 ---
 {src && (
     <div
         class:list={[
             className,
             mediaClass,
-            `${mediaClass}--${type}`,
-            hasFacade && `${mediaClass}--facade`,
-            hasFacade && 'js-video-facade',
+            `${mediaClass}--${kind}`,
+            !isFile && !isEmbed ? null : 'js-media',
         ]}
-        data-video-type={hasFacade ? type : null}
-        data-video-src={hasFacade ? src : null}
-        data-video-title={hasFacade ? (title || alt) : null}
+        style={kind === 'image' ? null : `aspect-ratio: ${ratio};`}
+        data-media-kind={isFile || isEmbed ? kind : null}
+        data-media-preview={isFile && preview ? preview : null}
+        data-media-embed={isEmbed ? embedSrc(media) : null}
+        data-media-title={isFile || isEmbed ? (title || alt) : null}
+        data-media-ratio={media?.ratio || null}
     >
-        {type === 'image' && (
-            isLazy
-                ? <img
-                    class={`${mediaClass}__image lazy`}
-                    width={width}
-                    height={height}
-                    data-src={`${src}@1x.webp`}
-                    data-srcset={`${src}@2x.webp 2x`}
-                    alt={alt}
-                  />
-                : <img
-                    class={`${mediaClass}__image`}
-                    width={width}
-                    height={height}
-                    src={`${src}@1x.webp`}
-                    srcset={`${src}@2x.webp 2x`}
-                    alt={alt}
-                  />
+        {kind === 'image' && (
+            <img
+                class={`${mediaClass}__image lazy`}
+                width={width}
+                height={height}
+                data-src={`${src}@1x.webp`}
+                data-srcset={`${src}@2x.webp 2x`}
+                alt={alt}
+            />
         )}
 
-        {hasFacade && (
-            <Fragment>
-                <img
-                    class={`${mediaClass}__image lazy`}
-                    width={width}
-                    height={height}
-                    data-src={`${poster}@1x.webp`}
-                    data-srcset={`${poster}@2x.webp 2x`}
-                    alt={alt}
-                />
-                <button
-                    class={`${mediaClass}__play js-video-play`}
-                    type="button"
-                    aria-label={playLabel}
-                ></button>
-            </Fragment>
-        )}
-
-        {type === 'embed' && !hasFacade && (
-            <iframe
-                class={`${mediaClass}__frame`}
-                src={src}
-                title={title || alt}
-                loading="lazy"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; fullscreen; gyroscope; picture-in-picture; screen-wake-lock"
-                allowfullscreen
-            ></iframe>
-        )}
-
-        {type === 'video' && !hasFacade && (
+        {/* Свой файл: сам себе превью — кадр рисует <video>, src подставит скрипт */}
+        {isFile && (
             <video
-                class={`${mediaClass}__video`}
-                controls
+                class={`${mediaClass}__video js-media-video`}
                 preload="none"
-                poster={poster ? `${poster}@1x.webp` : null}
+                playsinline
+                poster={poster ? poster.url : null}
                 title={title || alt}
-            >
-                <source src={src} type="video/mp4" />
-            </video>
+            ></video>
+        )}
+
+        {/* Эмбед: статичная картинка, iframe появится по клику */}
+        {isEmbed && poster && (
+            <img
+                class={`${mediaClass}__image js-media-poster`}
+                width={width}
+                height={height}
+                src={poster.url}
+                srcset={poster.srcset}
+                data-fallback={poster.fallback}
+                alt={alt}
+                loading="lazy"
+            />
+        )}
+
+        {(isFile || isEmbed) && (
+            <button
+                class={`${mediaClass}__play js-media-play`}
+                type="button"
+                aria-label={playLabel}
+            ></button>
+        )}
+
+        {/* Свои контролы — только для своего файла, чужой плеер не стилизуется */}
+        {isFile && (
+            <div class={`${mediaClass}__bar js-media-bar`} hidden>
+                <button
+                    class={`${mediaClass}__toggle js-media-toggle`}
+                    type="button"
+                    aria-label="Пауза"
+                ></button>
+                <div
+                    class={`${mediaClass}__progress js-media-progress`}
+                    role="slider"
+                    tabindex="0"
+                    aria-label="Перемотка"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                    aria-valuenow="0"
+                >
+                    <div class={`${mediaClass}__progress-fill js-media-fill`}></div>
+                </div>
+                <div class={`${mediaClass}__time`}>
+                    <span class="js-media-current">0:00</span>
+                    <span class={`${mediaClass}__time-sep`}>/</span>
+                    <span class="js-media-duration">0:00</span>
+                </div>
+
+            </div>
         )}
     </div>
 )}
