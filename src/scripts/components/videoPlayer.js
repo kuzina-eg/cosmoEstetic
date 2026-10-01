@@ -1,4 +1,4 @@
-/*
+/*!
     VIDEO PLAYER — медиа поста: превью с кнопкой play, настоящие пропорции,
     свои контролы для собственных файлов.
 
@@ -21,6 +21,19 @@ const safePlay = (video) => {
     const played = video.play();
     if (played && typeof played.catch === 'function') played.catch(() => {});
 };
+
+/*! На iOS video.volume доступен только для чтения — ползунок там мёртвый,
+    поэтому проверяем на одноразовом элементе и прячем его, если так.
+    Кнопка mute работает везде: muted меняется и на iOS. */
+const canSetVolume = (() => {
+    try {
+        const probe = document.createElement('video');
+        probe.volume = 0.5;
+        return probe.volume === 0.5;
+    } catch (e) {
+        return false;
+    }
+})();
 
 const formatTime = (seconds) => {
     if (!Number.isFinite(seconds) || seconds < 0) return '0:00';
@@ -87,7 +100,9 @@ const initFileControls = (box, video) => {
     const progress = box.querySelector('.js-media-progress');
     const fill = box.querySelector('.js-media-fill');
     const current = box.querySelector('.js-media-current');
-    const duration = box.querySelector('.js-media-duration');
+    const duration = box.querySelector('.js-media-duration');    const mute = box.querySelector('.js-media-mute');
+    const level = box.querySelector('.js-media-level');
+    const levelFill = box.querySelector('.js-media-level-fill');
 
 
     const setProgress = () => {
@@ -101,6 +116,30 @@ const initFileControls = (box, video) => {
     const setPlayingState = (isPlaying) => {
         box.classList.toggle('is-paused', !isPlaying);
         if (toggle) toggle.setAttribute('aria-label', isPlaying ? 'Пауза' : 'Воспроизвести');
+    };
+
+    const setVolumeState = () => {
+        const silent = video.muted || video.volume === 0;
+        const percent = silent ? 0 : Math.round(video.volume * 100);
+
+        box.classList.toggle('is-muted', silent);
+        if (mute) mute.setAttribute('aria-label', silent ? 'Включить звук' : 'Выключить звук');
+        if (levelFill) levelFill.style.width = `${percent}%`;
+        if (level) level.setAttribute('aria-valuenow', String(percent));
+    };
+
+    const setVolume = (value) => {
+        const next = Math.min(Math.max(value, 0), 1);
+        video.volume = next;
+        // двигать ползунок при выключенном звуке — значит включить его обратно
+        if (next > 0 && video.muted) video.muted = false;
+        setVolumeState();
+    };
+
+    const volumeFrom = (clientX) => {
+        if (!level) return;
+        const rect = level.getBoundingClientRect();
+        setVolume((clientX - rect.left) / rect.width);
     };
 
     const seekTo = (clientX) => {
@@ -160,6 +199,45 @@ const initFileControls = (box, video) => {
             event.preventDefault();
         });
     }
+
+    if (mute) {
+        mute.addEventListener('click', (event) => {
+            event.stopPropagation();
+            video.muted = !video.muted;
+            setVolumeState();
+        });
+    }
+
+    if (level) {
+        if (!canSetVolume) {
+            level.hidden = true;
+        } else {
+            let isAdjusting = false;
+
+            level.addEventListener('pointerdown', (event) => {
+                event.stopPropagation();
+                isAdjusting = true;
+                level.setPointerCapture?.(event.pointerId);
+                volumeFrom(event.clientX);
+            });
+            level.addEventListener('pointermove', (event) => {
+                if (isAdjusting) volumeFrom(event.clientX);
+            });
+            level.addEventListener('pointerup', (event) => {
+                isAdjusting = false;
+                level.releasePointerCapture?.(event.pointerId);
+            });
+            level.addEventListener('keydown', (event) => {
+                const step = event.key === 'ArrowRight' ? 0.1 : event.key === 'ArrowLeft' ? -0.1 : 0;
+                if (!step) return;
+                setVolume(video.volume + step);
+                event.preventDefault();
+            });
+        }
+    }
+
+    video.addEventListener('volumechange', setVolumeState);
+    setVolumeState();
 
     // клик по самому видео — тоже пауза/продолжение
     video.addEventListener('click', () => {
